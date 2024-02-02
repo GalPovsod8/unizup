@@ -16,6 +16,7 @@ export default {
 			black: '#1a1a1a',
 			white: '#FFFFFF',
 			yellow: '#FDD708',
+			novicaTagYellow: '#92942B',
 			blue: '#51B3C9',
 			red: '#FF7D7D',
 			redTag: '#942B2B',

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
+
 	function ToggleTheme() {
 		if (localStorage.theme === 'dark') {
 			document.documentElement.classList.remove('dark');
@@ -38,118 +40,34 @@
 		</p>
 	</section>
 	<section
-		class="p-90 bg-white dark:bg-black rounded-3xl border md:grid-cols-2 grid lg:grid-cols-3 gap-60"
+		class="p-90 bg-white dark:bg-black rounded-3xl border grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 grid-flow-row auto-rows-max gap-60"
 	>
-		<a
-			href="/"
-			class="group h-max w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
-		>
-			<figure class="relative h-[40%] w-full overflow-hidden rounded-3xl border">
-				<img
-					class="h-52 w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					src="http://unizup.si/wp-content/uploads/2024/01/IMG_3978.jpg"
-					alt="NewsPhoto"
-				/>
-				<a
-					class="absolute -bottom-0.5 -left-0.5 font-medium bg-redTag text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					href="/tag"
-				>
-					Dogodek
-				</a>
-			</figure>
-			<article class="h-[60%] flex flex-col justify-between rounded-3xl p-7 gap-30">
-				<div class="w-full flex flex-col gap-5">
-					<h3 class="text-32 font-semibold overflow-clip text-nowrap">Smučanje z UNIZUP</h3>
-					<span class="w-full flex items-center justify-between text-16">
-						<p>Avtor: Primož Lorbek</p>
-						<p>17.1.2024</p>
-					</span>
-				</div>
-				<p class=" max-h-20 overflow-clip">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit.
-				</p>
-				<button
-					class="w-full bg-black text-white rounded-2xl px-7 py-3 font-bold text-32 dark:bg-white dark:text-black"
-					>Več</button
-				>
-			</article>
-		</a>
-		<a
-			href="/"
-			class="group h-max w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
-		>
-			<figure class="relative h-[40%] w-full overflow-hidden rounded-3xl border">
-				<img
-					class="h-52 w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					src="http://unizup.si/wp-content/uploads/2024/01/IMG_3978.jpg"
-					alt="NewsPhoto"
-				/>
-				<a
-					class="absolute -bottom-0.5 -left-0.5 font-medium bg-redTag text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					href="/tag"
-				>
-					Dogodek
-				</a>
-			</figure>
-			<article class="h-[60%] flex flex-col justify-between rounded-3xl p-7 gap-30">
-				<div class="w-full flex flex-col gap-5">
-					<h3 class="text-32 font-semibold overflow-clip text-nowrap">Smučanje z UNIZUP</h3>
-					<span class="w-full flex items-center justify-between text-16">
-						<p>Avtor: Primož Lorbek</p>
-						<p>17.1.2024</p>
-					</span>
-				</div>
-				<p class=" max-h-20 overflow-clip">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit.
-				</p>
-				<button
-					class="w-full bg-black text-white rounded-2xl px-7 py-3 font-bold text-32 dark:bg-white dark:text-black"
-					>Več</button
-				>
-			</article>
-		</a>
-		<a
-			href="/"
-			class="group h-max w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
-		>
-			<figure class="relative h-[40%] w-full overflow-hidden rounded-3xl border">
-				<img
-					class="h-52 w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					src="http://unizup.si/wp-content/uploads/2024/01/IMG_3978.jpg"
-					alt="NewsPhoto"
-				/>
-				<a
-					class="absolute -bottom-0.5 -left-0.5 font-medium bg-redTag text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					href="/tag"
-				>
-					Dogodek
-				</a>
-			</figure>
-			<article class="h-[60%] flex flex-col justify-between rounded-3xl p-7 gap-30">
-				<div class="w-full flex flex-col gap-5">
-					<h3 class="text-32 font-semibold overflow-clip text-nowrap">Smučanje z UNIZUP</h3>
-					<span class="w-full flex items-center justify-between text-16">
-						<p>Avtor: Primož Lorbek</p>
-						<p>17.1.2024</p>
-					</span>
-				</div>
-				<p class=" max-h-20 overflow-clip">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit.
-				</p>
-				<button
-					class="w-full bg-black text-white rounded-2xl px-7 py-3 font-bold text-32 dark:bg-white dark:text-black"
-					>Več</button
-				>
-			</article>
-		</a>
+		<SingleNewsCard
+			noivcaNaslov="Smučanje z UNIZUP"
+			novicaLink="smucanje-z-unizup"
+			tag="Dogodek"
+			imgSrc="http://unizup.si/wp-content/uploads/2024/01/IMG_3978.jpg"
+			avtor="Primož Lorbek"
+			datum="17.1.2024"
+			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+		/>
+		<SingleNewsCard
+			noivcaNaslov="Božična poslanica 2023"
+			novicaLink="bozicna-poslanica-2023"
+			tag="Duhovno"
+			imgSrc="http://unizup.si/wp-content/uploads/2023/12/Gaza-1-600x400.jpg"
+			avtor="Primož Lorbek"
+			datum="27.12.2023"
+			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+		/>
+		<SingleNewsCard
+			noivcaNaslov="Človekovo dostojanstvo"
+			novicaLink="clovekovo-dostojanstvo"
+			tag="Novica"
+			imgSrc="http://unizup.si/wp-content/uploads/2024/01/311336193_833078238057361_2655733340416960969_n-1080x710.jpg"
+			avtor="Primož Lorbek"
+			datum="17.1.2024"
+			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
+		/>
 	</section>
 </div>
