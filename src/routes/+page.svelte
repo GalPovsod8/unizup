@@ -1,5 +1,8 @@
 <script lang="ts">
+	import Link from '$lib/components/Link.svelte';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
 
 	function ToggleTheme() {
 		if (localStorage.theme === 'dark') {
@@ -42,32 +45,49 @@
 	<section
 		class="p-90 bg-white dark:bg-black rounded-3xl border grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 grid-flow-row auto-rows-max gap-60"
 	>
-		<SingleNewsCard
-			noivcaNaslov="Smučanje z UNIZUP"
-			novicaLink="smucanje-z-unizup"
-			tag="Dogodek"
-			imgSrc="http://unizup.si/wp-content/uploads/2024/01/IMG_3978.jpg"
-			avtor="Primož Lorbek"
-			datum="17.1.2024"
-			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
-		/>
-		<SingleNewsCard
-			noivcaNaslov="Božična poslanica 2023"
-			novicaLink="bozicna-poslanica-2023"
-			tag="Duhovno"
-			imgSrc="http://unizup.si/wp-content/uploads/2023/12/Gaza-1-600x400.jpg"
-			avtor="Primož Lorbek"
-			datum="27.12.2023"
-			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
-		/>
-		<SingleNewsCard
-			noivcaNaslov="Človekovo dostojanstvo"
-			novicaLink="clovekovo-dostojanstvo"
-			tag="Novica"
-			imgSrc="http://unizup.si/wp-content/uploads/2024/01/311336193_833078238057361_2655733340416960969_n-1080x710.jpg"
-			avtor="Primož Lorbek"
-			datum="17.1.2024"
-			povzetek="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit."
-		/>
+		{#if data && data.novice}
+			{#each data.novice.slice(0, 6) as novica, i}
+				{#if i < 3}
+					<SingleNewsCard
+						noivcaNaslov={novica.noivcaNaslov}
+						novicaLink={novica.novicaLink}
+						tag={novica.tag}
+						imgSrc={novica.imgSrc}
+						avtor={novica.avtor}
+						datum={novica.datum}
+						povzetek={novica.besedilo}
+						isRecent={true}
+					/>
+				{:else}
+					<SingleNewsCard
+						noivcaNaslov={novica.noivcaNaslov}
+						novicaLink={novica.novicaLink}
+						tag={novica.tag}
+						imgSrc={novica.imgSrc}
+						avtor={novica.avtor}
+						datum={novica.datum}
+						povzetek={novica.besedilo}
+						isRecent={false}
+					/>
+				{/if}
+			{/each}
+		{:else}
+			<p>Error loading news</p>
+		{/if}
+		<Link linkHref="/Novice" linkText="Vse novice" />
 	</section>
 </div>
+<section class="flex flex-col items-center gap-90">
+	<h2 class="font-black text-64 text-center">KDO SMO?</h2>
+	<p class="sm:w-[70%] w-9/12 text-32 text-center">
+		Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje študentske
+		pastorale, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
+		usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
+		mesta na Slomškovem trgu 20, poleg mariborske stolnice.
+	</p>
+	<div>
+		<article>1</article>
+		<article>2</article>
+		<article>3</article>
+	</div>
+</section>

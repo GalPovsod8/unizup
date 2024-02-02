@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '../app.css';
+
+	//Lep bg color: #FFF4E4
 </script>
 
 <div
