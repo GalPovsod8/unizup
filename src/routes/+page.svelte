@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
+	import Nav from '$lib/components/Nav.svelte';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
@@ -24,13 +25,7 @@
 				<h2 class="text-40">UNIVERZITETNA ŽUPNIJA MARIBOR</h2>
 			</hgroup>
 			<!-- Na mobile, sam skrijes tti nav, pa renderas onga ko je na vsakmo pago -->
-			<nav class="flex items-center gap-30 text-20">
-				<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Domov</a>
-				<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">UniPulz</a>
-				<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Kaj zaj?</a>
-				<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Duhovnost</a>
-				<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">O Nas</a>
-			</nav>
+			<Nav />
 			<button
 				on:click={ToggleTheme}
 				aria-label="Dark/light mode toggle"
@@ -43,7 +38,7 @@
 		</p>
 	</section>
 	<section
-		class="p-90 bg-white dark:bg-black rounded-3xl border grid-cols-1 md:grid-cols-2 grid lg:grid-cols-3 grid-flow-row auto-rows-max gap-60"
+		class="p-90 grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-max gap-60 rounded-3xl border bg-white dark:bg-black"
 	>
 		{#if data && data.novice}
 			{#each data.novice.slice(0, 6) as novica, i}
@@ -77,9 +72,9 @@
 		<Link linkHref="/Novice" linkText="Vse novice" />
 	</section>
 </div>
-<section class="flex flex-col items-center gap-90">
+<section class="flex flex-col items-center gap-60">
 	<h2 class="font-black text-64 text-center">KDO SMO?</h2>
-	<p class="sm:w-[70%] w-9/12 text-32 text-center">
+	<p class="sm:w-[70%] w-9/12 text-32 text-center font-medium">
 		Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje študentske
 		pastorale, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
 		usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču

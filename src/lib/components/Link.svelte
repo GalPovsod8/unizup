@@ -4,7 +4,7 @@
 </script>
 
 <a
-	class="md:col-span-2 lg:col-span-3 flex items-center justify-center text-center font-bold text-24 mt-6 gap-[8px] hover:gap-[10px] hover:opacity-85 transition-all ease-in-out duration-150"
+	class="md:col-span-2 lg:col-span-3 w-max flex items-center justify-center text-center font-bold text-32 mt-6 gap-[8px] hover:gap-[10px] hover:opacity-85 transition-all ease-in-out duration-150"
 	href={linkHref}
 	>{linkText}
 	<div class="h-max w-max">

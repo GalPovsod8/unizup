@@ -1,4 +1,6 @@
 <script lang="ts">
+	import MainBtn from './MainBtn.svelte';
+
 	export let noivcaNaslov: string;
 	export let tag: string;
 	export let imgSrc: string;
@@ -52,11 +54,7 @@
 			<p class=" max-h-20 overflow-clip">
 				{povzetek}
 			</p>
-			<a
-				href={`/novice/${novicaLink}`}
-				class="w-full flex items-center justify-center bg-black text-white rounded-2xl px-7 py-3 font-bold text-32 dark:bg-white dark:text-black hover:bg-opacity-95 transition-all ease-in-out duration-150"
-				>Več</a
-			>
+			<MainBtn btnText="Več" btnHref={`/novice/${novicaLink}`} />
 		{/if}
 	</article>
 </a>

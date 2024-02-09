@@ -23,7 +23,9 @@ export default {
 			moreRed: '#FF3F3F'
 		},
 		gap: {
+			0: '0rem',
 			5: '0.313rem',
+			10: '0.625rem',
 			15: '0.938rem',
 			30: '1.875rem',
 			50: '3.125rem',
