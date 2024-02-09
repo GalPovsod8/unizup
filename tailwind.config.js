@@ -36,10 +36,11 @@ export default {
 		dropShadow: {
 			shadow: '5px 5px 0px #1a1a1a',
 			shadowHover: '0px 0px 0px',
-			shadowSm: '0 2px 2px #1a1a1a'
+			shadowSm: '2px 2px 0px #1a1a1a'
 		},
 		extend: {
 			padding: {
+				60: '3.75rem',
 				90: '5.625rem'
 			}
 		}

@@ -25,7 +25,7 @@
 
 <a
 	href={`/novice/${novicaLink}`}
-	class="group h-max w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
+	class="group h-full w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
 		<img

@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import Oznanilo from '$lib/components/Oznanilo.svelte';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
 	import type { PageData } from './$types';
+
 	export let data: PageData;
 
 	function ToggleTheme() {
@@ -17,7 +19,7 @@
 </script>
 
 <div>
-	<section class="h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8">
+	<section class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8">
 		<header class="grid place-items-center gap-50">
 			<hgroup class="grid place-items-center font-bold gap-30 text-center">
 				<img class="h-20 w-20 rounded-full -mb-7" src="/unizupLogo.png" alt="UZ" />
@@ -37,9 +39,56 @@
 			<b class="font-bold text-moreRed">mariborski stolnici</b>.
 		</p>
 	</section>
-	<section
-		class="p-90 grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-max gap-60 rounded-3xl border bg-white dark:bg-black"
-	>
+	<section class="p-60 flex flex-col items-center gap-30 rounded-3xl border bg-white dark:bg-black">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-60">
+			<Oznanilo
+				oznaniloImgHref="http://unizup.si/wp-content/uploads/2024/02/5-2_vecer_za_sport-819x1024.jpg"
+				oznaniloNaslov="Večer za šport"
+				oznaniloDatum="29. 1. 2024"
+				oznaniloUra="20.45"
+				oznaniloLokacija="Vrbanska cesta 30, zavod Antona Martina Slomška"
+				oznaniloLink="vecer-za-sport"
+			/>
+			<Oznanilo
+				oznaniloImgHref="http://unizup.si/wp-content/uploads/2023/11/image-9-768x401.jpg"
+				oznaniloNaslov="Sv. Maša"
+				oznaniloDatum="Vsaka sreda"
+				oznaniloUra="19.00"
+				oznaniloLokacija="Mariborska stolnica"
+				oznaniloLink="sv-masa"
+			/>
+			<Oznanilo
+				oznaniloImgHref="http://unizup.si/wp-content/uploads/2024/01/a0109f32-ca86-4ce7-9983-c234ec92c88e-768x402.jpg"
+				oznaniloNaslov="Molitev za mir"
+				oznaniloDatum="31. 1. 2024"
+				oznaniloUra="18.40"
+				oznaniloLokacija="Mariborska stolnica"
+				oznaniloLink="molitev-za-mir"
+			/>
+		</div>
+		<Link linkHref="/Oznanila" linkText="Vsa oznanila" />
+	</section>
+</div>
+
+<section class="flex flex-col items-center gap-60">
+	<h2 class="font-black text-64 text-center">KDO SMO?</h2>
+	<p class="sm:w-[70%] w-9/12 text-32 text-center font-medium">
+		Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje študentske
+		pastorale, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
+		usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
+		mesta na Slomškovem trgu 20, poleg mariborske stolnice.
+	</p>
+	<div>
+		<article>1</article>
+		<article>2</article>
+		<article>3</article>
+	</div>
+</section>
+<section
+	class="p-60 mx-[-5.58%] flex flex-col items-center gap-60 rounded-3xl border bg-white dark:bg-black"
+>
+	<h2 class="font-black text-64 text-center">UNIPULZ</h2>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-max gap-60">
 		{#if data && data.novice}
 			{#each data.novice.slice(0, 6) as novica, i}
 				{#if i < 3}
@@ -69,20 +118,6 @@
 		{:else}
 			<p>Error loading news</p>
 		{/if}
-		<Link linkHref="/Novice" linkText="Vse novice" />
-	</section>
-</div>
-<section class="flex flex-col items-center gap-60">
-	<h2 class="font-black text-64 text-center">KDO SMO?</h2>
-	<p class="sm:w-[70%] w-9/12 text-32 text-center font-medium">
-		Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje študentske
-		pastorale, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
-		usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
-		mesta na Slomškovem trgu 20, poleg mariborske stolnice.
-	</p>
-	<div>
-		<article>1</article>
-		<article>2</article>
-		<article>3</article>
 	</div>
+	<Link linkHref="/Novice" linkText="Vse novice" />
 </section>

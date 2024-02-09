@@ -40,7 +40,7 @@ let testNews: newsTestData[] = [
 		avtor: 'Primož Lorbek',
 		datum: '17.1.2024',
 		besedilo:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+			'Lorem ipsum dolor e mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 	},
 	{
 		noivcaNaslov: 'Adventno romanje mladih v Celovec',
