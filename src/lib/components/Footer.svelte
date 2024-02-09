@@ -4,9 +4,7 @@
 
 <footer class="w-full mt-[7.5rem] bg-blue border border-black rounded-t-3xl">
 	<div class="grid place-items-center gap-60 px-[5%] py-[3.75rem]">
-		<div class="font-semibold">
-			<Nav />
-		</div>
+		<Nav />
 		<div class="w-full gap-30 lg:gap-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 			<div class="w-full flex flex-col gap-30 text-center md:text-left">
 				<h4 class="text-24 font-semibold">Za vas smo odprti:</h4>
