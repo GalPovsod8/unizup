@@ -1,6 +1,8 @@
 <script lang="ts">
+	import Gallery from '$lib/components/Gallery.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import ONasBox from '$lib/components/ONasBox.svelte';
 	import Oznanilo from '$lib/components/Oznanilo.svelte';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
 	import type { PageData } from './$types';
@@ -34,13 +36,15 @@
 				class="h-6 w-6 -mt-3 rounded-full bg-black dark:bg-white"
 			></button>
 		</header>
-		<p class="text-20">
+		<p class="text-20 text-center">
 			Študentska maša vsako sredo ob <b class="font-bold text-moreRed">19. uri</b> v
 			<b class="font-bold text-moreRed">mariborski stolnici</b>.
 		</p>
 	</section>
-	<section class="p-60 flex flex-col items-center gap-30 rounded-3xl border bg-white dark:bg-black">
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-60">
+	<section
+		class="w-full p-30 lg:p-60 flex flex-col items-center gap-15 lg:gap-30 rounded-3xl border bg-white dark:bg-black"
+	>
+		<div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 			<Oznanilo
 				oznaniloImgHref="http://unizup.si/wp-content/uploads/2024/02/5-2_vecer_za_sport-819x1024.jpg"
 				oznaniloNaslov="Večer za šport"
@@ -64,6 +68,7 @@
 				oznaniloUra="18.40"
 				oznaniloLokacija="Mariborska stolnica"
 				oznaniloLink="molitev-za-mir"
+				addClass="col-span-1 md:col-span-2 2xl:col-span-1"
 			/>
 		</div>
 		<Link linkHref="/Oznanila" linkText="Vsa oznanila" />
@@ -78,17 +83,33 @@
 		usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
 		mesta na Slomškovem trgu 20, poleg mariborske stolnice.
 	</p>
-	<div>
-		<article>1</article>
-		<article>2</article>
-		<article>3</article>
+	<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
+		<ONasBox
+			index={0}
+			oNasBoxNaslov="Študentje"
+			oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+		/>
+		<ONasBox
+			index={1}
+			oNasBoxNaslov="Na Poti"
+			oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+		/>
+		<ONasBox
+			index={2}
+			oNasBoxNaslov="Prijateljstva"
+			oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+			addClass="col-span-1 md:col-span-2 2xl:col-span-1"
+		/>
 	</div>
+	<Gallery />
 </section>
 <section
-	class="p-60 mx-[-5.58%] flex flex-col items-center gap-60 rounded-3xl border bg-white dark:bg-black"
+	class="p-30 lg:p-60 mx-[-5.58%] flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black"
 >
 	<h2 class="font-black text-64 text-center">UNIPULZ</h2>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row auto-rows-max gap-60">
+	<div
+		class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-flow-row auto-rows-max gap-30 2xl:gap-60"
+	>
 		{#if data && data.novice}
 			{#each data.novice.slice(0, 6) as novica, i}
 				{#if i < 3}
@@ -101,6 +122,7 @@
 						datum={novica.datum}
 						povzetek={novica.besedilo}
 						isRecent={true}
+						addClass={i === 2 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 					/>
 				{:else}
 					<SingleNewsCard
@@ -112,6 +134,7 @@
 						datum={novica.datum}
 						povzetek={novica.besedilo}
 						isRecent={false}
+						addClass={i === 5 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 					/>
 				{/if}
 			{/each}

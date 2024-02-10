@@ -9,23 +9,12 @@
 	export let povzetek: string;
 	export let novicaLink: string;
 	export let isRecent: boolean;
-
-	let tagColor: string;
-
-	if (tag == 'Dogodek') {
-		tagColor = 'redTag';
-	} else if (tag == 'Duhovno') {
-		tagColor = 'blue';
-	} else if (tag == 'Novica') {
-		tagColor = 'novicaTagYellow';
-	} else {
-		tagColor = 'black';
-	}
+	export let addClass = '';
 </script>
 
 <a
 	href={`/novice/${novicaLink}`}
-	class="group h-full w-full lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
+	class={`${addClass} group h-full w-full 2xl:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
 		<img
@@ -34,13 +23,16 @@
 			alt={noivcaNaslov}
 		/>
 		<a
-			class={`absolute -bottom-0.5 -left-0.5 font-medium bg-${tagColor} text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+			class:bg-red={tag == 'Dogodek'}
+			class:bg-blue={tag == 'Duhovno'}
+			class:bg-novicaTagYellow={tag == 'Novica'}
+			class={`absolute -bottom-0.5 -left-0.5 font-medium text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
 			href="/tag"
 		>
 			{tag}
 		</a>
 	</figure>
-	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30">
+	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 flex-grow">
 		<div class="w-full flex flex-col gap-5">
 			<h3 class={`${isRecent ? 'text-32' : 'text-24'} font-semibold overflow-clip text-nowrap`}>
 				{noivcaNaslov}
@@ -54,6 +46,7 @@
 			<p class=" max-h-20 overflow-clip">
 				{povzetek}
 			</p>
+
 			<MainBtn btnText="Več" btnHref={`/novice/${novicaLink}`} />
 		{/if}
 	</article>

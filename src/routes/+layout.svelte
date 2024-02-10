@@ -5,11 +5,16 @@
 	//Lep bg color: #FFF4E4
 </script>
 
-<div
+<!-- <div
 	class="max-w-[1920px] min-h-[screen] mx-auto leading-none bg-gradient-to-r from-white via-blue/40 to-white dark:from-black dark:via-blue/90 dark:to-black text-black dark:text-white"
+> -->
+<div
+	class="max-w-[2560px] min-h-[screen] mx-auto leading-none bg-[#E7D8C9] text-black dark:text-white"
 >
 	<main class="flex flex-col gap-120 px-[5%]">
 		<slot />
 	</main>
 	<Footer />
 </div>
+
+<!-- IDEJA ZA ONO PRVO SLIKO: NAJ BO SAM KOT LOADER PA SE POCASI SCALA DO TAJ KO SE STRAN NALOZI -->

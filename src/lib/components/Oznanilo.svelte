@@ -7,11 +7,12 @@
 	export let oznaniloUra: string;
 	export let oznaniloLokacija: string;
 	export let oznaniloLink: string;
+	export let addClass = '';
 </script>
 
 <a
 	href="/OznaniloID"
-	class="group h-full w-full lg:min-w-[23.75rem] lg:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl"
+	class={`${addClass} group h-full w-full lg:min-w-[23.75rem] bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="w-full overflow-hidden rounded-3xl border">
 		<img
@@ -20,18 +21,16 @@
 			alt={oznaniloNaslov}
 		/>
 	</figure>
-	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 text-center">
-		<div>
-			<h3 class="text-32 font-black uppercase">{oznaniloNaslov}</h3>
-			<div class="flex flex-col items-center justify-center gap-30 text-20">
-				<div class="flex flex-col items-center justify-center gap-10">
-					<span class="font-semibold">Kdaj?</span>
-					<p>{oznaniloDatum} ob {oznaniloUra}</p>
-				</div>
-				<div class="flex flex-col items-center justify-center gap-10">
-					<span class="font-semibold">Kje?</span>
-					<p>{oznaniloLokacija}</p>
-				</div>
+	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 text-center flex-grow">
+		<h3 class="text-32 font-black uppercase">{oznaniloNaslov}</h3>
+		<div class="flex flex-col items-center justify-center gap-30 text-20 flex-grow">
+			<div class="flex flex-col items-center justify-center gap-10">
+				<span class="font-semibold">Kdaj?</span>
+				<p>{oznaniloDatum} ob {oznaniloUra}</p>
+			</div>
+			<div class="flex flex-col items-center justify-center gap-10">
+				<span class="font-semibold">Kje?</span>
+				<p>{oznaniloLokacija}</p>
 			</div>
 		</div>
 		<MainBtn btnText="Več" btnHref={`/Oznanila/${oznaniloLink}`} />
