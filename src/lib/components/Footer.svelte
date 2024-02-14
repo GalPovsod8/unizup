@@ -2,7 +2,9 @@
 	import Nav from './Nav.svelte';
 </script>
 
-<footer class="w-full mt-[7.5rem] bg-blue border border-black rounded-t-3xl">
+<footer
+	class="w-full mt-[7.5rem] bg-blue border dark:text-black border-black dark:border-white rounded-t-3xl"
+>
 	<div class="grid place-items-center gap-60 px-[5%] py-[3.75rem]">
 		<Nav />
 		<div class="w-full gap-30 lg:gap-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

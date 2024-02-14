@@ -13,6 +13,7 @@ export default {
 			96: '6rem'
 		},
 		colors: {
+			transparent: '#ffffff00',
 			black: '#1a1a1a',
 			white: '#FFFFFF',
 			yellow: '#FDD708',
@@ -27,6 +28,7 @@ export default {
 			5: '0.313rem',
 			10: '0.625rem',
 			15: '0.938rem',
+			20: '1.25rem',
 			30: '1.875rem',
 			50: '3.125rem',
 			60: '3.75rem',

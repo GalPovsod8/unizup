@@ -9,9 +9,9 @@
 	class="max-w-[1920px] min-h-[screen] mx-auto leading-none bg-gradient-to-r from-white via-blue/40 to-white dark:from-black dark:via-blue/90 dark:to-black text-black dark:text-white"
 > -->
 <div
-	class="max-w-[2560px] min-h-[screen] mx-auto leading-none bg-[#E7D8C9] text-black dark:text-white"
+	class="max-w-[2560px] min-h-[screen] mx-auto leading-none bg-[#E7D8C9] dark:bg-black text-black dark:text-white"
 >
-	<main class="flex flex-col gap-120 px-[5%]">
+	<main>
 		<slot />
 	</main>
 	<Footer />
