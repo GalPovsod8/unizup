@@ -119,7 +119,7 @@
 			{#await novice}
 				<p>Nalaganje novic...</p>
 			{:then data}
-				{#each data.slice(0, 6) as novica, i}
+				{#each data as novica, i}
 					{#if i < 3}
 						<SingleNewsCard
 							noivcaNaslov={novica.attributes.Naslov}
@@ -150,6 +150,6 @@
 				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 			{/await}
 		</div>
-		<Link linkHref="/Novice" linkText="Vse novice" />
+		<Link linkHref="/unipulz" linkText="Vse novice" />
 	</section>
 </div>

@@ -16,14 +16,6 @@
 	}
 </script>
 
-<svelte:head>
-	<title>UniPulz | Univerzitetna Župnija Maribor</title>
-	<meta
-		name="description"
-		content="Ostani na tekočem z Unizup-om! UniPulz novice so tu zato, da ostaneš vedno informiran o najbolj aktualnih zadevah."
-	/>
-</svelte:head>
-
 <header
 	class="absolute top-0 w-full px-[5%] py-3 flex items-center justify-between border-b border-black dark:border-white"
 >
@@ -71,4 +63,6 @@
 		></div>
 	</button>
 </header>
-<slot />
+<div class="flex flex-col gap-120 px-[5%]">
+	<slot />
+</div>

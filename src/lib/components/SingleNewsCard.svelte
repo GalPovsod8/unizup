@@ -13,7 +13,7 @@
 </script>
 
 <a
-	href={`/novice/${novicaLink}`}
+	href={`/unipulz/${novicaLink}`}
 	class={`${addClass} group h-full w-full 2xl:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
@@ -47,7 +47,7 @@
 				{povzetek}
 			</p>
 
-			<MainBtn btnText="Več" btnHref={`/novice/${novicaLink}`} />
+			<MainBtn btnText="Več" btnHref={`/unipulz/${novicaLink}`} />
 		{/if}
 	</article>
 </a>

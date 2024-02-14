@@ -3,7 +3,7 @@
 </script>
 
 <footer
-	class="w-full mt-[7.5rem] bg-blue border dark:text-black border-black dark:border-white rounded-t-3xl"
+	class="relative w-full z-40 mt-[7.5rem] bg-blue border dark:text-black border-black dark:border-white rounded-t-3xl"
 >
 	<div class="grid place-items-center gap-60 px-[5%] py-[3.75rem]">
 		<Nav />
