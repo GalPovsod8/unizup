@@ -1,7 +1,7 @@
 <script lang="ts">
 	import MainBtn from './MainBtn.svelte';
 
-	export let oznaniloImgHref: string;
+	export let oznaniloImgSrc: string;
 	export let oznaniloNaslov: string;
 	export let oznaniloDatum: string;
 	export let oznaniloUra: string;
@@ -11,13 +11,13 @@
 </script>
 
 <a
-	href="/OznaniloID"
+	href={`/oznanila/${oznaniloLink}`}
 	class={`${addClass} group h-full w-full lg:min-w-[23.75rem] bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="w-full overflow-hidden rounded-3xl border">
 		<img
 			class={`h-60 w-full rounded-3xl object-cover object-top scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-			src={oznaniloImgHref}
+			src={oznaniloImgSrc}
 			alt={oznaniloNaslov}
 		/>
 	</figure>
@@ -33,6 +33,6 @@
 				<p>{oznaniloLokacija}</p>
 			</div>
 		</div>
-		<MainBtn btnText="Več" btnHref={`/Oznanila/${oznaniloLink}`} />
+		<MainBtn btnText="Več" btnHref={`/oznanila/${oznaniloLink}`} />
 	</article>
 </a>

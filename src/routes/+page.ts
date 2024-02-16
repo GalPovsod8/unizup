@@ -2,6 +2,19 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
+	const FetchOznanila = async () => {
+		const oznanilaRes = await fetch(
+			'http://localhost:1337/api/oznanilos?populate=*&sort=Datum:desc&pagination[limit]=3'
+		);
+
+		if (!oznanilaRes.ok) {
+			error(404, 'Napaka pri nalaganju oznanil');
+		}
+
+		const oznanilaData = await oznanilaRes.json();
+		return oznanilaData.data;
+	};
+
 	const FetchNews = async () => {
 		const newsRes = await fetch(
 			'http://localhost:1337/api/novicas?populate=*&sort=Datum:desc&pagination[limit]=6'
@@ -16,6 +29,7 @@ export const load: PageLoad = async ({ fetch }) => {
 	};
 
 	return {
+		oznanila: FetchOznanila(),
 		novice: FetchNews()
 	};
 };

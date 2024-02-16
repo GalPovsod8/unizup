@@ -19,7 +19,7 @@
 	}
 
 	export let data: PageData;
-	let novice = data.novice;
+	let { novice, oznanila } = data;
 </script>
 
 <div class="flex flex-col gap-120 px-[5%]">
@@ -31,7 +31,6 @@
 					<h1 class="text-96 -mb-5">UNIZUP</h1>
 					<h2 class="text-40">UNIVERZITETNA ŽUPNIJA MARIBOR</h2>
 				</hgroup>
-				<!-- Na mobile, sam skrijes tti nav, pa renderas onga ko je na vsakmo pago -->
 				<Nav />
 				<button
 					on:click={ToggleTheme}
@@ -48,33 +47,24 @@
 			class="w-full p-30 lg:p-60 flex flex-col items-center gap-15 lg:gap-30 rounded-3xl border bg-white dark:bg-black"
 		>
 			<div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
-				<Oznanilo
-					oznaniloImgHref="http://unizup.si/wp-content/uploads/2024/02/5-2_vecer_za_sport-819x1024.jpg"
-					oznaniloNaslov="Večer za šport"
-					oznaniloDatum="29. 1. 2024"
-					oznaniloUra="20.45"
-					oznaniloLokacija="Vrbanska cesta 30, zavod Antona Martina Slomška"
-					oznaniloLink="vecer-za-sport"
-				/>
-				<Oznanilo
-					oznaniloImgHref="http://unizup.si/wp-content/uploads/2023/11/image-9-768x401.jpg"
-					oznaniloNaslov="Sv. Maša"
-					oznaniloDatum="Vsaka sreda"
-					oznaniloUra="19.00"
-					oznaniloLokacija="Mariborska stolnica"
-					oznaniloLink="sv-masa"
-				/>
-				<Oznanilo
-					oznaniloImgHref="http://unizup.si/wp-content/uploads/2024/01/a0109f32-ca86-4ce7-9983-c234ec92c88e-768x402.jpg"
-					oznaniloNaslov="Molitev za mir"
-					oznaniloDatum="31. 1. 2024"
-					oznaniloUra="18.40"
-					oznaniloLokacija="Mariborska stolnica"
-					oznaniloLink="molitev-za-mir"
-					addClass="col-span-1 md:col-span-2 2xl:col-span-1"
-				/>
+				{#await oznanila}
+					<p>Loading...</p>
+				{:then data}
+					{#each data as oznanilo}
+						<Oznanilo
+							oznaniloImgSrc={`http://localhost:1337${oznanilo.attributes.Media.data[0].attributes.url}`}
+							oznaniloNaslov={oznanilo.attributes.Naslov}
+							oznaniloDatum={oznanilo.attributes.Datum}
+							oznaniloUra={oznanilo.attributes.Ura}
+							oznaniloLokacija={oznanilo.attributes.Kraj}
+							oznaniloLink={oznanilo.id}
+						/>
+					{/each}
+				{:catch error}
+					<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
+				{/await}
 			</div>
-			<Link linkHref="/Oznanila" linkText="Vsa oznanila" />
+			<Link linkHref="/oznanila" linkText="Vsa oznanila" />
 		</section>
 	</div>
 
