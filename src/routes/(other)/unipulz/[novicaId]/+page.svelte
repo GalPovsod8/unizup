@@ -5,6 +5,11 @@
 
 	export let data: PageData;
 	let { novica, drugeNovice } = data;
+
+	function FormatDate(dateString: string): string {
+		const dateObj = new Date(dateString);
+		return `${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`;
+	}
 </script>
 
 <svelte:head>
@@ -17,12 +22,42 @@
 </svelte:head>
 
 <section class="w-full flex flex-col lg:flex-row items-start justify-between gap-90 mt-32">
-	<article class="w-full lg:w-[70vw]">
+	<article class="w-full lg:w-[70vw] flex flex-col gap-30">
 		{#await novica}
 			<p>Nalaganje novice...</p>
 		{:then data}
-			<h2 class="text-40 font-bold">{data.attributes.Naslov}</h2>
-			<SvelteMarkdown source={data.attributes.Vsebina} />
+			<!-- Breadcrumbi grejo nad article -->
+			<div class="w-full flex flex-col gap-15">
+				<h2
+					class="underliner font-bold text-40"
+					style="text-decoration-color: {data.attributes.Tag == 'Dogodek'
+						? '#942B2B'
+						: data.attributes.Tag == 'Duhovno'
+							? '#51B3C9'
+							: '#92942B'}"
+				>
+					{data.attributes.Naslov}
+				</h2>
+				<div class="w-full flex items-center justify-between">
+					<div class="flex flex-col gap-5">
+						<p><span class="font-medium">Avtor: </span>{data.attributes.Avtor}</p>
+						<!-- Ne pozabit dat se v vako novico dateFormaterja -->
+						<p><span class="font-medium">Datum: </span>{FormatDate(data.attributes.Datum)}</p>
+					</div>
+					<a
+						class:bg-blue={data.attributes.Tag == 'Duhovno'}
+						class:bg-redTag={data.attributes.Tag == 'Dogodek'}
+						class:bg-novicaTagYellow={data.attributes.Tag == 'Novica'}
+						class="h-full flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
+						href={`unipulz/${data.attributes.Tag}`}
+					>
+						{data.attributes.Tag}
+					</a>
+				</div>
+			</div>
+			<div class="flex flex-col gap-15 text-20">
+				<SvelteMarkdown source={data.attributes.Vsebina} />
+			</div>
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 		{/await}
@@ -37,8 +72,10 @@
 			{:then data}
 				{#each data as drugaNovica}
 					<li>
-						<a data-sveltekit-reload href="/unipulz/{drugaNovica.id}"
-							>{drugaNovica.attributes.Naslov}</a
+						<a
+							class="hover:opacity-80 transition-all ease-in-out duration-150"
+							data-sveltekit-reload
+							href="/unipulz/{drugaNovica.id}">{drugaNovica.attributes.Naslov}</a
 						>
 					</li>
 				{/each}
@@ -49,3 +86,11 @@
 		<Link linkText="Vse novice" linkHref="/unipulz" />
 	</aside>
 </section>
+
+<style>
+	.underliner {
+		text-decoration: underline;
+		text-decoration-style: solid;
+		text-decoration-thickness: 3px;
+	}
+</style>

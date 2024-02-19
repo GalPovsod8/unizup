@@ -23,8 +23,8 @@
 			alt={noivcaNaslov}
 		/>
 		<a
-			class:bg-red={tag == 'Dogodek'}
 			class:bg-blue={tag == 'Duhovno'}
+			class:bg-redTag={tag == 'Dogodek'}
 			class:bg-novicaTagYellow={tag == 'Novica'}
 			class={`absolute -bottom-0.5 -left-0.5 font-medium text-white rounded-tr-3xl rounded-bl-3xl border border-black p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
 			href="/tag"
