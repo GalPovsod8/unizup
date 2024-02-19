@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Gallery from '$lib/components/Gallery.svelte';
 	import Link from '$lib/components/Link.svelte';
+	import Loader1 from '$lib/components/Loader1.svelte';
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import ONasBox from '$lib/components/ONasBox.svelte';
@@ -48,7 +49,7 @@
 		>
 			<div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 				{#await oznanila}
-					<p>Loading...</p>
+					<Loader1 />
 				{:then data}
 					{#each data as oznanilo}
 						<Oznanilo
@@ -107,7 +108,7 @@
 			class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-flow-row auto-rows-max gap-30 2xl:gap-60"
 		>
 			{#await novice}
-				<p>Nalaganje novic...</p>
+				<Loader1 />
 			{:then data}
 				{#each data as novica, i}
 					{#if i < 3}

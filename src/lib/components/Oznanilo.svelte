@@ -12,7 +12,7 @@
 
 <a
 	href={`/oznanila/${oznaniloLink}`}
-	class={`${addClass} group h-full w-full lg:min-w-[23.75rem] bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
+	class={`${addClass} group h-full w-full lg:min-w-[23.75rem] bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="w-full overflow-hidden rounded-3xl border">
 		<img

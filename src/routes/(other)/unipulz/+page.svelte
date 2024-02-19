@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
-
+	import Loader1 from '$lib/components/Loader1.svelte';
 	export let data: PageData;
 	let vseNovice = data.vseNovice;
 </script>
@@ -28,7 +28,7 @@
 	</div>
 	<div class="h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 		{#await vseNovice}
-			<p>Nalaganje novic...</p>
+			<Loader1 />
 		{:then data}
 			{#each data as novica}
 				<SingleNewsCard

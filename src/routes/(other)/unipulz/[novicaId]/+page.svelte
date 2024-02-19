@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<!-- PODATKI O NOVICI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+	<!-- PODATKI O NOVICI isto ne pozabit pr oznanilah!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 	<!-- <title>UniPulz | {novica.attributes.Naslov}</title>
 	<meta
 		name="description"

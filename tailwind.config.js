@@ -51,6 +51,15 @@ export default {
 				60: '3.75rem',
 				90: '5.625rem',
 				120: '7.5rem'
+			},
+			animation: {
+				oznanilaNoviceLoader: 'onl 1s infinite ease-in-out alternate'
+			},
+			keyframes: {
+				onl: {
+					'0%': { backgroundColor: 'hsl(200, 20%, 80%)' },
+					'100%': { backgroundColor: 'hsl(200, 20%, 95%)' }
+				}
 			}
 		}
 	},
