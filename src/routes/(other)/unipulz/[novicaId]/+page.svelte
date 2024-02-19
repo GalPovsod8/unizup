@@ -1,15 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { FormatDate, ShortenTag } from '$lib/utils';
 	import SvelteMarkdown from 'svelte-markdown';
 	import Link from '$lib/components/Link.svelte';
 
 	export let data: PageData;
 	let { novica, drugeNovice } = data;
-
-	function FormatDate(dateString: string): string {
-		const dateObj = new Date(dateString);
-		return `${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`;
-	}
 </script>
 
 <svelte:head>
@@ -40,31 +36,31 @@
 				</h2>
 				<div class="w-full flex items-center justify-between">
 					<div class="flex flex-col gap-5">
-						<p><span class="font-medium">Avtor: </span>{data.attributes.Avtor}</p>
-						<!-- Ne pozabit dat se v vako novico dateFormaterja -->
-						<p><span class="font-medium">Datum: </span>{FormatDate(data.attributes.Datum)}</p>
+						<p><b class="font-medium">Avtor: </b>{data.attributes.Avtor}</p>
+						<p><b class="font-medium">Datum: </b>{FormatDate(data.attributes.Datum)}</p>
 					</div>
 					<a
 						class:bg-blue={data.attributes.Tag == 'Duhovno'}
 						class:bg-redTag={data.attributes.Tag == 'Dogodek'}
 						class:bg-novicaTagYellow={data.attributes.Tag == 'Novica'}
-						class="h-full flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
-						href={`unipulz/${data.attributes.Tag}`}
+						class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
+						href={`${data.attributes.Tag}`}
 					>
 						{data.attributes.Tag}
 					</a>
 				</div>
 			</div>
-			<div class="flex flex-col gap-15 text-20">
+			<div class="markdownStyles flex flex-col gap-15 text-20">
 				<SvelteMarkdown source={data.attributes.Vsebina} />
 			</div>
+			<p>Slike!</p>
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 		{/await}
 	</article>
 	<aside class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-15">
-		<h2 class="text-24 font-medium border-b border-black/80 dark:border-white/80 pb-1">
-			Drugi članiki
+		<h2 class="text-24 font-bold border-b border-black/80 dark:border-white/80 pb-1">
+			Najbolj sveže...
 		</h2>
 		<ul class="flex flex-col gap-15">
 			{#await drugeNovice}
@@ -73,17 +69,36 @@
 				{#each data as drugaNovica}
 					<li>
 						<a
-							class="hover:opacity-80 transition-all ease-in-out duration-150"
+							class="w-full flex items-start justify-between gap-30 hover:opacity-80 transition-all ease-in-out duration-150"
 							data-sveltekit-reload
-							href="/unipulz/{drugaNovica.id}">{drugaNovica.attributes.Naslov}</a
+							href="/unipulz/{drugaNovica.id}"
 						>
+							<div class="w-[80%] flex flex-col gap-5">
+								<h3 class="font-medium text-20 whitespace-nowrap overflow-hidden text-ellipsis">
+									{drugaNovica.attributes.Naslov}
+								</h3>
+								<span class="opacity-90"
+									>{drugaNovica.attributes.Avtor}, {FormatDate(drugaNovica.attributes.Datum)}</span
+								>
+							</div>
+
+							<a
+								class:bg-blue={drugaNovica.attributes.Tag == 'Duhovno'}
+								class:bg-redTag={drugaNovica.attributes.Tag == 'Dogodek'}
+								class:bg-novicaTagYellow={drugaNovica.attributes.Tag == 'Novica'}
+								class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white p-2 hover:opacity-80 transition-all ease-in-out duration-150"
+								href={`${drugaNovica.attributes.Tag}`}
+							>
+								{ShortenTag(drugaNovica.attributes.Tag)}
+							</a>
+						</a>
 					</li>
 				{/each}
 			{:catch error}
 				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 			{/await}
 		</ul>
-		<Link linkText="Vse novice" linkHref="/unipulz" />
+		<Link linkText="Vse novice" linkHref="/unipulz" fontSize={20} />
 	</aside>
 </section>
 

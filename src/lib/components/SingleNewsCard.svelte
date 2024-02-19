@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { FormatDate } from '$lib/utils';
 	import MainBtn from './MainBtn.svelte';
 
 	export let noivcaNaslov: string;
@@ -39,7 +40,7 @@
 			</h3>
 			<span class="w-full flex items-center justify-between text-16">
 				<p>Avtor: {avtor}</p>
-				<p>{datum}</p>
+				<p>{FormatDate(datum)}</p>
 			</span>
 		</div>
 		{#if isRecent}

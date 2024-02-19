@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { FormatDate, FormatTime } from '$lib/utils';
 	import MainBtn from './MainBtn.svelte';
 
 	export let oznaniloImgSrc: string;
@@ -26,7 +27,7 @@
 		<div class="flex flex-col items-center justify-center gap-30 text-20 flex-grow">
 			<div class="flex flex-col items-center justify-center gap-10">
 				<span class="font-semibold">Kdaj?</span>
-				<p>{oznaniloDatum} ob {oznaniloUra}</p>
+				<p>{FormatDate(oznaniloDatum)} ob {FormatTime(oznaniloUra)}</p>
 			</div>
 			<div class="flex flex-col items-center justify-center gap-10">
 				<span class="font-semibold">Kje?</span>

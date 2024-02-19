@@ -53,13 +53,27 @@ export default {
 				120: '7.5rem'
 			},
 			animation: {
-				oznanilaNoviceLoader: 'onl 1s infinite ease-in-out alternate'
+				oznanilaNoviceLoader: 'onl 1s infinite ease-in-out alternate',
+				fontAnim: 'fontAnim .5s forwards ease-in-out',
+				show: 'show .5s forwards ease-in-out',
+				showUp: 'showUp .5s forwards ease-in-out'
 			},
 			keyframes: {
 				onl: {
 					'0%': { backgroundColor: 'hsl(200, 20%, 80%)' },
 					'100%': { backgroundColor: 'hsl(200, 20%, 95%)' }
+				},
+				fontAnim: {
+					'0%': { fontWeight: 'normal' },
+					'100%': { fontWeight: 'bold' }
+				},
+				show: {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
 				}
+			},
+			fontFamily: {
+				kufam: ['Kufam', 'sans-serif']
 			}
 		}
 	},

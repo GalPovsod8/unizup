@@ -25,12 +25,14 @@
 
 <div class="flex flex-col gap-120 px-[5%]">
 	<div>
-		<section class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8">
+		<section
+			class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
+		>
 			<header class="grid place-items-center gap-50">
 				<hgroup class="grid place-items-center font-bold gap-30 text-center">
 					<img class="h-20 w-20 rounded-full -mb-7" src="/unizupLogo.png" alt="UZ" />
-					<h1 class="text-96 -mb-5">UNIZUP</h1>
-					<h2 class="text-40">UNIVERZITETNA ŽUPNIJA MARIBOR</h2>
+					<h1 class="-mb-5 text-96 font-kufam animate-fontAnim">UNIZUP</h1>
+					<h2 class="-mb-4 text-40 font-kufam animate-fontAnim">UNIVERZITETNA ŽUPNIJA MARIBOR</h2>
 				</hgroup>
 				<Nav />
 				<button
