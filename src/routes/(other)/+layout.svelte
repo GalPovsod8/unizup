@@ -17,7 +17,7 @@
 </script>
 
 <header
-	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between border-b border-black dark:border-white"
+	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between bg-[#E7D8C9] dark:bg-black border-b border-black dark:border-white"
 >
 	<a
 		class="flex z-50 items-center gap-10 text-24 font-medium hover:opacity-80 transition-all ease-in-out duration-150"
@@ -67,6 +67,6 @@
 		></div>
 	</button>
 </header>
-<div class="flex flex-col gap-120 px-[5%]">
+<div class="flex flex-col gap-120">
 	<slot />
 </div>

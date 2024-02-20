@@ -14,7 +14,7 @@
 	/>
 </svelte:head>
 
-<section class="w-full min-h-screen mt-32">
+<section class="w-full min-h-screen pt-120 px-[5%]">
 	<div class="mb-24 flex gap-15 text-24">
 		<a href="/unipulz/Novica">Novica</a>
 		<a

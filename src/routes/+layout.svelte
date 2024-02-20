@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import '../app.css';
-
 	//Lep bg color: #FFF4E4
 </script>
 

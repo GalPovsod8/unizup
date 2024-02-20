@@ -34,6 +34,6 @@
 				<p>{oznaniloLokacija}</p>
 			</div>
 		</div>
-		<MainBtn btnText="Več" btnHref={`/oznanila/${oznaniloLink}`} />
+		<MainBtn hasMaxWidth={false} btnText="Več" btnHref={`/oznanila/${oznaniloLink}`} />
 	</article>
 </a>

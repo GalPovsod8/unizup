@@ -17,7 +17,9 @@
 	/> -->
 </svelte:head>
 
-<section class="w-full flex flex-col lg:flex-row items-start justify-between gap-90 mt-32">
+<section
+	class="w-full flex flex-col lg:flex-row items-start justify-between gap-90 pt-120 pb-60 px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
+>
 	<article class="w-full lg:w-[70vw] flex flex-col gap-30">
 		{#await novica}
 			<p>Nalaganje novice...</p>

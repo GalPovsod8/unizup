@@ -48,7 +48,7 @@
 				{povzetek}
 			</p>
 
-			<MainBtn btnText="Več" btnHref={`/unipulz/${novicaLink}`} />
+			<MainBtn hasMaxWidth={false} btnText="Več" btnHref={`/unipulz/${novicaLink}`} />
 		{/if}
 	</article>
 </a>

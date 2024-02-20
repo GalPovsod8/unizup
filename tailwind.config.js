@@ -4,6 +4,7 @@ export default {
 	darkMode: ['class'],
 	theme: {
 		fontSize: {
+			14: '0.9rem',
 			16: '1rem',
 			20: '1.25rem',
 			24: '1.5rem',
@@ -56,7 +57,7 @@ export default {
 				oznanilaNoviceLoader: 'onl 1s infinite ease-in-out alternate',
 				fontAnim: 'fontAnim .5s forwards ease-in-out',
 				show: 'show .5s forwards ease-in-out',
-				showUp: 'showUp .5s forwards ease-in-out'
+				showUp: 'showUp 1s forwards ease-in-out'
 			},
 			keyframes: {
 				onl: {
@@ -70,6 +71,10 @@ export default {
 				show: {
 					'0%': { opacity: '0' },
 					'100%': { opacity: '1' }
+				},
+				showUp: {
+					'0%': { transform: 'translateY(100px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
 				}
 			},
 			fontFamily: {
