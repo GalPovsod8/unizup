@@ -18,7 +18,7 @@
 </svelte:head>
 
 <section
-	class="w-full flex flex-col lg:flex-row items-start justify-between gap-90 pt-120 pb-60 px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
+	class="w-full flex flex-col lg:flex-row items-start justify-between gap-90 pt-120 pb-[200px] px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
 >
 	<article class="w-full lg:w-[70vw] flex flex-col gap-30">
 		{#await novica}
@@ -60,9 +60,11 @@
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 		{/await}
 	</article>
-	<aside class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-15">
+	<aside
+		class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-15 p-30 bg-white rounded-3xl border border-black drop-shadow-shadow"
+	>
 		<h2 class="text-24 font-bold border-b border-black/80 dark:border-white/80 pb-1">
-			Najbolj sveže...
+			NAJBOLJ SVEŽE...
 		</h2>
 		<ul class="flex flex-col gap-15">
 			{#await drugeNovice}
@@ -76,10 +78,10 @@
 							href="/unipulz/{drugaNovica.id}"
 						>
 							<div class="w-[80%] flex flex-col gap-5">
-								<h3 class="font-medium text-20 whitespace-nowrap overflow-hidden text-ellipsis">
+								<h3 class="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
 									{drugaNovica.attributes.Naslov}
 								</h3>
-								<span class="opacity-90"
+								<span class="text-14 opacity-90"
 									>{drugaNovica.attributes.Avtor}, {FormatDate(drugaNovica.attributes.Datum)}</span
 								>
 							</div>
