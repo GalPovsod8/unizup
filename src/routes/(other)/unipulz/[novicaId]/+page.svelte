@@ -62,7 +62,7 @@
 				<NoviceImgCarousel images={data.attributes.Media.data} />
 			{:else}
 				<figure
-					class="group h-60 w-full bg-white dark:bg-black max-w-96 self-center rounded-3xl overflow-hidden border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+					class="group h-60 w-full self-center rounded-3xl overflow-hidden bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
