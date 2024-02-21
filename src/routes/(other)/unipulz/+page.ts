@@ -5,7 +5,7 @@ import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 export const load: PageLoad = async ({ fetch }) => {
 	const DobiNovice = async () => {
 		const vseNoviceRes = await fetch(
-			`${PUBLIC_BASE_STRAPI_URL}/novicas?populate=*&sort=Datum:desc`
+			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc`
 		);
 
 		if (!vseNoviceRes.ok) {

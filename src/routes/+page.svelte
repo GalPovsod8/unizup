@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -61,7 +62,7 @@
 					{:then data}
 						{#each data as oznanilo, i}
 							<Oznanilo
-								oznaniloImgSrc={`http://localhost:1337${oznanilo.attributes.Media.data[0].attributes.url}`}
+								oznaniloImgSrc={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.formats.small.url}`}
 								oznaniloNaslov={oznanilo.attributes.Naslov}
 								oznaniloDatum={oznanilo.attributes.Datum}
 								oznaniloUra={oznanilo.attributes.Ura}
@@ -128,7 +129,7 @@
 								noivcaNaslov={novica.attributes.Naslov}
 								novicaLink={novica.id}
 								tag={novica.attributes.Tag}
-								imgSrc={`http://localhost:1337${novica.attributes.Media.data[0].attributes.url}`}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.url}`}
 								avtor={novica.attributes.Avtor}
 								datum={novica.attributes.Datum}
 								povzetek={novica.attributes.Vsebina.substring(0, 100)}
@@ -140,7 +141,7 @@
 								noivcaNaslov={novica.attributes.Naslov}
 								novicaLink={novica.id}
 								tag={novica.attributes.Tag}
-								imgSrc={`http://localhost:1337${novica.attributes.Media.data[0].attributes.url}`}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.url}`}
 								avtor={novica.attributes.Avtor}
 								datum={novica.attributes.Datum}
 								povzetek={novica.attributes.Vsebina.substring(0, 100)}

@@ -5,7 +5,7 @@ import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 
 export const load: PageLoad = async ({ fetch, params }) => {
 	const FetchNovica = async (id: RouteParams) => {
-		const nRes = await fetch(`http://localhost:1337/api/novicas/${id}`);
+		const nRes = await fetch(`${PUBLIC_BASE_STRAPI_URL}/api/novicas/${id}?populate=*`);
 		if (!nRes.ok) {
 			error(404, 'Novica ne obstja!');
 		}
@@ -15,7 +15,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 	const FetchDrugeNovice = async () => {
 		const dnRes = await fetch(
-			`${PUBLIC_BASE_STRAPI_URL}/novicas?populate=*&sort=Datum:desc&pagination[limit]=8`
+			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc&pagination[limit]=8`
 		);
 		if (!dnRes.ok) {
 			error(404, 'Novica ne obstja!');

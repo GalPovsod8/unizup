@@ -5,7 +5,7 @@ import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 export const load: PageLoad = async ({ fetch }) => {
 	const FetchOznanila = async () => {
 		const oznanilaRes = await fetch(
-			'http://localhost:1337/api/oznanilos?populate=*&sort=Datum:desc&pagination[limit]=3'
+			`${PUBLIC_BASE_STRAPI_URL}/api/oznanilos?populate=*&sort=Datum:desc&pagination[limit]=3`
 		);
 
 		if (!oznanilaRes.ok) {
@@ -18,7 +18,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
 	const FetchNews = async () => {
 		const newsRes = await fetch(
-			`${PUBLIC_BASE_STRAPI_URL}/novicas?populate=*&sort=Datum:desc&pagination[limit]=6`
+			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc&pagination[limit]=6`
 		);
 
 		if (!newsRes.ok) {

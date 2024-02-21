@@ -44,7 +44,7 @@
 			</span>
 		</div>
 		{#if isRecent}
-			<p class=" max-h-20 overflow-clip">
+			<p class=" max-h-20 overflow-hidden text-ellipsis">
 				{povzetek}
 			</p>
 
