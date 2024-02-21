@@ -6,9 +6,11 @@
 	import NoviceImgCarousel from '$lib/components/NoviceImgCarousel.svelte';
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
+	import ImgPopup from '$lib/components/ImgPopup.svelte';
 
 	export let data: PageData;
 	let { novica, drugeNovice } = data;
+	let showModal: boolean = false;
 </script>
 
 <svelte:head>
@@ -61,15 +63,21 @@
 			{#if data.attributes.Media.data.length > 1}
 				<NoviceImgCarousel images={data.attributes.Media.data} />
 			{:else}
-				<figure
+				<button
 					class="group h-60 w-full self-center rounded-3xl overflow-hidden bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+					aria-label="show full image"
+					on:click={() => (showModal = true)}
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
 						src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.url}`}
 						alt="slika"
 					/>
-				</figure>
+				</button>
+				<ImgPopup
+					bind:showModal
+					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.url}`}
+				/>
 			{/if}
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>

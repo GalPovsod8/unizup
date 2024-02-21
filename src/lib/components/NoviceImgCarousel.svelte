@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
-	import type { NumericRange } from '@sveltejs/kit';
 	import ImgPopup from './ImgPopup.svelte';
 
 	export let images: any[];
 
 	let currentIndex: number = 0;
+	let innerWidth: number = 0;
 	let showModal: boolean = false;
-	let selectedImageIndex: Number | any = null;
+	let isMobile: boolean = false;
+	let selectedImageIndex: number | any = null;
 
 	function MoveLeft() {
 		if (currentIndex > 0) {
@@ -16,7 +17,9 @@
 	}
 
 	function MoveRight() {
-		if (currentIndex < images.length - 3) {
+		if (!isMobile && currentIndex < images.length - 3) {
+			currentIndex++;
+		} else if (isMobile && currentIndex < images.length - 1) {
 			currentIndex++;
 		}
 	}
@@ -25,7 +28,11 @@
 		selectedImageIndex = currentIndex + index;
 		showModal = true;
 	}
+
+	$: isMobile = innerWidth <= 800;
 </script>
+
+<svelte:window bind:innerWidth />
 
 <div class="h-64 w-full flex items-center justify-between gap-30">
 	{#if images.length > 2}
@@ -40,19 +47,35 @@
 	<div
 		class="h-full w-full flex gap-20 overflow-hidden pb-1 transition-all ease-in-out duration-150"
 	>
-		{#each images.slice(currentIndex, currentIndex + 3) as img, index}
-			<button
-				class="group h-full w-full rounded-3xl overflow-hidden border border-black dark:border-white cursor-pointer drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-				aria-label="show image"
-				on:click={() => ShowFullImage(index)}
-			>
-				<img
-					class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-					src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.medium.url}`}
-					alt="slika"
-				/>
-			</button>
-		{/each}
+		{#if isMobile}
+			{#each images.slice(currentIndex, currentIndex + 1) as img, index}
+				<button
+					class="group h-full w-full rounded-3xl overflow-hidden border border-black dark:border-white cursor-pointer drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+					aria-label="show full image"
+					on:click={() => ShowFullImage(index)}
+				>
+					<img
+						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.medium.url}`}
+						alt="slika"
+					/>
+				</button>
+			{/each}
+		{:else}
+			{#each images.slice(currentIndex, currentIndex + 3) as img, index}
+				<button
+					class="group h-full w-full rounded-3xl overflow-hidden border border-black dark:border-white cursor-pointer drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+					aria-label="show full image"
+					on:click={() => ShowFullImage(index)}
+				>
+					<img
+						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.medium.url}`}
+						alt="slika"
+					/>
+				</button>
+			{/each}
+		{/if}
 	</div>
 	{#if images.length > 2}
 		<button

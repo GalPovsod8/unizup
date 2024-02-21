@@ -8,7 +8,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
-	class="rounded-3xl border border-black dark:border-white"
+	class="h-[80vh] max-w-[80vw] md:max-w-max rounded-3xl border border-black dark:border-white"
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}
@@ -24,13 +24,6 @@
 </dialog>
 
 <style>
-	dialog {
-		height: 80vh;
-		max-height: 80vh;
-		width: 80vw;
-		max-width: 80vw;
-	}
-
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.3);
 	}
