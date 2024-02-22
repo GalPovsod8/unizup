@@ -8,6 +8,7 @@
 
 <a
 	class:bg-black={isDarkBgVariant}
+	class:bg-white={!isDarkBgVariant}
 	class:text-white={isDarkBgVariant}
 	class:max-w-96={hasMaxWidth}
 	href={btnHref}

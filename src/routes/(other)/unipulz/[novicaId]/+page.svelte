@@ -79,6 +79,9 @@
 					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.url}`}
 				/>
 			{/if}
+			{#if data.attributes.YTVideoEmbedIframe != null}
+				{@html data.attributes.YTVideoEmbedIframe}
+			{/if}
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 		{/await}
