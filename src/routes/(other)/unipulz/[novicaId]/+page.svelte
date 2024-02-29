@@ -134,7 +134,7 @@
 			<Link linkText="Vse novice" linkHref="/unipulz" fontSize={20} />
 		</div>
 		<form
-			class="p-30 flex flex-col gap-30 bg-white dark:bg-black rounded-3xl border border-black dark:border-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+			class="p-30 flex flex-col gap-20 bg-white dark:bg-black rounded-3xl border border-black dark:border-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 			action="/"
 		>
 			<div class="flex flex-col gap-10">

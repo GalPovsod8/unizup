@@ -29,10 +29,29 @@
 		showModal = true;
 	}
 
+	if (!isMobile && showModal) {
+		console.log('to pride koda');
+	}
+
+	function slideImagesLeftRight(e: any) {
+		switch (e.keyCode) {
+			case 37:
+				if (selectedImageIndex !== null && selectedImageIndex > 0) {
+					selectedImageIndex--;
+				}
+				break;
+			case 39:
+				if (selectedImageIndex !== null && selectedImageIndex < images.length - 1) {
+					selectedImageIndex++;
+				}
+				break;
+		}
+	}
+
 	$: isMobile = innerWidth <= 800;
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window bind:innerWidth on:keydown={slideImagesLeftRight} />
 
 <div class="h-64 w-full flex items-center justify-between gap-30">
 	{#if images.length > 2}
