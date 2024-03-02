@@ -36,7 +36,9 @@
 		<div
 			class="w-full flex flex-col md:flex-row items-center justify-between pb-1 border-b border-black dark:border-white"
 		>
-			<div class="flexi items-center gap-30"></div>
+			<div class="flexi items-center gap-30">
+				<!-- Naredi komponento z tagam -->
+			</div>
 			<p class="font-medium text-20">Najnovejša objava: 17.1.2024</p>
 		</div>
 		<div class="h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
