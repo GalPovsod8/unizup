@@ -14,19 +14,21 @@
 </script>
 
 <svelte:head>
-	<!-- PODATKI O NOVICI isto ne pozabit pr oznanilah!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-	<!-- <title>UniPulz | {novica.attributes.Naslov}</title>
+	{#await novica}
+		<title>Nalaganje...</title>
+	{:then data}
+		<title>{data.attributes.Naslov} - Univerzitetna župnija Maribor</title>
+	{/await}
 	<meta
 		name="description"
 		content="Ostani na tekočem z Unizup-om! UniPulz novice so tu zato, da ostaneš vedno informiran o najbolj aktualnih zadevah."
-	/> -->
+	/>
 </svelte:head>
 
 <section
 	class="w-full flex flex-col lg:flex-row items-start justify-between gap-60 2xl:gap-90 pt-120 pb-16 px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
 >
-	<!-- Breadcrumbi grejo nad article -->
-	<article class="w-full lg:w-[70vw] flex flex-col gap-30">
+	<article class="w-full lg:w-[70vw] flex flex-col gap-30 animate-show">
 		{#await novica}
 			<p>Nalaganje novice...</p>
 		{:then data}
@@ -36,8 +38,8 @@
 					style="text-decoration-color: {data.attributes.Tag == 'Dogodek'
 						? '#942B2B'
 						: data.attributes.Tag == 'Duhovno'
-							? '#51B3C9'
-							: '#92942B'}"
+							? '#1E8096'
+							: '#75770E'}"
 				>
 					{data.attributes.Naslov}
 				</h2>
@@ -47,7 +49,7 @@
 						<p><b class="font-medium">Datum: </b>{FormatDate(data.attributes.Datum)}</p>
 					</div>
 					<a
-						class:bg-blue={data.attributes.Tag == 'Duhovno'}
+						class:bg-tagBlue={data.attributes.Tag == 'Duhovno'}
 						class:bg-redTag={data.attributes.Tag == 'Dogodek'}
 						class:bg-novicaTagYellow={data.attributes.Tag == 'Novica'}
 						class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
@@ -57,7 +59,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="markdownStyles flex flex-col gap-15 text-20 mb-4">
+			<div class="markdownStyles">
 				<SvelteMarkdown source={data.attributes.Vsebina} />
 			</div>
 			{#if data.attributes.Media.data.length > 1}
@@ -86,7 +88,7 @@
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
 		{/await}
 	</article>
-	<aside class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-30">
+	<aside class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-30 animate-show">
 		<div
 			class="flex flex-col gap-15 p-30 bg-white dark:bg-black rounded-3xl border border-black dark:border-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
@@ -116,7 +118,7 @@
 								</div>
 
 								<a
-									class:bg-blue={drugaNovica.attributes.Tag == 'Duhovno'}
+									class:bg-tagBlue={drugaNovica.attributes.Tag == 'Duhovno'}
 									class:bg-redTag={drugaNovica.attributes.Tag == 'Dogodek'}
 									class:bg-novicaTagYellow={drugaNovica.attributes.Tag == 'Novica'}
 									class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white p-2 hover:opacity-80 transition-all ease-in-out duration-150"

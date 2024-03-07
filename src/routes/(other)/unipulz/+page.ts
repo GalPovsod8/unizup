@@ -2,11 +2,15 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 
-export const load: PageLoad = async ({ fetch }) => {
-	const DobiNovice = async () => {
-		const vseNoviceRes = await fetch(
-			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc`
-		);
+export const load: PageLoad = async ({ fetch, url }) => {
+	const vseNovice = async (tag: any) => {
+		let apiUrl = `${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc`;
+
+		if (tag) {
+			apiUrl += `&filters[$and][0][Tag][$eq]=${tag}`;
+		}
+
+		const vseNoviceRes = await fetch(apiUrl);
 
 		if (!vseNoviceRes.ok) {
 			error(404, 'Napaka pri nalaganju novic');
@@ -17,6 +21,6 @@ export const load: PageLoad = async ({ fetch }) => {
 	};
 
 	return {
-		vseNovice: DobiNovice()
+		vseNovice: vseNovice(url.searchParams.get('tag'))
 	};
 };

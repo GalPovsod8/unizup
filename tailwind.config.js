@@ -18,10 +18,11 @@ export default {
 			black: '#1a1a1a',
 			white: '#FFFFFF',
 			yellow: '#FDD708',
-			novicaTagYellow: '#92942B',
 			blue: '#51B3C9',
 			red: '#FF7D7D',
 			redTag: '#942B2B',
+			tagBlue: '#1E8096',
+			novicaTagYellow: '#75770E',
 			moreRed: '#FF3F3F'
 		},
 		gap: {
@@ -57,7 +58,8 @@ export default {
 				oznanilaNoviceLoader: 'onl 1s infinite ease-in-out alternate',
 				fontAnim: 'fontAnim .5s forwards ease-in-out',
 				show: 'show .5s forwards ease-in-out',
-				showUp: 'showUp 1s forwards ease-in-out'
+				showUp: 'showUp 1s forwards ease-in-out',
+				cBounce: 'cBounce 2s infinite ease-in-out'
 			},
 			keyframes: {
 				onl: {
@@ -75,6 +77,10 @@ export default {
 				showUp: {
 					'0%': { transform: 'translateY(100px)', opacity: '0' },
 					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				cBounce: {
+					'0%, 100%': { transform: 'translateY(-10%)' },
+					'50%': { transform: 'translateY(0)' }
 				}
 			},
 			fontFamily: {

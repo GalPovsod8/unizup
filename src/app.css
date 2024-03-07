@@ -10,4 +10,173 @@
 		font-family: 'Work Sans', sans-serif;
 		scroll-behavior: smooth;
 	}
+
+	.markdownStyles h1 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1.25rem;
+	}
+
+	.markdownStyles h3 {
+		font-size: 20px;
+		font-weight: 500;
+		margin-bottom: 0.625rem;
+	}
+
+	.markdownStyles h3 {
+		font-size: 20px;
+		font-weight: 500;
+		margin-bottom: 0.625rem;
+	}
+
+	.markdownStyles p {
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles ol {
+		list-style-type: decimal;
+		padding-left: 35px;
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles ul {
+		list-style-type: disc;
+		padding-left: 35px;
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles a {
+		color: #51b3c9;
+		text-decoration: underline;
+		margin-bottom: 1.875rem;
+		transition: all ease-in-out 150ms;
+	}
+
+	.markdownStyles a:hover {
+		opacity: 80%;
+	}
+
+	.markdownStyles table {
+		width: 100%;
+		border: 1px solid #1a1a1a;
+		border-radius: 25px;
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.markdownStyles th {
+		background-color: #f2f2f2;
+		color: #333;
+		font-weight: bold;
+		padding: 8px;
+		border: 1px solid #ddd;
+	}
+
+	.markdownStyles td {
+		padding: 8px;
+		border: 1px solid #ddd;
+	}
+
+	.markdownStyles tr:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	.markdownStyles tr:hover {
+		background-color: #f5f5f5;
+	}
+
+	.markdownStyles hr {
+		margin-bottom: 1.875rem;
+	}
+
+	.markdownStyles blockquote {
+		background: #f9f9f9;
+		border: 1px solid #1a1a1a;
+		border-left: 10px solid #1a1a1a;
+		margin: 1.875rem 0px;
+		padding: 1.5em 1.2rem;
+		quotes: '\201C' '\201D' '\2018' '\2019';
+		border-radius: 0.625rem;
+		filter: drop-shadow(2px 2px 0px #1a1a1a);
+		transition: all ease-in-out 150ms;
+	}
+
+	.markdownStyles blockquote:hover {
+		filter: drop-shadow(0px 0px 0px);
+	}
+
+	.markdownStyles blockquote:before {
+		color: #ccc;
+		content: open-quote;
+		font-size: 4em;
+		line-height: 0.1em;
+		margin-right: 0.2em;
+		vertical-align: -0.4em;
+	}
+
+	.markdownStyles blockquote p {
+		display: inline;
+	}
+
+	.markdownStyles pre {
+		border: 1px solid #1a1a1a;
+		background: #f9f9f9;
+		font-family: 'Courier New', Courier, monospace;
+		border-radius: 5px;
+		margin: 1.875rem 0px;
+		padding: 1.5em 1.2rem;
+		filter: drop-shadow(2px 2px 0px #1a1a1a);
+		transition: all ease-in-out 150ms;
+	}
+
+	.markdownStyles pre:hover {
+		filter: drop-shadow(0px 0px 0px);
+	}
+
+	.dark .markdownStyles th,
+	.dark .markdownStyles td {
+		border-color: #ffffff;
+	}
+
+	.dark .markdownStyles th {
+		background-color: #333;
+		color: #fff;
+	}
+
+	.dark .markdownStyles tr:nth-child(even) {
+		background-color: rgb(43, 43, 43);
+	}
+
+	.dark .markdownStyles tr:hover {
+		background-color: #1a1a1a;
+	}
+
+	.dark .markdownStyles hr {
+		border-color: #1a1a1a;
+	}
+
+	.dark .markdownStyles blockquote {
+		background: #333;
+		border-color: #ffffff;
+	}
+
+	.dark .markdownStyles blockquote p {
+		color: #ffffff;
+	}
+
+	.dark .markdownStyles pre {
+		border-color: #ffffff;
+		background: #333;
+		color: #ffffff;
+	}
 }
