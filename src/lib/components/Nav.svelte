@@ -2,7 +2,6 @@
 	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Domov</a>
 	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/unipulz">UniPulz</a>
 	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/oznanila">Kaj zaj?</a>
-	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/duhovnost">Duhovnost</a
-	>
+	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/duhovno">Duhovno</a>
 	<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/onas">O Nas</a>
 </nav>

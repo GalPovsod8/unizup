@@ -28,7 +28,7 @@
 <section
 	class="w-full flex flex-col lg:flex-row items-start justify-between gap-60 2xl:gap-90 pt-120 pb-16 px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
 >
-	<article class="w-full lg:w-[70vw] flex flex-col gap-30 animate-show">
+	<article class="w-full lg:max-w-[57vw] flex flex-col gap-30 animate-show">
 		{#await novica}
 			<p>Nalaganje novice...</p>
 		{:then data}
@@ -169,5 +169,6 @@
 		text-decoration: underline;
 		text-decoration-style: solid;
 		text-decoration-thickness: 3px;
+		word-wrap: break-word;
 	}
 </style>
