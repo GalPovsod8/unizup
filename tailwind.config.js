@@ -16,14 +16,17 @@ export default {
 		colors: {
 			transparent: '#ffffff00',
 			black: '#1a1a1a',
+			silver: '#E8E8E8',
 			white: '#FFFFFF',
 			yellow: '#FDD708',
 			blue: '#51B3C9',
+			activityBlue: '#92EBFF',
 			red: '#FF7D7D',
 			redTag: '#942B2B',
 			tagBlue: '#1E8096',
 			novicaTagYellow: '#75770E',
-			moreRed: '#FF3F3F'
+			moreRed: '#FF3F3F',
+			green: '#7DFF7D'
 		},
 		gap: {
 			0: '0rem',

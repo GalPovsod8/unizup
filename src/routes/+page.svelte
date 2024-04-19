@@ -84,10 +84,16 @@
 				<h2 class="aos font-black text-64 text-center">KDO SMO?</h2>
 
 				<p class="aos sm:w-[70%] w-9/12 text-32 text-center font-medium">
-					Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje študentske
-					pastorale, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
-					usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v
-					središču mesta na Slomškovem trgu 20, poleg mariborske stolnice.
+					Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
+						class="font-bold text-moreRed">študentske pastorale</b
+					>, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu usmerjene
+					pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
+					mesta na
+					<a
+						href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
+						target="_blank"
+						class="font-bold text-moreRed underline">Slomškovem trgu 20</a
+					>, poleg mariborske stolnice.
 				</p>
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">

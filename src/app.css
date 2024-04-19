@@ -11,6 +11,11 @@
 		scroll-behavior: smooth;
 	}
 
+	.my-120 {
+		margin-top: 7.5rem;
+		margin-bottom: 7.5rem;
+	}
+
 	.markdownStyles h1 {
 		font-size: 2rem;
 		font-weight: bold;

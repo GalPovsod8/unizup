@@ -1,12 +1,10 @@
 <script lang="ts">
-	// export let imgSrc: string;
-	// export let imgAlt: string;
-
 	import Aos from './AOS.svelte';
+	export let addClasses: string = '';
 </script>
 
 <Aos>
-	<div class="aos w-full grid grid-cols-1 2xl:grid-cols-5 md:grid-rows-3 gap-30">
+	<div class={`aos ${addClasses} w-full grid grid-cols-1 2xl:grid-cols-5 md:grid-rows-3 gap-30`}>
 		<figure
 			class="relative group w-full col-span-1 row-span-2 overflow-hidden rounded-3xl border border-black"
 		>
