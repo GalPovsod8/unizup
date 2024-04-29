@@ -1,12 +1,11 @@
 <script lang="ts">
 	import Aos from './AOS.svelte';
-	export let addClasses: string = '';
 </script>
 
 <Aos>
-	<div class={`aos ${addClasses} w-full grid grid-cols-1 2xl:grid-cols-5 md:grid-rows-3 gap-30`}>
+	<div class={`aos absolute w-[90%] grid grid-cols-1 md:grid-cols-5 gap-30`}>
 		<figure
-			class="relative group w-full col-span-1 row-span-2 overflow-hidden rounded-3xl border border-black"
+			class="relative group w-full col-span-2 md:col-span-1 md:row-span-2 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -15,7 +14,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group w-full col-span-1 row-start-3 overflow-hidden rounded-3xl border border-black"
+			class="aos relative group w-full col-span-1 md:row-start-3 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -24,7 +23,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group w-full col-start-2 col-span-2 row-span-2 overflow-hidden rounded-3xl border border-black"
+			class="aos relative hidden md:block group w-full md:col-start-2 md:col-span-2 md:row-span-2 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -33,7 +32,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group h-[15rem] w-full col-start-2 col-span-3 row-span-1 overflow-hidden rounded-3xl border border-black"
+			class="aos relative group h-[15rem] w-full md:col-start-2 col-span-3 md:row-span-1 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -42,7 +41,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group w-full col-start-5 row-start-2 row-span-2 overflow-hidden rounded-3xl border border-black"
+			class="aos relative group w-full md:col-start-5 md:row-start-2 md:row-span-2 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -51,7 +50,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group w-full col-start-4 row-start-2 overflow-hidden rounded-3xl border border-black"
+			class="aos relative group w-full md:col-start-4 md:row-start-2 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -60,7 +59,7 @@
 			/>
 		</figure>
 		<figure
-			class="aos relative group h-[15rem] w-full col-start-4 col-span-2 row-start-1 row-span-1 overflow-hidden rounded-3xl border border-black"
+			class="aos relative group h-[15rem] w-full md:col-start-4 md:col-span-2 md:row-start-1 md:row-span-1 overflow-hidden rounded-3xl border border-black dark:border-white"
 		>
 			<img
 				class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}

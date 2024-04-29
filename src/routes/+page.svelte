@@ -6,8 +6,10 @@
 	import Loader1 from '$lib/components/Loader1.svelte';
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import Nav from '$lib/components/Nav.svelte';
+	import NewsSubscribe from '$lib/components/NewsSubscribe.svelte';
 	import ONasBox from '$lib/components/ONasBox.svelte';
 	import Oznanilo from '$lib/components/Oznanilo.svelte';
+	import ScrollWidthSection from '$lib/components/ScrollWidthSection.svelte';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
 	import type { PageData } from './$types';
 
@@ -30,8 +32,8 @@
 </svelte:head>
 
 <Aos>
-	<div class="flex flex-col gap-120 px-[5%]">
-		<div>
+	<div class="flex flex-col gap-120 w-full items-center min-h-screen">
+		<div class="flex flex-col items-center">
 			<section
 				class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
 			>
@@ -53,8 +55,8 @@
 					<b class="font-bold text-moreRed">mariborski stolnici</b>.
 				</p>
 			</section>
-			<section
-				class="w-full p-30 lg:p-60 flex flex-col items-center gap-15 lg:gap-30 rounded-3xl border bg-white dark:bg-black"
+			<ScrollWidthSection
+				classes={'w-full p-30 lg:p-60 flex flex-col items-center gap-15 lg:gap-30 rounded-3xl border bg-white dark:bg-black'}
 			>
 				<div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 					{#await oznanila}
@@ -76,10 +78,12 @@
 					{/await}
 				</div>
 				<Link linkHref="/oznanila" linkText="Vsa oznanila" />
-			</section>
+			</ScrollWidthSection>
 		</div>
 
-		<section class="flex flex-col items-center gap-90">
+		<ScrollWidthSection
+			classes={'relative flex flex-col gap-90 p-90 px-[5%] rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
+		>
 			<div class="w-full flex flex-col items-center gap-30">
 				<h2 class="aos font-black text-64 text-center">KDO SMO?</h2>
 
@@ -117,10 +121,14 @@
 				/>
 			</div>
 			<Gallery />
-			<MainBtn btnText="Več o nas" btnHref="/onas" />
-		</section>
-		<section
-			class="p-30 lg:p-60 mx-[-5.58%] flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black"
+			<MainBtn
+				addClasses={'absolute -bottom-[806px] self-center'}
+				btnText="Več o nas"
+				btnHref="/onas"
+			/>
+		</ScrollWidthSection>
+		<ScrollWidthSection
+			classes={'mt-[37.75rem] md:mt-[800px] p-30 lg:p-60 flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black'}
 		>
 			<h2 class="font-black text-64 text-center">UNIPULZ</h2>
 			<div
@@ -161,6 +169,13 @@
 				{/await}
 			</div>
 			<Link linkHref="/unipulz" linkText="Vse novice" />
-		</section>
+		</ScrollWidthSection>
+		<ScrollWidthSection
+			classes={'p-90 px-[5%] grid grid-cols-1 xl:grid-cols-3 rounded-3xl bg-white dark:bg-black border border-black dark:border-white'}
+		>
+			<div class="flex flex-col gap-30">1</div>
+			<div>2</div>
+			<div><NewsSubscribe /></div>
+		</ScrollWidthSection>
 	</div>
 </Aos>

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { FormatDate, ShortenTag } from '$lib/utils';
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import SvelteMarkdown from 'svelte-markdown';
 	import Link from '$lib/components/Link.svelte';
 	import NoviceImgCarousel from '$lib/components/NoviceImgCarousel.svelte';
-	import MainBtn from '$lib/components/MainBtn.svelte';
-	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
+	import NewsSubscribe from '$lib/components/NewsSubscribe.svelte';
 	import ImgPopup from '$lib/components/ImgPopup.svelte';
 
 	export let data: PageData;
@@ -26,7 +26,7 @@
 </svelte:head>
 
 <section
-	class="w-full flex flex-col lg:flex-row items-start justify-between gap-60 2xl:gap-90 pt-120 pb-16 px-[5%] bg-white dark:bg-black rounded-3xl border border-black"
+	class="w-full flex flex-col lg:flex-row items-start justify-between gap-60 2xl:gap-90 pt-120 pb-16 px-[5%] bg-white dark:bg-black rounded-3xl border border-black dark:border-white"
 >
 	<article class="w-full lg:max-w-[57vw] flex flex-col gap-30 animate-show">
 		{#await novica}
@@ -53,7 +53,7 @@
 						class:bg-redTag={data.attributes.Tag == 'Dogodek'}
 						class:bg-novicaTagYellow={data.attributes.Tag == 'Novica'}
 						class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
-						href={`${data.attributes.Tag}`}
+						href={`/unipulz?tag=${data.attributes.Tag}`}
 					>
 						{data.attributes.Tag}
 					</a>
@@ -85,7 +85,7 @@
 				{@html data.attributes.YTVideoEmbedIframe}
 			{/if}
 		{:catch error}
-			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
+			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
 		{/await}
 	</article>
 	<aside class="sticky top-10 w-full lg:w-[30vw] flex flex-col gap-30 animate-show">
@@ -122,7 +122,7 @@
 									class:bg-redTag={drugaNovica.attributes.Tag == 'Dogodek'}
 									class:bg-novicaTagYellow={drugaNovica.attributes.Tag == 'Novica'}
 									class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white p-2 hover:opacity-80 transition-all ease-in-out duration-150"
-									href={`${drugaNovica.attributes.Tag}`}
+									href={`/unipulz?tag=${drugaNovica.attributes.Tag}`}
 								>
 									{ShortenTag(drugaNovica.attributes.Tag)}
 								</a>
@@ -135,32 +135,7 @@
 			</ul>
 			<Link linkText="Vse novice" linkHref="/unipulz" fontSize={20} />
 		</div>
-		<form
-			class="p-30 flex flex-col gap-20 bg-white dark:bg-black rounded-3xl border border-black dark:border-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-			action="/"
-		>
-			<div class="flex flex-col gap-10">
-				<h3 class="text-24 font-bold">OSTANI NA TEKOČEM</h3>
-				<p class="text-20 text-justify">
-					Izpolnji obrazec in nikoli ne zamudi UniPulz novičk in oznanil!
-				</p>
-			</div>
-			<label class="text-20 font font-medium flex flex-col gap-10" for="email"
-				>Email:
-				<input
-					class="font-normal p-3 rounded-xl border dark:bg-black border-black dark:border-white"
-					name="email"
-					type="email"
-				/>
-			</label>
-			<MainBtn
-				btnHref="/"
-				btnText="NAROČI SE"
-				textSize={'24'}
-				isDarkBgVariant={true}
-				hasMaxWidth={false}
-			/>
-		</form>
+		<NewsSubscribe />
 	</aside>
 </section>
 

@@ -62,7 +62,7 @@
 					/>
 				{/each}
 			{:catch error}
-				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error}</p>
+				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
 			{/await}
 		</div>
 	</section>

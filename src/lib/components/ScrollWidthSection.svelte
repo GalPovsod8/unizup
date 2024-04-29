@@ -1,12 +1,13 @@
 <script lang="ts">
 	export let classes: string;
+	export let id: string = '';
 	let widthVar: number = 90;
 	let section: HTMLElement;
 	const maxWidth = 100;
 	const minWidth = 90;
 	const transitionStartOffset = 10;
 
-	function handleScroll(event: Event) {
+	function handleScroll() {
 		const scrollPosition = window.scrollY + window.innerHeight;
 		const sectionTop = section.offsetTop;
 		const sectionHeight = section.offsetHeight;
@@ -28,6 +29,6 @@
 
 <svelte:window on:scroll={handleScroll} />
 
-<section class={classes} bind:this={section} style="width: {widthVar}%;">
+<section {id} class={classes} bind:this={section} style="width: {widthVar}%;">
 	<slot />
 </section>

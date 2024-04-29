@@ -7,7 +7,7 @@
 
 <article
 	class:bg-yellow={index == 0}
-	class:bg-blue={index == 1}
+	class:bg-green={index == 1}
 	class:bg-red={index == 2}
 	class={`${addClass} group w-full p-60 flex flex-col gap-30 rounded-3xl border border-black drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150`}
 >

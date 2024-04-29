@@ -1,3 +1,5 @@
+import { scale } from 'svelte/transition';
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -63,7 +65,10 @@ export default {
 				fontAnim: 'fontAnim .5s forwards ease-in-out',
 				show: 'show .5s forwards ease-in-out',
 				showUp: 'showUp 1s forwards ease-in-out',
-				cBounce: 'cBounce 2s infinite ease-in-out'
+				cBounce: 'cBounce 2s infinite ease-in-out',
+				customPulse: 'customPulse 2s infinite ease-in-out',
+				customPulse2: 'customPulse 2s 1s infinite ease-in-out',
+				customPulse3: 'customPulse 2s 2s infinite ease-in-out'
 			},
 			keyframes: {
 				onl: {
@@ -85,6 +90,10 @@ export default {
 				cBounce: {
 					'0%, 100%': { transform: 'translateY(-10%)' },
 					'50%': { transform: 'translateY(0)' }
+				},
+				customPulse: {
+					'0%, 100%': { scale: '1' },
+					'50%': { scale: '1.2' }
 				}
 			},
 			fontFamily: {

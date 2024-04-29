@@ -9,9 +9,11 @@
 	import Loader1 from '$lib/components/Loader1.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import SkupinaCard from '$lib/components/SkupinaCard.svelte';
+	import MainBtn from '$lib/components/MainBtn.svelte';
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 
 	export let data: PageData;
-	let { aktivnosti } = data;
+	let { aktivnosti, skupine } = data;
 </script>
 
 <Aos>
@@ -90,10 +92,11 @@
 					</div>
 				</div>
 			</div>
-			<Gallery addClasses={'absolute w-[89.9%]'} />
+			<Gallery />
 		</section>
 		<ScrollWidthSection
-			classes={'my-120 mt-[37.75rem] md:mt-[50.5rem] p-90 px-[5%] rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
+			id={'skupine'}
+			classes={'my-120 mt-[44.00rem] md:mt-[50.5rem] p-90 px-[5%] rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
 		>
 			<div class="w-full flex flex-col items-center gap-90">
 				<div class="w-full flex flex-col items-center gap-15">
@@ -105,21 +108,19 @@
 					</p>
 				</div>
 				<div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90">
-					<SkupinaCard
-						skupinaName={'Pevski zbor vdih'}
-						skupinaImgSrc={'https://unizup.si/wp-content/uploads/2023/11/mas5.jpeg'}
-						skupinaLink={'1'}
-					/>
-					<SkupinaCard
-						skupinaName={'Ministrantje'}
-						skupinaImgSrc={'https://unizup.si/wp-content/uploads/2022/10/IMG_6781-1-scaled.jpg'}
-						skupinaLink={'2'}
-					/>
-					<SkupinaCard
-						skupinaName={'Medicinska skupina'}
-						skupinaImgSrc={'https://unizup.si/wp-content/uploads/2023/05/IMG_20230520_112834-scaled.jpg'}
-						skupinaLink={'3'}
-					/>
+					{#await skupine}
+						<Loader1 />
+					{:then data}
+						{#each data as skupina, i}
+							<SkupinaCard
+								skupinaName={skupina.attributes.imeSkupine}
+								skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.medium.url}`}
+								skupinaLink={`${i + 1}`}
+							/>
+						{/each}
+					{:catch error}
+						<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
+					{/await}
 				</div>
 			</div>
 		</ScrollWidthSection>
@@ -131,23 +132,38 @@
 					<h2 class="aos font-black text-64 text-center uppercase">sv. Janez Pavel ii.</h2>
 					<p class="aos sm:w-[60%] w-9/12 text-24 text-center">Naš zavetnik.</p>
 				</div>
-				<div class="w-full grid grid-cols-1 md:grid-cols-5 gap-90">
-					<article class="col-span-2">
-						<p class="aos">
-							Zavetnik Univerzitetne župnije Maribor je sveti Janez Pavel II, ker katoliški študenti
-							v njem vidijo vzor vere, upanja, ljubezni, dialoga, intelekta, izkušnje,
-							ustvarjalnosti, poguma, razločevanja in svobode.
-						</p>
-						<p class="aos">
-							»Hodi za menoj!« Karel Wojtila je sprejel, saj je v klicu Cerkve slišal Kristusov
-							glas. In potem se je zavedel, kako resnična je Gospodova beseda: »Kdor bo skušal
-							rešiti svoje življenje, ga bo izgubil; kdor pa ga bo izgubil, ga bo rešil (Lk 17,33).
-							Vsi vemo, da naš papež ni nikoli hotel rešiti svojega življenja, ga zadržati zase.
-							Samega sebe je hotel dati brez pridržka, vse do zadnjega trenutka za Kristusa in tako
-							tudi za nas.
-						</p>
-					</article>
-					<div class="max-h-[31.25rem] w-full col-span-3 grid grid-cols-2 gap-30">
+				<div class="relative w-full grid grid-cols-1 xl:grid-cols-5 gap-90">
+					<div
+						style="
+							rotate: 45deg;"
+						class="aos absolute -top-6 -left-6 size-12 rounded-xl opacity-20 outline outline-green"
+					></div>
+					<div class="col-span-5 xl:col-span-2 flex flex-col justify-between gap-30 text-20">
+						<article class=" flex flex-col justify-between gap-30 text-center xl:text-justify">
+							<p class="aos">
+								Zavetnik Univerzitetne župnije Maribor je sveti Janez Pavel II, ker katoliški
+								študenti v njem vidijo vzor vere, upanja, ljubezni, dialoga, intelekta, izkušnje,
+								ustvarjalnosti, poguma, razločevanja in svobode.
+							</p>
+							<p class="aos">
+								»Hodi za menoj!« Karel Wojtila je sprejel, saj je v klicu Cerkve slišal Kristusov
+								glas. In potem se je zavedel, kako resnična je Gospodova beseda: »Kdor bo skušal
+								rešiti svoje življenje, ga bo izgubil; kdor pa ga bo izgubil, ga bo rešil (Lk
+								17,33). Vsi vemo, da naš papež ni nikoli hotel rešiti svojega življenja, ga zadržati
+								zase. Samega sebe je hotel dati brez pridržka, vse do zadnjega trenutka za Kristusa
+								in tako tudi za nas.
+							</p>
+						</article>
+						<MainBtn
+							btnHref={`/duhovno`}
+							btnText={'Več o našem zavetniku'}
+							hasMaxWidth={false}
+							textSize={'24'}
+						/>
+					</div>
+					<div
+						class="max-h-[31.25rem] z-20 w-full col-span-5 xl:col-span-3 grid grid-cols-2 gap-30"
+					>
 						<figure
 							class="aos relative group w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
@@ -157,7 +173,7 @@
 								alt="SvJanezPavelII"
 							/>
 						</figure>
-						<div class="grid grid-rows-2 justify-items-stretch gap-30">
+						<div class="flex flex-col justify-between gap-30">
 							<figure
 								class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 							>
@@ -178,6 +194,11 @@
 							</figure>
 						</div>
 					</div>
+					<div
+						style="
+							rotate: 45deg;"
+						class="aos absolute -top-6 -right-6 size-12 rounded-xl opacity-20 outline outline-green"
+					></div>
 				</div>
 			</div>
 		</ScrollWidthSection>
@@ -211,21 +232,59 @@
 			</div>
 		</ScrollWidthSection>
 		<ScrollWidthSection
-			classes={'mb-120 p-90 px-[5%] grid grid-cols-5 rounded-3xl bg-white border border-black dark:border-white dark:text-black'}
+			classes={'mb-120 p-90 px-[5%] grid grid-cols-1 xl:grid-cols-5 gap-90 rounded-3xl bg-white dark:bg-black dark:text-white border border-black dark:border-white dark:text-black'}
 		>
-			<div class="col-span-2">text</div>
-			<div class="col-span-3">
-				<iframe
-					class="rounded-3xl border border-black drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					title="googleMaps"
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2743.392497976708!2d15.643148876168466!3d46.559703071113105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f7799df43109b%3A0xe7b963531c36d2cc!2sSlom%C5%A1kov%20trg%2020%2C%202000%20Maribor!5e0!3m2!1sen!2ssi!4v1713478045758!5m2!1sen!2ssi"
-					width="100%"
-					height="500"
-					allowfullscreen
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
-			</div>
+			<article class="col-span-5 xl:col-span-2 flex flex-col gap-50">
+				<div class="flex flex-col gap-15">
+					<h4 class="aos text-32 font-bold">Kako do nas?</h4>
+					<p class="aos text-20 text-justify font-medium">
+						Univerzitetna župnija Maribor se nahaja v središču mesta na <a
+							href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
+							target="_blank"
+							class="font-bold text-moreRed underline">Slomškovem trgu 20</a
+						>, poleg mariborske stolnice. Naši prostori se nahajajo ob stolnici, na vrhu stavbe
+						zraven študentskega doma.
+					</p>
+				</div>
+				<div class="flex flex-col gap-15">
+					<h4 class="aos text-32 font-bold">Dobrodošel v naše prostore</h4>
+					<p class="aos text-20 text-justify font-medium">
+						Naši prostori se nahajajo ob Stolnici, v zgornjih prostorih Študentskega doma. V njih
+						si/ste dobrodošel/i vsi <span class="font-bold"
+							>v torekih od 9.00 do 13.00 ure od 15.00 naprej, v sredah</span
+						> ter ostale dni po dogovoru. Lepo vabljeni!
+					</p>
+				</div>
+				<div class="flex flex-col gap-15">
+					<h4 class="aos text-32 font-bold">Unizup po spletu</h4>
+					<p class="aos text-20 text-justify font-medium">
+						Sledi nam tudi na facebooku in instagramu, ter nikoli ne zamudi novih objav in ostani na
+						tekočem z nami!
+					</p>
+					<div class="aos flex items-center gap-15">
+						<a
+							class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
+							href="/https://www.instagram.com/unizup/"
+							><img class="h-12" src="/fbIcon.svg" alt="Fb" /></a
+						>
+						<a
+							class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
+							href="https://www.facebook.com/univerzitetnazupnijamaribor"
+							><img class="h-12" src="/igIcon.svg" alt="Ig" /></a
+						>
+					</div>
+				</div>
+			</article>
+			<iframe
+				class="aos col-span-5 xl:col-span-3 rounded-3xl h-[31.25rem] xl:h-full border border-black dark:borde-white drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+				title="googleMaps"
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2743.392497976708!2d15.643148876168466!3d46.559703071113105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f7799df43109b%3A0xe7b963531c36d2cc!2sSlom%C5%A1kov%20trg%2020%2C%202000%20Maribor!5e0!3m2!1sen!2ssi!4v1713478045758!5m2!1sen!2ssi"
+				width="100%"
+				height="500"
+				allowfullscreen
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+			></iframe>
 		</ScrollWidthSection>
 	</div>
 </Aos>
