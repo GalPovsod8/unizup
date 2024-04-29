@@ -17,7 +17,7 @@
 </script>
 
 <header
-	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between bg-[#E7D8C9] dark:bg-black border-b border-black dark:border-white"
+	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between bg-blue/40 dark:bg-black border-b border-black dark:border-white"
 >
 	<a
 		class="flex z-50 items-center gap-10 text-24 font-medium hover:opacity-80 transition-all ease-in-out duration-150"
@@ -28,7 +28,7 @@
 		Unizup
 	</a>
 	<div
-		class={`absolute justify-center md:top-auto  ${isMobileMenuToggle ? 'top-0' : '-top-[1000px]'} bg-[#E7D8C9] z-50 dark:bg-black md:dark:bg-transparent md:bg-transparent left-0 md:relative h-dvh md:h-max w-full md:w-max flex flex-col md:flex-row items-center gap-30 md:gap-15 transition-all ease-in-out duration-150`}
+		class={`absolute justify-center md:top-auto  ${isMobileMenuToggle ? 'top-0' : '-top-[1000px]'} bg-blue z-50 dark:bg-black md:dark:bg-transparent md:bg-transparent left-0 md:relative h-dvh md:h-max w-full md:w-max flex flex-col md:flex-row items-center gap-30 md:gap-15 transition-all ease-in-out duration-150`}
 	>
 		<nav class="flex flex-col font-medium md:flex-row items-center gap-20 text-24 md:text-16">
 			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Domov</a>
