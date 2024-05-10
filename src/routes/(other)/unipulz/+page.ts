@@ -3,8 +3,12 @@ import type { PageLoad } from './$types';
 import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 
 export const load: PageLoad = async ({ fetch, url }) => {
-	const vseNovice = async (tag: any) => {
-		let apiUrl = `${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:desc`;
+	const limit = Number(url.searchParams.get('limit')) || 9;
+	const skip = Number(url.searchParams.get('skip')) || 0;
+	const tag = url.searchParams.get('tag');
+
+	const vseNovice = async (tag: any, limit: number = 9, skip: number = 0) => {
+		let apiUrl = `${PUBLIC_BASE_STRAPI_URL}/api/novicas?pagination[start]=${skip}&pagination[limit]=${limit}&populate=*&sort=Datum:desc`;
 
 		if (tag) {
 			apiUrl += `&filters[$and][0][Tag][$eq]=${tag}`;
@@ -17,10 +21,10 @@ export const load: PageLoad = async ({ fetch, url }) => {
 		}
 
 		const vseNoviceResData = await vseNoviceRes.json();
-		return vseNoviceResData.data;
+		return vseNoviceResData;
 	};
 
 	return {
-		vseNovice: vseNovice(url.searchParams.get('tag'))
+		vseNovice: vseNovice(tag, limit, skip)
 	};
 };

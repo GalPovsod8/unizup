@@ -104,19 +104,19 @@
 				<ONasBox
 					index={0}
 					oNasBoxNaslov="Študentje"
-					oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+					oNasBoxBesedilo="Smo študentje"
 					addClass="aos"
 				/>
 				<ONasBox
 					index={1}
 					oNasBoxNaslov="Na Poti"
-					oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+					oNasBoxBesedilo="Smo na poti za Kristusom"
 					addClass="aos"
 				/>
 				<ONasBox
 					index={2}
 					oNasBoxNaslov="Prijateljstva"
-					oNasBoxBesedilo="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+					oNasBoxBesedilo=""
 					addClass="col-span-1 md:col-span-2 2xl:col-span-1 aos"
 				/>
 			</div>

@@ -6,8 +6,38 @@
 	import Tag from '$lib/components/Tag.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import { FormatDate } from '$lib/utils';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+
 	export let data: PageData;
+
 	let vseNovice = data.vseNovice;
+	let totalNumOfNews: number;
+	let pageSize: number = 1;
+	let totalPages: number;
+	let currentPage: number = (Number($page.url.searchParams.get('skip')) || 0) / pageSize;
+	let visiblePages: number[];
+
+	onMount(() => {
+		data.vseNovice.then((resolvedData) => {
+			totalNumOfNews = resolvedData.meta.pagination.total;
+			totalPages = Math.ceil(totalNumOfNews / pageSize);
+			visiblePages = calculateVisiblePages(currentPage, totalPages);
+		});
+	});
+
+	function calculateVisiblePages(currentPage: number, totalPages: number): number[] {
+		const visiblePagesCount = 5;
+		const halfVisible = Math.floor(visiblePagesCount / 2);
+		let startPage = Math.max(currentPage - halfVisible, 0);
+		let endPage = Math.min(startPage + visiblePagesCount - 1, totalPages - 1);
+
+		if (endPage - startPage + 1 < visiblePagesCount) {
+			startPage = Math.max(endPage - visiblePagesCount + 1, 0);
+		}
+
+		return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+	}
 </script>
 
 <svelte:head>
@@ -41,7 +71,11 @@
 				<p class="font-medium text-16 md:text-20">Nalaganje...</p>
 			{:then vseNovice}
 				<p class="font-medium text-16 md:text-20">
-					Najnovejša objava: {FormatDate(vseNovice[0].attributes.Datum)}
+					{#if currentPage == 0}
+						Najnovejša objava: {FormatDate(vseNovice.data[0].attributes.Datum)}
+					{:else}
+						Stran: {currentPage + 1}
+					{/if}
 				</p>
 			{/await}
 		</div>
@@ -49,7 +83,7 @@
 			{#await vseNovice}
 				<Loader1 />
 			{:then data}
-				{#each data as novica}
+				{#each data.data as novica}
 					<SingleNewsCard
 						noivcaNaslov={novica.attributes.Naslov}
 						novicaLink={novica.id}
@@ -64,6 +98,27 @@
 			{:catch error}
 				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
 			{/await}
+		</div>
+		<div class="flex items-center justify-center">
+			{#if totalPages > 5}
+				{#each Array(totalPages) as _, id}
+					<a
+						data-sveltekit-reload
+						href="/unipulz?limit={pageSize}&skip={pageSize * id}"
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage == id ? 'bg-red' : 'bg-white'}`}
+						>{id + 1}</a
+					>
+				{/each}
+			{:else}
+				{#each Array(totalPages) as _, id}
+					<a
+						data-sveltekit-reload
+						href="/unipulz?limit={pageSize}&skip={pageSize * id}"
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage == id ? 'bg-red' : 'bg-white'}`}
+						>{id + 1}</a
+					>
+				{/each}
+			{/if}
 		</div>
 	</section>
 </div>
