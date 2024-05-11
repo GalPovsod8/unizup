@@ -13,31 +13,22 @@
 
 	let vseNovice = data.vseNovice;
 	let totalNumOfNews: number;
-	let pageSize: number = 1;
+	let pageSize: number = 2;
 	let totalPages: number;
 	let currentPage: number = (Number($page.url.searchParams.get('skip')) || 0) / pageSize;
-	let visiblePages: number[];
+
+	function calculateVisiblePages(currentPage: number, totalPages: number): number[] {
+		let start = Math.max(0, currentPage - 2);
+		let end = Math.min(totalPages - 1, currentPage + 2);
+		return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+	}
 
 	onMount(() => {
 		data.vseNovice.then((resolvedData) => {
 			totalNumOfNews = resolvedData.meta.pagination.total;
 			totalPages = Math.ceil(totalNumOfNews / pageSize);
-			visiblePages = calculateVisiblePages(currentPage, totalPages);
 		});
 	});
-
-	function calculateVisiblePages(currentPage: number, totalPages: number): number[] {
-		const visiblePagesCount = 5;
-		const halfVisible = Math.floor(visiblePagesCount / 2);
-		let startPage = Math.max(currentPage - halfVisible, 0);
-		let endPage = Math.min(startPage + visiblePagesCount - 1, totalPages - 1);
-
-		if (endPage - startPage + 1 < visiblePagesCount) {
-			startPage = Math.max(endPage - visiblePagesCount + 1, 0);
-		}
-
-		return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
-	}
 </script>
 
 <svelte:head>
@@ -101,20 +92,49 @@
 		</div>
 		<div class="flex items-center justify-center">
 			{#if totalPages > 5}
-				{#each Array(totalPages) as _, id}
+				{#if currentPage > 2}
 					<a
 						data-sveltekit-reload
-						href="/unipulz?limit={pageSize}&skip={pageSize * id}"
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage == id ? 'bg-red' : 'bg-white'}`}
-						>{id + 1}</a
+						href={`/unipulz?limit=${pageSize}&skip=0${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === 0 ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
+						>1</a
+					>
+				{/if}
+				{#each calculateVisiblePages(currentPage, totalPages) as visiblePage}
+					<a
+						data-sveltekit-reload
+						href={`/unipulz?limit=${pageSize}&skip=${pageSize * visiblePage}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === visiblePage ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
+						>{visiblePage + 1}</a
 					>
 				{/each}
+				{#if currentPage + 1 < totalPages - 1}
+					<span
+						class="size-10 flex items-center justify-center border border-black dark:border-white text-24"
+						>...</span
+					>
+				{/if}
+				{#if currentPage + 1 !== totalPages}
+					<a
+						aria-label="increase pagination page"
+						data-sveltekit-reload
+						href={`/unipulz?limit=${pageSize}&skip=${(currentPage + 1) * pageSize}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
+						class="size-10 flex items-center justify-center text-24 border border-black dark:border-white"
+						>&rarr;</a
+					>
+					<a
+						data-sveltekit-reload
+						href={`/unipulz?limit=${pageSize}&skip=${(totalPages - 1) * pageSize}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === totalPages - 1 ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
+						>{totalPages}</a
+					>
+				{/if}
 			{:else}
 				{#each Array(totalPages) as _, id}
 					<a
 						data-sveltekit-reload
-						href="/unipulz?limit={pageSize}&skip={pageSize * id}"
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage == id ? 'bg-red' : 'bg-white'}`}
+						href={`/unipulz?limit=${pageSize}&skip=${pageSize * id}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === id ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
 						>{id + 1}</a
 					>
 				{/each}
