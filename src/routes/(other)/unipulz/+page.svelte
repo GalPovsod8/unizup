@@ -13,7 +13,7 @@
 
 	let vseNovice = data.vseNovice;
 	let totalNumOfNews: number;
-	let pageSize: number = 2;
+	let pageSize: number = 9;
 	let totalPages: number;
 	let currentPage: number = (Number($page.url.searchParams.get('skip')) || 0) / pageSize;
 
@@ -79,7 +79,7 @@
 						noivcaNaslov={novica.attributes.Naslov}
 						novicaLink={novica.id}
 						tag={novica.attributes.Tag}
-						imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.url}`}
+						imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
 						avtor={novica.attributes.Avtor}
 						datum={novica.attributes.Datum}
 						povzetek={novica.attributes.Vsebina.substring(0, 100)}
@@ -90,7 +90,9 @@
 				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
 			{/await}
 		</div>
-		<div class="flex items-center justify-center">
+		<div
+			class="w-max flex items-center justify-center self-center rounded-3xl border border-black dark:border-white overflow-hidden"
+		>
 			{#if totalPages > 5}
 				{#if currentPage > 2}
 					<a

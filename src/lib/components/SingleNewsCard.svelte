@@ -15,7 +15,7 @@
 
 <a
 	href={`/unipulz/${novicaLink}`}
-	class={`${addClass} group h-full w-full 2xl:max-w-96 bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
+	class={`${addClass} group h-full w-full bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
 		<img

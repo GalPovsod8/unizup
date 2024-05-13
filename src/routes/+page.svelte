@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
+	import CtaIsland from '$lib/components/CTAIsland.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Loader1 from '$lib/components/Loader1.svelte';
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import NewsSubscribe from '$lib/components/NewsSubscribe.svelte';
 	import ONasBox from '$lib/components/ONasBox.svelte';
 	import Oznanilo from '$lib/components/Oznanilo.svelte';
 	import ScrollWidthSection from '$lib/components/ScrollWidthSection.svelte';
@@ -33,7 +33,7 @@
 
 <Aos>
 	<div class="flex flex-col gap-120 w-full items-center min-h-screen">
-		<div class="flex flex-col items-center">
+		<div class="w-full flex flex-col items-center">
 			<section
 				class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
 			>
@@ -132,7 +132,7 @@
 		>
 			<h2 class="font-black text-64 text-center">UNIPULZ</h2>
 			<div
-				class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-flow-row auto-rows-max gap-30 2xl:gap-60"
+				class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-flow-row auto-rows-max gap-30 2xl:gap-60"
 			>
 				{#await novice}
 					<Loader1 />
@@ -143,7 +143,7 @@
 								noivcaNaslov={novica.attributes.Naslov}
 								novicaLink={novica.id}
 								tag={novica.attributes.Tag}
-								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.url}`}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
 								avtor={novica.attributes.Avtor}
 								datum={novica.attributes.Datum}
 								povzetek={novica.attributes.Vsebina.substring(0, 100)}
@@ -155,7 +155,7 @@
 								noivcaNaslov={novica.attributes.Naslov}
 								novicaLink={novica.id}
 								tag={novica.attributes.Tag}
-								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.url}`}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
 								avtor={novica.attributes.Avtor}
 								datum={novica.attributes.Datum}
 								povzetek={novica.attributes.Vsebina.substring(0, 100)}
@@ -170,12 +170,6 @@
 			</div>
 			<Link linkHref="/unipulz" linkText="Vse novice" />
 		</ScrollWidthSection>
-		<ScrollWidthSection
-			classes={'p-90 px-[5%] grid grid-cols-1 xl:grid-cols-3 rounded-3xl bg-white dark:bg-black border border-black dark:border-white'}
-		>
-			<div class="flex flex-col gap-30">1</div>
-			<div>2</div>
-			<div><NewsSubscribe /></div>
-		</ScrollWidthSection>
+		<CtaIsland />
 	</div>
 </Aos>

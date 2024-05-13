@@ -111,11 +111,11 @@
 					{#await skupine}
 						<Loader1 />
 					{:then data}
-						{#each data as skupina, i}
+						{#each data as skupina}
 							<SkupinaCard
 								skupinaName={skupina.attributes.imeSkupine}
 								skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.medium.url}`}
-								skupinaLink={`${i + 1}`}
+								skupinaLink={`${skupina.id}`}
 							/>
 						{/each}
 					{:catch error}

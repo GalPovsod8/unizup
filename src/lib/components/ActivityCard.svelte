@@ -3,6 +3,7 @@
 	export let activityDay: string = '';
 	export let activityTime: string = '';
 	export let index: number;
+	export let hasAll: boolean = true;
 
 	const colors = ['#FDD708', '#92EBFF', '#FF7D7D', '#7DFF7D'];
 
@@ -14,6 +15,8 @@
 	style="background-color: {getColor(index)};"
 >
 	<h4 class="font-bold text-20">{activityName}</h4>
-	<p>{activityDay}</p>
-	<p>{activityTime}</p>
+	{#if hasAll}
+		<p>{activityDay}</p>
+		<p>{activityTime}</p>
+	{/if}
 </div>

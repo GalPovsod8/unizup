@@ -7,6 +7,7 @@
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import ActivityCard from '$lib/components/ActivityCard.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
+	import Loader2 from '$lib/components/Loader2.svelte';
 
 	export let data: PageData;
 	let { skupina } = data;
@@ -15,10 +16,10 @@
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">
 		{#await skupina}
-			<p>Nalaganje novice...</p>
+			<Loader2 />
 		{:then data}
 			<section
-				class="w-full grid grid-cols-1 md:grid-cols-5 gap-90 py-[150px] pb-90 px-[5%] bg-white dark:bg-black rounded-3xl border border-black dark:border-white"
+				class="w-full grid grid-cols-1 xl:grid-cols-5 gap-30 xl:gap-90 py-[150px] pb-90 px-[5%] bg-white dark:bg-black rounded-3xl border border-black dark:border-white"
 			>
 				<div
 					class="w-full col-span-1 md:col-span-3 flex flex-col items-center justify-center gap-30 animate-show"
@@ -43,7 +44,9 @@
 					</a>
 				</div>
 				<div class="aos relative col-span-1 md:col-span-2">
-					<div class="absolute w-full grid grid-cols-2 grid-rows-3 gap-30">
+					<div
+						class="absolute w-full grid grid-cols-2 grid-rows-3 gap-10 md:gap-30 max-h-[350px] xl:max-h-[34.375rem]"
+					>
 						<figure
 							class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
 						>
@@ -85,9 +88,9 @@
 			</section>
 			<ScrollWidthSection
 				id={'first'}
-				classes={'mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
+				classes={'mt-[23.75rem] xl:mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
 			>
-				<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-90 place-items-center">
+				<div class="w-full grid grid-cols-1 xl:grid-cols-2 gap-90 place-items-center">
 					<div class="w-full flex flex-col gap-30 min-[1750px]:col-span-3">
 						<h2 class="aos font-black text-64 text-center xl:text-left">KDO SMO?</h2>
 						<p class="aos text-20 text-justify font-medium">
@@ -113,10 +116,10 @@
 						</div>
 					</div>
 					<div class="aos grid grid-cols-2 gap-15">
-						<ActivityCard activityName={data.attributes.aktivnost1} index={1} />
-						<ActivityCard activityName={data.attributes.aktivnost2} index={2} />
-						<ActivityCard activityName={data.attributes.aktivnost3} index={3} />
-						<ActivityCard activityName={data.attributes.aktivnost4} index={4} />
+						<ActivityCard activityName={data.attributes.aktivnost1} index={1} hasAll={false} />
+						<ActivityCard activityName={data.attributes.aktivnost2} index={2} hasAll={false} />
+						<ActivityCard activityName={data.attributes.aktivnost3} index={3} hasAll={false} />
+						<ActivityCard activityName={data.attributes.aktivnost4} index={4} hasAll={false} />
 					</div>
 				</div>
 				<MainBtn
