@@ -5,20 +5,24 @@
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Loader2 from './Loader2.svelte';
 
-	async function getSkupine() {
-		const skupineRes = await fetch(`${PUBLIC_BASE_STRAPI_URL}/api/skupinas?populate=*`);
-		if (!skupineRes.ok) {
-			throw new Error('users');
-		}
-		const skupineData = await skupineRes.json();
-		return skupineData.data;
-	}
+	export let addClasses = '';
 
-	let skupinePromise = getSkupine();
+	let skupinePromise = fetch(`${PUBLIC_BASE_STRAPI_URL}/api/skupinas?populate=*`)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.json();
+		})
+		.then((data) => data.data)
+		.catch((error) => {
+			console.error('Fetch error:', error);
+			throw error;
+		});
 </script>
 
 <ScrollWidthSection
-	classes={'p-90 px-[5%] grid grid-cols-1 xl:grid-cols-3 gap-60 rounded-3xl bg-white dark:bg-black border border-black dark:border-white'}
+	classes={`${addClasses} p-90 px-[5%] grid grid-cols-1 xl:grid-cols-3 gap-60 rounded-3xl bg-white dark:bg-black border border-black dark:border-white`}
 >
 	<div class="aos max-h-[25rem] flex flex-col gap-30 overflow-auto">
 		{#await skupinePromise}
@@ -30,6 +34,8 @@
 					href="/o_nas/{skupina.id}">{skupina.attributes.imeSkupine}</a
 				>
 			{/each}
+		{:catch error}
+			<p>Napaka pri nalaganju skupin {error}</p>
 		{/await}
 	</div>
 	<div class="flex flex-col gap-30">

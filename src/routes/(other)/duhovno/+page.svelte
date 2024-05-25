@@ -1,9 +1,19 @@
 <script lang="ts">
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
+	import CtaIsland from '$lib/components/CTAIsland.svelte';
 	import ColorfullSection from '$lib/components/ColorfullSection.svelte';
+	import DuhovnaRastCard from '$lib/components/DuhovnaRastCard.svelte';
+	import Loader1 from '$lib/components/Loader1.svelte';
+	import MainBtn from '$lib/components/MainBtn.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
-	import ScrollWidthSection from '$lib/components/ScrollWidthSection.svelte';
+	import Povezave from '$lib/components/Povezave.svelte';
 	import Zavetnik from '$lib/components/Zavetnik.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+
+	let { koristnePovezave, duhovniClanki } = data;
 </script>
 
 <Aos>
@@ -21,46 +31,49 @@
 				<h2 class="aos font-black text-64 text-center xl:text-left">ODRINI GLOBJE</h2>
 				<article class="flex flex-col gap-30">
 					<p class="aos text-20 text-justify font-medium">
-						Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
-							class="font-bold text-moreRed">študentske pastorale</b
-						>, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
-						usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v
-						središču mesta na
-						<a
-							href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
-							target="_blank"
-							class="font-bold text-moreRed underline">Slomškovem trgu 20</a
-						>, poleg mariborske stolnice.
+						Temeljni namen človeškega življenja je <span class="text-moreRed font-bold"
+							>spoznati</span
+						>
+						Boga, ga <span class="text-moreRed font-bold">ljubiti</span> in
+						<span class="text-moreRed font-bold">mu služiti</span>. Ker se na Unizupu tega kot
+						župnija mladih še posebej zavedamo, je ta stran zato namenjena vsem stvarem, povezanim z
+						duhovnim življenjem človeka, ki je v določenem oziru najbolj pomembno in ključno.
 					</p>
-					<p class="aos text-20 text-justify font-medium">
-						Namen župnije je <b class="font-bold text-moreRed"> združevati</b> katoliške študente,
-						ki študirajo v Mariboru oz. na področju mariborske nadškofije ter skupaj z njimi živeti
-						<b class="font-bold text-moreRed">krščanske vrednote</b>.
-					</p>
-					<p class="aos text-20 text-justify font-medium">
-						Vsako sredo od oktobra do konca junija se študenti zbiramo pri študentski sv. maši v
-						mariborski stolnici ob 19h. Aktivni smo v pevskem zboru Vdih, ki sodeluje pri sv. mašah
-						ter pripravlja koncerte. V okviru Univerzitetne župnije Maribor (Unizup) delujejo
-						<a href="#skupine" class="font-bold text-moreRed underline">različne skupine</a>, h
-						katerim te prisrčno vabimo, da se pridružiš! Organiziramo tudi večere z zanimivi gosti,
-						molitvena srečanja, romanja v druge države, duhovne vaje in
-						<b class="font-bold text-moreRed">duhovne vikende</b>. Skupaj hodimo na izlete.
-						Organiziramo plese in družabne dogodke, poleg tega pa tudi dogodke za nadškofijo
-						Maribor: Nikodemovi večeri, Križev pot po ulicah Maribora, Ekumensko srečanje mladih,
-						Kulturni dan in še mnogo več. Smo prijatelji, ki si pomagamo med seboj in
-						<b class="font-bold text-moreRed">dobra družba</b>, odprta tudi zate, ki si vabljen/a,
-						da se nam pridružiš.
-					</p>
+					<div class="flex flex-col gap-15">
+						<h4 class="aos text-32 font-bold">Rast v duhovnem življenju</h4>
+						<p class="aos text-20 text-justify font-medium">
+							Pot duhovnega življenja se lahko upravičeno zdi dokaj zapletena in težavna, vendar pa
+							temu ni tako oz. je vsaj lažje, če imamo na tej poti prave smernice in pomoči, s
+							katerimi si lahko pomagamo. Na tej strani lahko zato pod sekcijo <a
+								class="text-moreRed font-bold underline"
+								href="#duhovnaRast">duhovna rast</a
+							> duhovna rast najdeš ogromno koristnih napotkov, usmeritev, praktičnih vaj in še mnogo
+							več, kar ti bo pomagalo pri rasti v duhovnem življenju.
+						</p>
+					</div>
+					<div class="flex flex-col gap-15">
+						<h4 class="aos text-32 font-bold">Bistvo življenja - postati svetnik</h4>
+						<p class="aos text-20 text-justify font-medium">
+							Vsak človek je poklican, da postane svetnik. To ni nekakšna nemogoča misija, pač pa
+							sodelovanje z Bogom v vseh vsakdanjih stvareh; to pomeni ljubiti in delovati na način,
+							kot je deloval naš Gospod Jezus Kristus. Odličen primer tega so že mnogi svetniki z
+							Božjo Materjo Devico Marijo na čelu. Upamo, da ti lahko ta stran obilno pomaga na poti
+							svetništva. Pogumno naprej!
+						</p>
+					</div>
 				</article>
 				<div class="flex-1">
-					<p
-						class="aos h-full w-full p-30 grid place-items-center text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+					<div
+						class="aos h-full w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 					>
-						Smo župnija mladih, študentov in prijateljev, ki nas povezuje ljubezen do Kristusa.
-					</p>
+						<p>“Biti svetnik ni privilegij le za izbrane, ampak poklicanost vseh.”</p>
+						<p class="place-self-end">Papež Frančišek</p>
+					</div>
 				</div>
 			</div>
-			<div class="w-full flex flex-col gap-60 min-[1750px]:col-span-2">alalal</div>
+			<div class="w-full flex flex-col gap-60 min-[1750px]:col-span-2">
+				<Povezave data={koristnePovezave} />
+			</div>
 		</section>
 		<ColorfullSection
 			id={'duhovnaRast'}
@@ -69,10 +82,23 @@
 			description="V tej sekciji lahko najdeš veliko koristnih informacij, praktičnih napotkov in drugih stvari, ki ti bodo pomagale pri rasti v duhovnem življenju."
 		>
 			<div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90">
-				<p>tesst1</p>
-				<p>test2</p>
+				{#await duhovniClanki}
+					<Loader1 />
+				{:then duhovniClanki}
+					{#each duhovniClanki as clanek}
+						<DuhovnaRastCard
+							clanekName={clanek.attributes.Naslov}
+							clanekLink={clanek.id}
+							clanekImgSrc={`${PUBLIC_BASE_STRAPI_URL}${clanek.attributes.Media.data[0].attributes.formats.medium.url}`}
+						/>
+					{/each}
+				{:catch error}
+					<p>Napaka pri nalaganju člankov: {error}</p>
+				{/await}
 			</div>
+			<MainBtn btnText="Več" btnHref="unipulz?tag=Duhovno" />
 		</ColorfullSection>
 		<Zavetnik />
+		<CtaIsland addClasses={'mt-[7.5rem]'} />
 	</div>
 </Aos>

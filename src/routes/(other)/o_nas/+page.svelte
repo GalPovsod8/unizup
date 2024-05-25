@@ -108,7 +108,7 @@
 				{:then data}
 					{#each data as skupina}
 						<SkupinaCard
-							skupinaLink={`${skupina.id}`}
+							skupinaLink={skupina.id}
 							skupinaName={skupina.attributes.imeSkupine}
 							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.medium.url}`}
 						/>
