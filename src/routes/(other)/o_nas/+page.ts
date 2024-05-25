@@ -26,8 +26,18 @@ export const load: PageLoad = async ({ fetch, params }) => {
 		return skupinaData.data;
 	};
 
+	const fetchOsebe = async () => {
+		const oRes = await fetch(`${PUBLIC_BASE_STRAPI_URL}/api/osebas?populate=*`);
+		if (!oRes.ok) {
+			error(404, 'Oseba ne obstja!');
+		}
+		const osebaData = await oRes.json();
+		return osebaData.data;
+	};
+
 	return {
 		aktivnosti: fetchAktivnosti(),
-		skupine: fetchSkupine()
+		skupine: fetchSkupine(),
+		osebe: fetchOsebe()
 	};
 };

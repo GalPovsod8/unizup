@@ -3,7 +3,6 @@
 	import NewsSubscribe from './NewsSubscribe.svelte';
 	import ScrollWidthSection from './ScrollWidthSection.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
-	import Loader1 from './Loader1.svelte';
 	import Loader2 from './Loader2.svelte';
 
 	async function getSkupine() {
@@ -28,7 +27,7 @@
 			{#each skupine as skupina}
 				<a
 					class="w-full flex items-center justify-center hover:bg-opacity-90 text-black border border-black rounded-2xl px-7 py-3 font-bold text-24 dark:bg-black dark:text-white dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all ease-in-out duration-150"
-					href="/onas/{skupina.id}">{skupina.attributes.imeSkupine}</a
+					href="/o_nas/{skupina.id}">{skupina.attributes.imeSkupine}</a
 				>
 			{/each}
 		{/await}

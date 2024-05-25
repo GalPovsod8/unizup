@@ -8,6 +8,7 @@
 	import { FormatDate } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import CtaIsland from '$lib/components/CTAIsland.svelte';
 
 	export let data: PageData;
 
@@ -39,7 +40,7 @@
 	/>
 </svelte:head>
 
-<div class="w-full min-h-screen">
+<div class="w-full min-h-screen flex flex-col items-center gap-120">
 	<PageTitle
 		pageTitle="UniPulz"
 		pageDescription="Dobrodošli na UniPulz - novice univerzitetne župnije Maribor. Želimo vam prijetno branje!"
@@ -143,4 +144,5 @@
 			{/if}
 		</div>
 	</section>
+	<CtaIsland />
 </div>

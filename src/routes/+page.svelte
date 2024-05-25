@@ -104,19 +104,19 @@
 				<ONasBox
 					index={0}
 					oNasBoxNaslov="Študentje"
-					oNasBoxBesedilo="Smo študentje"
+					oNasBoxBesedilo="Smo študentje združeni v skupni ljubezeni do Kristusa."
 					addClass="aos"
 				/>
 				<ONasBox
 					index={1}
 					oNasBoxNaslov="Na Poti"
-					oNasBoxBesedilo="Smo na poti za Kristusom"
+					oNasBoxBesedilo="Smo na poti za Kristusom, vsak dan bolj in vsakič več"
 					addClass="aos"
 				/>
 				<ONasBox
 					index={2}
 					oNasBoxNaslov="Prijateljstva"
-					oNasBoxBesedilo=""
+					oNasBoxBesedilo="V naši skupnosti sklepamo mnoga prijateljstva, ki ostanejo za življenje"
 					addClass="col-span-1 md:col-span-2 2xl:col-span-1 aos"
 				/>
 			</div>
@@ -124,7 +124,7 @@
 			<MainBtn
 				addClasses={'absolute -bottom-[806px] self-center'}
 				btnText="Več o nas"
-				btnHref="/onas"
+				btnHref="/o_nas"
 			/>
 		</ScrollWidthSection>
 		<ScrollWidthSection

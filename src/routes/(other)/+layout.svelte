@@ -35,11 +35,11 @@
 			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/unipulz">UniPulz</a
 			>
 			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/oznanila"
-				>Kaj zaj?</a
+				>Oznanila</a
 			>
 			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/duhovno">Duhovno</a
 			>
-			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/onas">O Nas</a>
+			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/o_nas">O Nas</a>
 		</nav>
 		<div class="h-6 w-0.5 bg-black dark:bg-white hidden md:block"></div>
 		<button

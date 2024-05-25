@@ -2,6 +2,15 @@
 	export let path: string;
 	let crumbs: any[];
 
+	function formatAndCapitalize(string: string) {
+		const stringWithSpaces = string.replace(/_/g, ' ');
+		const words = stringWithSpaces.split(' ');
+		const capitalizedWords = words.map((word) => {
+			return word.charAt(0).toUpperCase() + word.slice(1);
+		});
+		return capitalizedWords.join(' ');
+	}
+
 	$: {
 		const tokens = path.split('/').filter((t: any) => t !== '');
 
@@ -9,7 +18,7 @@
 		crumbs = tokens.map((t: any) => {
 			tokenPath += '/' + t;
 			return {
-				label: t,
+				label: formatAndCapitalize(t),
 				href: tokenPath
 			};
 		});
