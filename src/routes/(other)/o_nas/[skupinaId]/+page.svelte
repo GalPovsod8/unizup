@@ -26,7 +26,7 @@
 				>
 					<article class="flex flex-col items-center text-center">
 						<h1
-							class="font-bold font-kufam animate-fontAnim text-40 md:text-64 xl:text-96 uppercase"
+							class="font-bold font-kufam max-w-[23.75rem] md:max-w-[50rem] break-words text-center animate-fontAnim text-40 md:text-64 uppercase"
 						>
 							{data.attributes.imeSkupine}
 						</h1>
@@ -34,7 +34,6 @@
 							{data.attributes.kratekOpisSkupine}
 						</p>
 					</article>
-					<Breadcrumbs path={$page.url.pathname} />
 					<a
 						href="#first"
 						class="relative animate-cBounce top-0 hover:top-1 dark:invert w-max grid place-items-center transition-all ease-in-out duration-150"

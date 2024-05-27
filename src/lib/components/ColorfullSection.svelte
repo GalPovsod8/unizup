@@ -10,7 +10,7 @@
 
 <ScrollWidthSection
 	{id}
-	classes={`${addClasses} p-90 px-[5%] rounded-3xl bg-${bgColor} border border-black dark:border-white dark:text-black`}
+	classes={`${addClasses} p-90 px-[5%] rounded-3xl bg-${bgColor} dark:bg-black dark:text-white border border-black dark:border-white dark:text-black`}
 >
 	<div class="w-full flex flex-col items-center gap-90">
 		<div class="w-full flex items-center justify-around">

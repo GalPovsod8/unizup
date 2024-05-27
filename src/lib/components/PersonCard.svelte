@@ -5,7 +5,7 @@
 </script>
 
 <figure
-	class="aos relative group h-[35rem] w-full 2xl:max-w-[30rem] overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+	class="aos relative group h-[35rem] w-full 2xl:max-w-[30rem] overflow-hidden rounded-3xl border border-black dark:border-white dark:text-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 >
 	<div
 		class="absolute h-4/5 w-full z-40 overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"

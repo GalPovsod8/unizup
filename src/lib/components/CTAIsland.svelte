@@ -4,21 +4,27 @@
 	import ScrollWidthSection from './ScrollWidthSection.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Loader2 from './Loader2.svelte';
+	import { onMount } from 'svelte';
 
 	export let addClasses = '';
 
-	let skupinePromise = fetch(`${PUBLIC_BASE_STRAPI_URL}/api/skupinas?populate=*`)
-		.then((response) => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.json();
-		})
-		.then((data) => data.data)
-		.catch((error) => {
-			console.error('Fetch error:', error);
-			throw error;
-		});
+	let skupinePromise: any[] = [];
+
+	onMount(() => {
+		fetch(`${PUBLIC_BASE_STRAPI_URL}/api/skupinas?populate=*`)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data) => {
+				skupinePromise = data.data;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	});
 </script>
 
 <ScrollWidthSection

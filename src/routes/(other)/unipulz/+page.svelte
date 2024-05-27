@@ -1,22 +1,25 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
-	import Loader1 from '$lib/components/Loader1.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import Tag from '$lib/components/Tag.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import { FormatDate } from '$lib/utils';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import CtaIsland from '$lib/components/CTAIsland.svelte';
+	import { goto } from '$app/navigation';
 
 	export let data: PageData;
 
-	let vseNovice = data.vseNovice;
-	let totalNumOfNews: number;
+	let totalNumOfNoivce: number = data.vseNovice.meta.pagination.total;
 	let pageSize: number = 9;
-	let totalPages: number;
-	let currentPage: number = (Number($page.url.searchParams.get('skip')) || 0) / pageSize;
+	let totalPages: number = Math.ceil(totalNumOfNoivce / pageSize);
+	let currentPage: number = Math.floor(
+		(Number($page.url.searchParams.get('skip')) || 0) / pageSize
+	);
+
+	$: novice = data.vseNovice;
+	$: currentPage = Math.floor((Number($page.url.searchParams.get('skip')) || 0) / pageSize);
 
 	function calculateVisiblePages(currentPage: number, totalPages: number): number[] {
 		let start = Math.max(0, currentPage - 2);
@@ -24,12 +27,13 @@
 		return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 	}
 
-	onMount(() => {
-		data.vseNovice.then((resolvedData) => {
-			totalNumOfNews = resolvedData.meta.pagination.total;
-			totalPages = Math.ceil(totalNumOfNews / pageSize);
-		});
-	});
+	async function changePage(pageNumber: number) {
+		const skip = pageNumber * pageSize;
+		const url = new URL(window.location.href);
+		url.searchParams.set('limit', pageSize.toString());
+		url.searchParams.set('skip', skip.toString());
+		await goto(url.toString(), { replaceState: true, noScroll: true });
+	}
 </script>
 
 <svelte:head>
@@ -40,7 +44,7 @@
 	/>
 </svelte:head>
 
-<div class="w-full min-h-screen flex flex-col items-center gap-120">
+<div class="w-full min-h-screen flex flex-col items-center">
 	<PageTitle
 		pageTitle="UniPulz"
 		pageDescription="Dobrodošli na UniPulz - novice univerzitetne župnije Maribor. Želimo vam prijetno branje!"
@@ -59,56 +63,44 @@
 				<Tag tagName="Duhovno" />
 				<Tag tagName="Novica" />
 			</div>
-			{#await vseNovice}
-				<p class="font-medium text-16 md:text-20">Nalaganje...</p>
-			{:then vseNovice}
-				<p class="font-medium text-16 md:text-20">
-					{#if currentPage == 0}
-						Najnovejša objava: {FormatDate(vseNovice.data[0].attributes.Datum)}
-					{:else}
-						Stran: {currentPage + 1}
-					{/if}
-				</p>
-			{/await}
+			<p class="font-medium text-16 md:text-20">
+				{#if currentPage == 0}
+					Najnovejša objava: {FormatDate(novice.data[0].attributes.Datum)}
+				{:else}
+					Stran: {currentPage + 1}
+				{/if}
+			</p>
 		</div>
 		<div class="h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
-			{#await vseNovice}
-				<Loader1 />
-			{:then data}
-				{#each data.data as novica}
-					<SingleNewsCard
-						noivcaNaslov={novica.attributes.Naslov}
-						novicaLink={novica.id}
-						tag={novica.attributes.Tag}
-						imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
-						avtor={novica.attributes.Avtor}
-						datum={novica.attributes.Datum}
-						povzetek={novica.attributes.Vsebina.substring(0, 100)}
-						isRecent={true}
-					/>
-				{/each}
-			{:catch error}
-				<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
-			{/await}
+			{#each novice.data as novica}
+				<SingleNewsCard
+					noivcaNaslov={novica.attributes.Naslov}
+					novicaLink={novica.id}
+					tag={novica.attributes.Tag}
+					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
+					avtor={novica.attributes.Avtor}
+					datum={novica.attributes.Datum}
+					povzetek={novica.attributes.Vsebina.substring(0, 100)}
+					isRecent={true}
+				/>
+			{/each}
 		</div>
 		<div
 			class="w-max flex items-center justify-center self-center rounded-3xl border border-black dark:border-white overflow-hidden"
 		>
 			{#if totalPages > 5}
 				{#if currentPage > 2}
-					<a
-						data-sveltekit-reload
-						href={`/unipulz?limit=${pageSize}&skip=0${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === 0 ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
-						>1</a
+					<button
+						on:click={() => changePage(0)}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === 0 ? 'bg-red dark:text-black' : 'bg-white dark:bg-black'}`}
+						>1</button
 					>
 				{/if}
 				{#each calculateVisiblePages(currentPage, totalPages) as visiblePage}
-					<a
-						data-sveltekit-reload
-						href={`/unipulz?limit=${pageSize}&skip=${pageSize * visiblePage}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === visiblePage ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
-						>{visiblePage + 1}</a
+					<button
+						on:click={() => changePage(visiblePage)}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === visiblePage ? 'bg-red dark:text-black' : 'bg-white dark:bg-black'}`}
+						>{visiblePage + 1}</button
 					>
 				{/each}
 				{#if currentPage + 1 < totalPages - 1}
@@ -118,31 +110,28 @@
 					>
 				{/if}
 				{#if currentPage + 1 !== totalPages}
-					<a
+					<button
+						on:click={() => changePage(currentPage + 1)}
 						aria-label="increase pagination page"
-						data-sveltekit-reload
-						href={`/unipulz?limit=${pageSize}&skip=${(currentPage + 1) * pageSize}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
 						class="size-10 flex items-center justify-center text-24 border border-black dark:border-white"
-						>&rarr;</a
+						>&rarr;</button
 					>
-					<a
-						data-sveltekit-reload
-						href={`/unipulz?limit=${pageSize}&skip=${(totalPages - 1) * pageSize}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === totalPages - 1 ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
-						>{totalPages}</a
+					<button
+						on:click={() => changePage(totalPages - 1)}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === totalPages - 1 ? 'bg-red dark:text-black' : 'bg-white dark:bg-black'}`}
+						>{totalPages}</button
 					>
 				{/if}
 			{:else}
 				{#each Array(totalPages) as _, id}
-					<a
-						data-sveltekit-reload
-						href={`/unipulz?limit=${pageSize}&skip=${pageSize * id}${$page.url.searchParams.has('tag') ? '&tag=' + $page.url.searchParams.get('tag') : ''}`}
-						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === id ? 'bg-red' : 'bg-white'} border border-black dark:border-white`}
-						>{id + 1}</a
+					<button
+						on:click={() => changePage(id)}
+						class={`size-10 flex items-center justify-center border border-black dark:border-white text-24 ${currentPage === id ? 'bg-red dark:text-black' : 'bg-white dark:bg-black'}`}
+						>{id + 1}</button
 					>
 				{/each}
 			{/if}
 		</div>
 	</section>
-	<CtaIsland />
+	<CtaIsland addClasses="mt-[7.5rem] " />
 </div>

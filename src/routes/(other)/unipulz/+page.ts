@@ -24,7 +24,9 @@ export const load: PageLoad = async ({ fetch, url }) => {
 		return vseNoviceResData;
 	};
 
+	const vseNoviceData = await vseNovice(tag, limit, skip);
+
 	return {
-		vseNovice: vseNovice(tag, limit, skip)
+		vseNovice: vseNoviceData
 	};
 };
