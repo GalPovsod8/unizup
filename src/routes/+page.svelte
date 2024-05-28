@@ -38,10 +38,12 @@
 				class="h-screen md:h-[75vh] w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
 			>
 				<header class="grid place-items-center gap-50">
-					<hgroup class="grid place-items-center font-bold gap-30 text-center">
+					<hgroup class="grid w-4/5 md:w-full place-items-center font-bold gap-30 text-center">
 						<img class="h-20 w-20 rounded-full -mb-7" src="/unizupLogo.png" alt="UZ" />
-						<h1 class="-mb-5 text-96 font-kufam animate-fontAnim">UNIZUP</h1>
-						<h2 class="-mb-4 text-40 font-kufam animate-fontAnim">UNIVERZITETNA ŽUPNIJA MARIBOR</h2>
+						<h1 class="-mb-5 text-64 md:text-96 font-kufam animate-fontAnim">UNIZUP</h1>
+						<h2 class="-mb-4 text-32 md:text-40 font-kufam animate-fontAnim">
+							UNIVERZITETNA ŽUPNIJA MARIBOR
+						</h2>
 					</hgroup>
 					<Nav />
 					<button
@@ -82,7 +84,7 @@
 		</div>
 
 		<ScrollWidthSection
-			classes={'relative flex flex-col gap-90 p-90 px-[5%] rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
+			classes={'relative flex flex-col gap-90 p-90 px-[5%] rounded-3xl bg-blue dark:bg-black dark:text-white border border-black dark:border-white dark:text-black'}
 		>
 			<div class="w-full flex flex-col items-center gap-30">
 				<h2 class="aos font-black text-64 text-center">KDO SMO?</h2>
@@ -105,19 +107,19 @@
 					index={0}
 					oNasBoxNaslov="Študentje"
 					oNasBoxBesedilo="Smo študentje združeni v skupni ljubezeni do Kristusa."
-					addClass="aos"
+					addClass="aos dark:text-black"
 				/>
 				<ONasBox
 					index={1}
 					oNasBoxNaslov="Na Poti"
 					oNasBoxBesedilo="Smo na poti za Kristusom, vsak dan bolj in vsakič več"
-					addClass="aos"
+					addClass="aos dark:text-black"
 				/>
 				<ONasBox
 					index={2}
 					oNasBoxNaslov="Prijateljstva"
 					oNasBoxBesedilo="V naši skupnosti sklepamo mnoga prijateljstva, ki ostanejo za življenje"
-					addClass="col-span-1 md:col-span-2 2xl:col-span-1 aos"
+					addClass="col-span-1 md:col-span-2 2xl:col-span-1 aos dark:text-black"
 				/>
 			</div>
 			<Gallery />

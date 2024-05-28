@@ -32,9 +32,9 @@
 		{#await novica}
 			<p>Nalaganje novice...</p>
 		{:then data}
-			<div class="w-full flex flex-col gap-15">
+			<div class="w-full flex flex-col gap-30 md:gap-15">
 				<h2
-					class="underliner font-bold text-40"
+					class="underliner font-bold text-40 text-center md:text-left"
 					style="text-decoration-color: {data.attributes.Tag == 'Dogodek'
 						? '#942B2B'
 						: data.attributes.Tag == 'Duhovno'

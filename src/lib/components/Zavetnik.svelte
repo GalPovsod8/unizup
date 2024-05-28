@@ -8,17 +8,17 @@
 >
 	<div class="w-full flex flex-col items-center gap-90">
 		<div class="w-full flex flex-col items-center gap-15">
-			<h2 class="aos font-black text-64 text-center uppercase">sv. Janez Pavel ii.</h2>
+			<h2 class="aos font-black text-40 md:text-64 text-center uppercase">sv. Janez Pavel ii.</h2>
 			<p class="aos sm:w-[60%] w-9/12 text-24 text-center">Naš zavetnik.</p>
 		</div>
 		<div class="relative w-full grid grid-cols-1 xl:grid-cols-5 gap-90">
 			<div
 				style="
 							rotate: 45deg;"
-				class="aos absolute -top-6 -left-6 size-12 rounded-xl opacity-20 outline outline-green"
+				class="aos hidden md:block absolute -top-6 -left-6 size-12 rounded-xl opacity-20 outline outline-green"
 			></div>
-			<div class="col-span-5 xl:col-span-2 flex flex-col justify-between gap-30 text-20">
-				<article class=" flex flex-col justify-between gap-30 text-center xl:text-justify">
+			<div class="col-span-4 xl:col-span-2 flex flex-col justify-between gap-30 text-20">
+				<article class="flex flex-col justify-between gap-30 text-center xl:text-justify">
 					<p class="aos">
 						Zavetnik Univerzitetne župnije Maribor je sveti Janez Pavel II, ker katoliški študenti v
 						njem vidijo vzor vere, upanja, ljubezni, dialoga, intelekta, izkušnje, ustvarjalnosti,
@@ -39,7 +39,7 @@
 					textSize={'24'}
 				/>
 			</div>
-			<div class="max-h-[31.25rem] z-20 w-full col-span-5 xl:col-span-3 grid grid-cols-2 gap-30">
+			<div class="max-h-[31.25rem] z-20 w-full col-span-4 xl:col-span-3 grid grid-cols-2 gap-30">
 				<figure
 					class="aos relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 				>
@@ -73,7 +73,7 @@
 			<div
 				style="
 							rotate: 45deg;"
-				class="aos absolute -top-6 -right-6 size-12 rounded-xl opacity-20 outline outline-green"
+				class="aos hidden md:block absolute -top-6 -right-6 size-12 rounded-xl opacity-20 outline outline-green"
 			></div>
 		</div>
 	</div>

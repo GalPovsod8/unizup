@@ -29,7 +29,7 @@
 			class="aos relative w-full p-90 px-[5%] grid grid-cols-1 xl:grid-cols-2 min-[1750px]:grid-cols-5 gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white"
 		>
 			<div class="w-full flex flex-col gap-60 min-[1750px]:col-span-3">
-				<h2 class="aos font-black text-64 text-center xl:text-left">KDO SMO?</h2>
+				<h2 class="aos font-black text-40 md:text-64 text-center xl:text-left">KDO SMO?</h2>
 				<article class="flex flex-col gap-30">
 					<p class="aos text-20 text-justify font-medium">
 						Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
@@ -74,7 +74,7 @@
 			<div class="w-full flex flex-col gap-60 min-[1750px]:col-span-2">
 				<ONasCarousel />
 				<div class="aos flex flex-col gap-30 flex-1">
-					<h3 class="text-32 font-bold">Redne aktivnosti župnije:</h3>
+					<h3 class="text-32 text-center md:text-left font-bold">Redne aktivnosti župnije:</h3>
 					<div class="grid grid-cols-2 gap-15">
 						{#await aktivnosti}
 							<Loader1 />

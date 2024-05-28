@@ -28,7 +28,7 @@
 			class="aos relative w-full p-90 px-[5%] grid grid-cols-1 xl:grid-cols-2 min-[1750px]:grid-cols-5 gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white"
 		>
 			<div class="w-full flex flex-col gap-60 min-[1750px]:col-span-3">
-				<h2 class="aos font-black text-64 text-center xl:text-left">ODRINI GLOBJE</h2>
+				<h2 class="aos font-black text-40 md:text-64 text-center xl:text-left">ODRINI GLOBJE</h2>
 				<article class="flex flex-col gap-30">
 					<p class="aos text-20 text-justify font-medium">
 						Temeljni namen človeškega življenja je <span class="text-moreRed font-bold"
@@ -40,7 +40,9 @@
 						duhovnim življenjem človeka, ki je v določenem oziru najbolj pomembno in ključno.
 					</p>
 					<div class="flex flex-col gap-15">
-						<h4 class="aos text-32 font-bold">Rast v duhovnem življenju</h4>
+						<h4 class="aos text-32 font-bold text-center md:text-justify">
+							Rast v duhovnem življenju
+						</h4>
 						<p class="aos text-20 text-justify font-medium">
 							Pot duhovnega življenja se lahko upravičeno zdi dokaj zapletena in težavna, vendar pa
 							temu ni tako oz. je vsaj lažje, če imamo na tej poti prave smernice in pomoči, s
@@ -52,7 +54,9 @@
 						</p>
 					</div>
 					<div class="flex flex-col gap-15">
-						<h4 class="aos text-32 font-bold">Bistvo življenja - postati svetnik</h4>
+						<h4 class="aos text-32 font-bold text-center md:text-justify">
+							Bistvo življenja - postati svetnik
+						</h4>
 						<p class="aos text-20 text-justify font-medium">
 							Vsak človek je poklican, da postane svetnik. To ni nekakšna nemogoča misija, pač pa
 							sodelovanje z Bogom v vseh vsakdanjih stvareh; to pomeni ljubiti in delovati na način,

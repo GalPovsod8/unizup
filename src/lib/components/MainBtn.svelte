@@ -15,6 +15,6 @@
 	class:max-w-96={hasMaxWidth}
 	href={btnHref}
 	target={isExternal ? `_blank` : `_self`}
-	class={`aos ${addClasses} w-full flex items-center justify-center hover:bg-opacity-90 text-black border border-black rounded-2xl px-7 py-3 font-bold text-${textSize} dark:bg-black dark:text-white dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all ease-in-out duration-150`}
+	class={`aos ${addClasses} w-full flex items-center text-center justify-center hover:bg-opacity-90 text-black border border-black rounded-2xl px-7 py-3 font-bold text-${textSize} dark:bg-black dark:text-white dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all ease-in-out duration-150`}
 	>{btnText}</a
 >

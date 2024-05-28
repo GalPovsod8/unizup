@@ -15,15 +15,17 @@
 			class="aos relative w-full p-90 px-[5%] grid grid-cols-1 xl:grid-cols-5 gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white"
 		>
 			<article class="flex flex-col gap-30 xl:col-span-3">
-				<h2 class="aos font-black text-64 text-center xl:text-left">O NAŠEM ZAVETNIKU</h2>
-				<p class="aos text-20 text-justify font-medium">
+				<h2 class="aos font-black text-40 md:text-64 text-center xl:text-left">
+					O NAŠEM ZAVETNIKU
+				</h2>
+				<p class="aos text-20 text-center md:text-justify font-medium">
 					Zavetnik Univerzitetne župnije Maribor je sveti Janez Pavel II, ker katoliški študenti v
 					njem vidijo vzor vere, upanja, ljubezni, dialoga, intelekta, izkušnje, ustvarjalnosti,
 					poguma, razločevanja in svobode.
 				</p>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold">Hodi za menoj!</h4>
-					<p class="aos text-20 text-justify font-medium">
+					<h4 class="aos text-32 font-bold text-center md:text-left">Hodi za menoj!</h4>
+					<p class="aos text-20 font-medium text-justify">
 						»Hodi za menoj!« Kot mlad študent je bil Karol Wojtila navdušen nad leposlovjem,
 						gledališčem, poezijo. Ko je delal v kemični tovarni in so ga obdajale ter ogrožale
 						strahote nacizma, je zaslišal Gospodov glas »Hodi za menoj!« V teh posebnih okoliščinah
@@ -46,8 +48,8 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold">Izgubiti samega sebe</h4>
-					<p class="aos text-20 text-justify font-medium">
+					<h4 class="aos text-32 font-bold text-center md:text-left">Izgubiti samega sebe</h4>
+					<p class="aos text-20 font-medium text-justify">
 						Julija 1958 se začenja za mladega duhovnika Karla Wojtila nova stopnja na poti z
 						Gospodom in za njim. Karel se je – kot ponavadi – odpravil s skupino mladih strastnih
 						kanuistov na jezero Masuri, da bi skupaj preživeli počitnice. Toda s seboj je nosil
@@ -69,8 +71,8 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold">Peter, ali me ljubiš?</h4>
-					<p class="aos text-20 text-justify font-medium">
+					<h4 class="aos text-32 font-bold text-center md:text-left">Peter, ali me ljubiš?</h4>
+					<p class="aos text-20 font-medium text-justify">
 						Oktobra 1978 je kardinal Wojtila znova zaslišal Gospodov glas. Ponovi se dialog s
 						Petrom, ki ga prinaša evangeljski odlomek  tega slavja: »Simon, Janezov sin, ali me
 						ljubiš? Pasi moje ovce!« Na Gospodovo vprašanje: »Karel, ali me ljubiš!«, je krakovski
@@ -82,8 +84,8 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold">Glasnik Božjega usmiljenja</h4>
-					<p class="aos text-20 text-justify font-medium">
+					<h4 class="aos text-32 font-bold text-center md:text-left">Glasnik Božjega usmiljenja</h4>
+					<p class="aos text-20 font-medium text-justify">
 						Velikonočno skrivnost je razlagal kot skrivnost Božjega usmiljenja. V svoji zadnji
 						knjigi piše: Končna meja zla »je v bistvu Božje usmiljenje«. In ko razmišlja o atentatu,
 						pravi: »Kristus je s tem, ko je trpel za nas, dal trpljenju nov smisel, uvedel ga je v
@@ -97,7 +99,7 @@
 						svojega bitja. Totus tuus. In od Matere se je učil upodabljanja po Kristusu.
 					</p>
 				</div>
-				<p class="aos text-20 text-justify font-bold">
+				<p class="aos text-20 text-center md:text-justify font-bold">
 					Odlomki iz homilije Papeža Benedikta XVI (takrat še kardinala Jožefa Ratzingerja) na
 					papeževem pogrebu, 8. 4. 2005
 				</p>

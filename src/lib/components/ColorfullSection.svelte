@@ -20,7 +20,7 @@
 				alt="*"
 			/>
 			<div class=" w-full xl:w-9/12 2xl:w-[60%] flex flex-col items-center gap-15">
-				<h2 class="aos font-black text-64 text-center uppercase">{title}</h2>
+				<h2 class="aos font-black text-40 md:text-64 text-center uppercase">{title}</h2>
 				<p class="aos text-24 text-center">
 					{description}
 				</p>

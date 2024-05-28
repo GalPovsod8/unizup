@@ -10,8 +10,12 @@
 	class="h-[80dvh] md:h-[75dvh] pt-20 w-full flex flex-col items-center justify-center gap-30 animate-show"
 >
 	<article class="flex flex-col items-center text-center">
-		<h1 class="font-bold font-kufam animate-fontAnim text-64 md:text-96 uppercase">{pageTitle}</h1>
-		<p class="w-full md:w-[65%] text-20 md:text-24">
+		<h1
+			class="font-bold w-[95%] break-words font-kufam animate-fontAnim text-64 md:text-96 uppercase"
+		>
+			{pageTitle}
+		</h1>
+		<p class="w-[90%] md:w-[65%] text-20 md:text-24">
 			{pageDescription}
 		</p>
 	</article>

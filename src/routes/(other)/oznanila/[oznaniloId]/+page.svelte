@@ -41,19 +41,36 @@
 						{/if}
 					</div>
 					{#if oznanilo.attributes.Vsebina != null}
-						<p class="text-center text-24">{oznanilo.attributes.Vsebina}</p>
+						<p class="text-justify text-24">{oznanilo.attributes.Vsebina}</p>
 					{/if}
 				</div>
+
 				<div class="aos relative col-span-1 md:col-span-2">
-					<figure
-						class="aos max-h-[20rem] md:max-h-[33rem] relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					>
-						<img
-							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.url}`}
-							alt="oznaniloImg"
-						/>
-					</figure>
+					{#if oznanilo.attributes.Media.data.length > 1}
+						<div class="flex flex-col gap-30 max-h-[50rem]">
+							{#each oznanilo.attributes.Media.data as img}
+								<figure
+									class="aos max-h-[20rem] md:max-h-[33rem] relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+										src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.url}`}
+										alt="oznaniloImg"
+									/>
+								</figure>
+							{/each}
+						</div>
+					{:else}
+						<figure
+							class="aos max-h-[20rem] md:max-h-[33rem] relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+						>
+							<img
+								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.url}`}
+								alt="oznaniloImg"
+							/>
+						</figure>
+					{/if}
 				</div>
 			</section>
 		{:catch error}
