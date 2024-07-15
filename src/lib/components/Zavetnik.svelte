@@ -5,7 +5,7 @@
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Loader2 from './Loader2.svelte';
 
-	let SvJanezPavelIISlikePormise: any[] = [];
+	let SvJanezPavelIISlikePromise: any = null;
 
 	onMount(() => {
 		fetch(`${PUBLIC_BASE_STRAPI_URL}/api/slike-sv-janez-p-max-6?populate=*`)
@@ -16,10 +16,10 @@
 				return response.json();
 			})
 			.then((data) => {
-				SvJanezPavelIISlikePormise = data.data;
+				SvJanezPavelIISlikePromise = data.data.attributes.slike_max_6;
 			})
 			.catch((error) => {
-				throw error;
+				console.log('There was an error loading images:', error);
 			});
 	});
 </script>
@@ -34,8 +34,7 @@
 		</div>
 		<div class="relative w-full grid grid-cols-1 xl:grid-cols-5 gap-90">
 			<div
-				style="
-							rotate: 45deg;"
+				style="rotate: 45deg;"
 				class="aos hidden md:block absolute -top-6 -left-6 size-12 rounded-xl opacity-20 outline outline-green"
 			></div>
 			<div class="col-span-4 xl:col-span-2 flex flex-col justify-between gap-30 text-20">
@@ -61,43 +60,50 @@
 				/>
 			</div>
 			<div class="max-h-[31.25rem] z-20 w-full col-span-4 xl:col-span-3 grid grid-cols-2 gap-30">
-				{#await SvJanezPavelIISlikePormise}
+				{#await SvJanezPavelIISlikePromise}
 					<Loader2 />
 				{:then slike}
-					<figure
-						class="aos relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					>
-						<img
-							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src={`s`}
-							alt="SvJanezPavelII"
-						/>
-					</figure>
-					<div class="flex flex-col justify-between gap-30">
+					{#if slike}
 						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							class="aos relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
 							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://unizup.si/wp-content/uploads/2020/11/Papez-300x276.jpeg"
+								class="h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+								src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[0].attributes.formats.medium.url}`}
 								alt="SvJanezPavelII"
 							/>
 						</figure>
-						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3-john-paul-ii-sicily-young-people-1993-orcppciric.jpg"
-								alt="SvJanezPavelII"
-							/>
-						</figure>
-					</div>
+
+						<div class="flex flex-col justify-between gap-30">
+							<figure
+								class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							>
+								<img
+									class="h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+									src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[1].attributes.formats.medium.url}`}
+									alt="SvJanezPavelII"
+								/>
+							</figure>
+							<figure
+								class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							>
+								<img
+									class="h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+									src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[2].attributes.formats.medium.url}`}
+									alt="SvJanezPavelII"
+								/>
+							</figure>
+						</div>
+					{:else}
+						<p>Error: Unable to load image.</p>
+						{#if slike}
+							<p>Debug: {JSON.stringify(slike)}</p>
+						{/if}
+					{/if}
 				{/await}
 			</div>
 			<div
-				style="
-							rotate: 45deg;"
+				style="rotate: 45deg;"
 				class="aos hidden md:block absolute -top-6 -right-6 size-12 rounded-xl opacity-20 outline outline-green"
 			></div>
 		</div>

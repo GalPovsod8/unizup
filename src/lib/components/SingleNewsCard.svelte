@@ -31,7 +31,6 @@
 		>
 			{tag}
 		</p>
-		<p />
 	</figure>
 	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 flex-grow">
 		<div class="w-full flex flex-col gap-5">

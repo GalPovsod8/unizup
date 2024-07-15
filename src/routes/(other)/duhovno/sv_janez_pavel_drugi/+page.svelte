@@ -1,6 +1,27 @@
 <script lang="ts">
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
+	import Loader2 from '$lib/components/Loader2.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
+	import { onMount } from 'svelte';
+
+	let SvJanezPavelIISlikePromise: any = null;
+
+	onMount(() => {
+		fetch(`${PUBLIC_BASE_STRAPI_URL}/api/slike-sv-janez-p-max-6?populate=*`)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data) => {
+				SvJanezPavelIISlikePromise = data.data.attributes.slike_max_6;
+			})
+			.catch((error) => {
+				console.log('There was an error loading images:', error);
+			});
+	});
 </script>
 
 <Aos>
@@ -105,83 +126,89 @@
 				</p>
 			</article>
 			<div class="flex flex-col gap-30 xl:col-span-2">
-				<div class="max-h-[31.25rem] z-20 w-full grid grid-cols-2 gap-30">
-					<figure
-						class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					>
-						<img
-							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src="https://www.santiebeati.it/immagini/Original/90026/90026EC.JPG"
-							alt="SvJanezPavelII"
-						/>
-					</figure>
-					<div class="flex flex-col justify-between gap-30">
-						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+				{#await SvJanezPavelIISlikePromise}
+					<Loader2 />
+				{:then slike}
+					{#if slike}
+						<div class="max-h-[31.25rem] z-20 w-full grid grid-cols-2 gap-30">
+							<figure
+								class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[0].attributes.formats.medium.url}`}
+									alt="SvJanezPavelII"
+								/>
+							</figure>
+							<div class="flex flex-col justify-between gap-30">
+								<figure
+									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+										src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[1].attributes.formats.medium.url}`}
+										alt="SvJanezPavelII"
+									/>
+								</figure>
+								<figure
+									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+										src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[2].attributes.formats.medium.url}`}
+										alt="SvJanezPavelII"
+									/>
+								</figure>
+							</div>
+						</div>
+						<div
+							class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://unizup.si/wp-content/uploads/2020/11/Papez-300x276.jpeg"
-								alt="SvJanezPavelII"
-							/>
-						</figure>
-						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							<p>“Ne bojte se! Odprite, na stežaj odprite vrata Kristusu!”</p>
+							<p class="place-self-end">Sv. Janez Pavel II</p>
+						</div>
+						<div class="max-h-[31.25rem] overflow-hidden z-20 w-full grid grid-cols-2 gap-30">
+							<div class="flex flex-col justify-between gap-30">
+								<figure
+									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+										src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[3].attributes.formats.medium.url}`}
+										alt="SvJanezPavelII"
+									/>
+								</figure>
+								<figure
+									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+										src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[4].attributes.formats.medium.url}`}
+										alt="SvJanezPavelII"
+									/>
+								</figure>
+							</div>
+							<figure
+								class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[5].attributes.formats.medium.url}`}
+									alt="SvJanezPavelII"
+								/>
+							</figure>
+						</div>
+						<div
+							class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3-john-paul-ii-sicily-young-people-1993-orcppciric.jpg"
-								alt="SvJanezPavelII"
-							/>
-						</figure>
-					</div>
-				</div>
-				<div
-					class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-				>
-					<p>“Ne bojte se! Odprite, na stežaj odprite vrata Kristusu!”</p>
-					<p class="place-self-end">Sv. Janez Pavel II</p>
-				</div>
-				<div class="max-h-[31.25rem] overflow-hidden z-20 w-full grid grid-cols-2 gap-30">
-					<div class="flex flex-col justify-between gap-30">
-						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://unizup.si/wp-content/uploads/2020/11/Papez-300x276.jpeg"
-								alt="SvJanezPavelII"
-							/>
-						</figure>
-						<figure
-							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src="https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3-john-paul-ii-sicily-young-people-1993-orcppciric.jpg"
-								alt="SvJanezPavelII"
-							/>
-						</figure>
-					</div>
-					<figure
-						class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					>
-						<img
-							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src="https://www.santiebeati.it/immagini/Original/90026/90026EC.JPG"
-							alt="SvJanezPavelII"
-						/>
-					</figure>
-				</div>
-				<div
-					class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-				>
-					<p>
-						“Marsikomu pomeni svoboda pravico, da dela, kar hoče, svetnikom pa daje moč, da iz
-						ljubezni in odpovedi delajo tudi to, kar jim ne ugaja”
-					</p>
-					<p class="place-self-end">Sv. Janez Pavel II</p>
-				</div>
+							<p>
+								“Marsikomu pomeni svoboda pravico, da dela, kar hoče, svetnikom pa daje moč, da iz
+								ljubezni in odpovedi delajo tudi to, kar jim ne ugaja”
+							</p>
+							<p class="place-self-end">Sv. Janez Pavel II</p>
+						</div>
+					{/if}
+				{/await}
 			</div>
 		</section>
 	</div>
