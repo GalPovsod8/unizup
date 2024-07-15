@@ -2,15 +2,11 @@
 	export let tagName: string;
 	let href: string;
 
-	if (tagName == 'Vse') {
-		href = '/unipulz';
-	} else {
-		href = `/unipulz?tag=${tagName}`;
-	}
+	$: tagName == 'Vse' ? (href = '/unipulz') : (href = `/unipulz?tag=${tagName}`);
 </script>
 
 <a
-	data-sveltekit-reload
+	data-sveltekit-noscroll
 	class:bg-white={tagName == 'Vse'}
 	class:text-black={tagName == 'Vse'}
 	class:text-white={tagName == 'Duhovno' || tagName == 'Dogodek' || tagName == 'Novica'}

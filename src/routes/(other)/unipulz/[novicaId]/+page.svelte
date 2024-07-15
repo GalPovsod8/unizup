@@ -9,8 +9,10 @@
 	import ImgPopup from '$lib/components/ImgPopup.svelte';
 
 	export let data: PageData;
-	let { novica, drugeNovice } = data;
 	let showModal: boolean = false;
+
+	$: ostaleNovice = data.drugeNovice;
+	$: novica = data.novica;
 </script>
 
 <svelte:head>
@@ -96,14 +98,13 @@
 				NAJBOLJ SVEŽE...
 			</h2>
 			<ul class="flex flex-col gap-15">
-				{#await drugeNovice}
+				{#await ostaleNovice}
 					<p>Nalaganje novic...</p>
 				{:then data}
 					{#each data as drugaNovica}
 						<li>
 							<a
 								class="w-full flex items-start justify-between gap-30 hover:opacity-80 transition-all ease-in-out duration-150"
-								data-sveltekit-reload
 								href="/unipulz/{drugaNovica.id}"
 							>
 								<div class="w-[80%] flex flex-col gap-5">

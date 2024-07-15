@@ -22,6 +22,7 @@ export default {
 			white: '#FFFFFF',
 			yellow: '#FDD708',
 			blue: '#51B3C9',
+			headerBlue: '#B9E1E9',
 			activityBlue: '#92EBFF',
 			red: '#FF7D7D',
 			redTag: '#942B2B',

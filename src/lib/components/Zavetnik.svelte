@@ -1,6 +1,27 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import MainBtn from './MainBtn.svelte';
 	import ScrollWidthSection from './ScrollWidthSection.svelte';
+	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
+	import Loader2 from './Loader2.svelte';
+
+	let SvJanezPavelIISlikePormise: any[] = [];
+
+	onMount(() => {
+		fetch(`${PUBLIC_BASE_STRAPI_URL}/api/slike-sv-janez-p-max-6?populate=*`)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data) => {
+				SvJanezPavelIISlikePormise = data.data;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	});
 </script>
 
 <ScrollWidthSection
@@ -40,35 +61,39 @@
 				/>
 			</div>
 			<div class="max-h-[31.25rem] z-20 w-full col-span-4 xl:col-span-3 grid grid-cols-2 gap-30">
-				<figure
-					class="aos relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-				>
-					<img
-						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src="https://www.santiebeati.it/immagini/Original/90026/90026EC.JPG"
-						alt="SvJanezPavelII"
-					/>
-				</figure>
-				<div class="flex flex-col justify-between gap-30">
+				{#await SvJanezPavelIISlikePormise}
+					<Loader2 />
+				{:then slike}
 					<figure
-						class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+						class="aos relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 					>
 						<img
 							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src="https://unizup.si/wp-content/uploads/2020/11/Papez-300x276.jpeg"
+							src={`s`}
 							alt="SvJanezPavelII"
 						/>
 					</figure>
-					<figure
-						class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
-					>
-						<img
-							class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-							src="https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3-john-paul-ii-sicily-young-people-1993-orcppciric.jpg"
-							alt="SvJanezPavelII"
-						/>
-					</figure>
-				</div>
+					<div class="flex flex-col justify-between gap-30">
+						<figure
+							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+						>
+							<img
+								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+								src="https://unizup.si/wp-content/uploads/2020/11/Papez-300x276.jpeg"
+								alt="SvJanezPavelII"
+							/>
+						</figure>
+						<figure
+							class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+						>
+							<img
+								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+								src="https://wp.en.aleteia.org/wp-content/uploads/sites/2/2019/01/web3-john-paul-ii-sicily-young-people-1993-orcppciric.jpg"
+								alt="SvJanezPavelII"
+							/>
+						</figure>
+					</div>
+				{/await}
 			</div>
 			<div
 				style="

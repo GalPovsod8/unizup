@@ -23,15 +23,15 @@
 			src={imgSrc}
 			alt={noivcaNaslov}
 		/>
-		<a
+		<p
 			class:bg-tagBlue={tag == 'Duhovno'}
 			class:bg-redTag={tag == 'Dogodek'}
 			class:bg-novicaTagYellow={tag == 'Novica'}
 			class={`absolute -bottom-0.5 -left-0.5 font-medium text-white rounded-tr-3xl rounded-bl-3xl border border-black dark:border-white p-4 z-50 scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-			href="/tag"
 		>
 			{tag}
-		</a>
+		</p>
+		<p />
 	</figure>
 	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 flex-grow">
 		<div class="w-full flex flex-col gap-5">

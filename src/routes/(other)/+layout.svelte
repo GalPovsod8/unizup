@@ -7,6 +7,10 @@
 			document.documentElement.classList.add('dark');
 			localStorage.theme = 'dark';
 		}
+
+		if (isMobileMenuToggle) {
+			isMobileMenuToggle = false;
+		}
 	}
 
 	let isMobileMenuToggle: boolean = false;
@@ -17,7 +21,7 @@
 </script>
 
 <header
-	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between bg-blue/40 dark:bg-black border-b border-black dark:border-white"
+	class="absolute z-50 top-0 w-full px-[5%] py-3 flex items-center justify-between bg-headerBlue dark:bg-black border-b border-black dark:border-white"
 >
 	<a
 		class="flex z-50 items-center gap-10 text-24 font-medium hover:opacity-80 transition-all ease-in-out duration-150"
@@ -32,14 +36,26 @@
 	>
 		<nav class="flex flex-col font-medium md:flex-row items-center gap-20 text-24 md:text-16">
 			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/">Domov</a>
-			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/unipulz">UniPulz</a
+			<a
+				on:click={() => (isMobileMenuToggle = false)}
+				class="hover:opacity-80 transition-all ease-in-out duration-150"
+				href="/unipulz">UniPulz</a
 			>
-			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/oznanila"
-				>Oznanila</a
+			<a
+				on:click={() => (isMobileMenuToggle = false)}
+				class="hover:opacity-80 transition-all ease-in-out duration-150"
+				href="/oznanila">Oznanila</a
 			>
-			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/duhovno">Duhovno</a
+			<a
+				on:click={() => (isMobileMenuToggle = false)}
+				class="hover:opacity-80 transition-all ease-in-out duration-150"
+				href="/duhovno">Duhovno</a
 			>
-			<a class="hover:opacity-80 transition-all ease-in-out duration-150" href="/o_nas">O Nas</a>
+			<a
+				on:click={() => (isMobileMenuToggle = false)}
+				class="hover:opacity-80 transition-all ease-in-out duration-150"
+				href="/o_nas">O Nas</a
+			>
 		</nav>
 		<div class="h-6 w-0.5 bg-black dark:bg-white hidden md:block"></div>
 		<button

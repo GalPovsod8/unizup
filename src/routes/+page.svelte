@@ -106,31 +106,31 @@
 				<ONasBox
 					index={0}
 					oNasBoxNaslov="Študentje"
-					oNasBoxBesedilo="Smo študentje združeni v skupni ljubezeni do Kristusa."
+					oNasBoxBesedilo="Smo študentje združeni v skupni ljubezeni do Jezusa Kristusa. Poleg vseh obveznosti se zelo radi družimo na Unizupu."
 					addClass="aos dark:text-black"
 				/>
 				<ONasBox
 					index={1}
 					oNasBoxNaslov="Na Poti"
-					oNasBoxBesedilo="Smo na poti za Kristusom, vsak dan bolj in vsakič več"
+					oNasBoxBesedilo="Smo na poti za Kristusom, vsak dan bolj in v tem se nenehno podpiramo. Naša pot je skupna pot, ki jo nenehno gradimo in krepimo."
 					addClass="aos dark:text-black"
 				/>
 				<ONasBox
 					index={2}
 					oNasBoxNaslov="Prijateljstva"
-					oNasBoxBesedilo="V naši skupnosti sklepamo mnoga prijateljstva, ki ostanejo za življenje"
+					oNasBoxBesedilo="Na Unizupu smo tudi dobri prijatelji in ne samo občasni znanci. Gradimo globje in trdne odnose in se v življenju podpiramo."
 					addClass="col-span-1 md:col-span-2 2xl:col-span-1 aos dark:text-black"
 				/>
 			</div>
 			<Gallery />
 			<MainBtn
-				addClasses={'absolute -bottom-[806px] self-center'}
+				addClasses={'absolute -bottom-[45.125rem] xl:-bottom-[47.875rem] self-center'}
 				btnText="Več o nas"
 				btnHref="/o_nas"
 			/>
 		</ScrollWidthSection>
 		<ScrollWidthSection
-			classes={'mt-[37.75rem] md:mt-[800px] p-30 lg:p-60 flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black'}
+			classes={'mt-[47.125rem] md:mt-[800px] p-30 lg:p-60 flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black'}
 		>
 			<h2 class="font-black text-64 text-center">UNIPULZ</h2>
 			<div
