@@ -30,7 +30,7 @@
 <div class="text-16 md:text-20">
 	{#each crumbs as c, i}
 		{#if i == crumbs.length - 1}
-			<a class="font-semibold text-moreRed" href={c.href}>{c.label}</a>
+			<a class="font-semibold text-moreRed dark:text-moreRedDark" href={c.href}>{c.label}</a>
 		{:else}
 			<a href={c.href}>{c.label}</a> &gt;&nbsp;
 		{/if}

@@ -46,7 +46,7 @@
 	</div>
 	<div class="flex flex-col gap-30">
 		<article class="aos flex flex-col items-center gap-15 text-center">
-			<h4 class="text-32 font-bold">Pogovor, spoved</h4>
+			<h3 class="text-32 font-bold">Pogovor, spoved</h3>
 			<p class="text-20">
 				Če si se znašel v stiski in ne veš kako naprej in se želiš z nekom pogovoriti? Ali želiš
 				pristopiti k zakramentu sv. spovedi me, pokliči na: <span class="font-bold"
@@ -61,7 +61,7 @@
 			<a
 				href="https://docs.google.com/forms/d/e/1FAIpQLSfHwOp69fnMXKxJsa36LgUjEP3xqHZf5NWFHDJBFJy6sRYntw/viewform"
 				target="_blank"
-				class="text-20 text-red underline">Obrazec</a
+				class="text-20 text-moreRed dark:text-moreRedDark underline">Obrazec</a
 			>
 		</div>
 		<div class="aos flex flex-col items-center gap-20 text-center">
@@ -69,12 +69,12 @@
 			<div class="aos flex items-center gap-15">
 				<a
 					class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
-					href="/https://www.instagram.com/unizup/"
+					href="https://www.facebook.com/univerzitetnazupnijamaribor"
 					><img class="h-12" src="/fbIcon.svg" alt="Fb" /></a
 				>
 				<a
 					class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
-					href="https://www.facebook.com/univerzitetnazupnijamaribor"
+					href="https://www.instagram.com/unizup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 					><img class="h-12" src="/igIcon.svg" alt="Ig" /></a
 				>
 			</div>

@@ -57,10 +57,11 @@
 	<div class="mt-6 flex items-center justify-center gap-10 overflow-auto">
 		{#each images as img, index}
 			<button
+				aria-label={`show image ${index + 1} button`}
 				on:click={() => toggle(index)}
 				class={index === currentIndex
-					? 'size-5 min-h-5 min-w-5 rounded-full bg-black dark:bg-blue'
-					: 'size-5 min-h-5 min-w-5 rounded-full bg-silver'}
+					? 'size-7 min-h-5 min-w-5 rounded-full bg-black dark:bg-blue'
+					: 'size-7 min-h-5 min-w-5 rounded-full bg-silver'}
 			></button>
 		{/each}
 	</div>

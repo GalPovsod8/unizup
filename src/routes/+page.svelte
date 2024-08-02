@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
 	import CtaIsland from '$lib/components/CTAIsland.svelte';
@@ -29,6 +30,10 @@
 
 <svelte:head>
 	<title>Študentska pastorala - Univerzitetna župnija Maribor</title>
+	<meta
+		name="description"
+		content="Univerzitetna župnija Maribor - Študenstka župnija, ki povezuje študente v Katoliški veri. Duhovna podpora, Študentska maša in druženje."
+	/>
 </svelte:head>
 
 <Aos>
@@ -39,7 +44,7 @@
 			>
 				<header class="grid place-items-center gap-50">
 					<hgroup class="grid w-4/5 md:w-full place-items-center font-bold gap-30 text-center">
-						<img class="h-20 w-20 rounded-full -mb-7" src="/unizupLogo.png" alt="UZ" />
+						<img class="h-20 w-20 rounded-full -mb-7" src="/unizupLogo.png" alt="Logo unizup" />
 						<h1 class="-mb-5 text-64 md:text-96 font-kufam animate-fontAnim">UNIZUP</h1>
 						<h2 class="-mb-4 text-32 md:text-40 font-kufam animate-fontAnim">
 							UNIVERZITETNA ŽUPNIJA MARIBOR
@@ -53,8 +58,11 @@
 					></button>
 				</header>
 				<p class="text-20 text-center">
-					Študentska maša vsako sredo ob <b class="font-bold text-moreRed">19. uri</b> v
-					<b class="font-bold text-moreRed">mariborski stolnici</b>.
+					Študentska maša vsako sredo ob <b class="font-bold text-moreRed dark:text-moreRedDark"
+						>19. uri</b
+					>
+					v
+					<b class="font-bold text-moreRed dark:text-moreRedDark">mariborski stolnici</b>.
 				</p>
 			</section>
 			<ScrollWidthSection
@@ -91,14 +99,14 @@
 
 				<p class="aos sm:w-[70%] w-9/12 text-32 text-center font-medium">
 					Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
-						class="font-bold text-moreRed">študentske pastorale</b
+						class="font-bold text-moreRed dark:text-moreRedDark">študentske pastorale</b
 					>, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu usmerjene
 					pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v središču
 					mesta na
 					<a
 						href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
 						target="_blank"
-						class="font-bold text-moreRed underline">Slomškovem trgu 20</a
+						class="font-bold text-moreRed dark:text-moreRedDark underline">Slomškovem trgu 20</a
 					>, poleg mariborske stolnice.
 				</p>
 			</div>

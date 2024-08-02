@@ -37,10 +37,10 @@
 </script>
 
 <svelte:head>
-	<title>UniPulz | Novice Univerzitetne Župnije Maribor</title>
+	<title>Oznanila | Oznanila Univerzitetne Župnije Maribor</title>
 	<meta
 		name="description"
-		content="Ostani na tekočem z Unizup-om! UniPulz novice so tu zato, da ostaneš vedno informiran o najbolj aktualnih zadevah."
+		content="Oznanila - Ostani na tekočem z Unizup-om! Nikoli ne zamudi najnovejših obvestil, dogodkov in dejavnosti. Spremljaj redne posodobitve."
 	/>
 </svelte:head>
 

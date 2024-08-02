@@ -11,9 +11,9 @@
 
 	export let data: PageData;
 
-	let totalNumOfNoivce: number = data.vseNovice.meta.pagination.total;
+	$: totalNumOfNoivce = data.vseNovice.meta.pagination.total;
 	let pageSize: number = 9;
-	let totalPages: number = Math.ceil(totalNumOfNoivce / pageSize);
+	$: totalPages = Math.ceil(totalNumOfNoivce / pageSize);
 	let currentPage: number = Math.floor(
 		(Number($page.url.searchParams.get('skip')) || 0) / pageSize
 	);
@@ -21,11 +21,11 @@
 	$: novice = data.vseNovice;
 	$: currentPage = Math.floor((Number($page.url.searchParams.get('skip')) || 0) / pageSize);
 
-	function calculateVisiblePages(currentPage: number, totalPages: number): number[] {
+	$: calculateVisiblePages = (currentPage: number, totalPages: number): number[] => {
 		let start = Math.max(0, currentPage - 2);
 		let end = Math.min(totalPages - 1, currentPage + 2);
 		return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-	}
+	};
 
 	async function changePage(pageNumber: number) {
 		const skip = pageNumber * pageSize;
@@ -40,7 +40,7 @@
 	<title>UniPulz | Novice Univerzitetne Župnije Maribor</title>
 	<meta
 		name="description"
-		content="Ostani na tekočem z Unizup-om! UniPulz novice so tu zato, da ostaneš vedno informiran o najbolj aktualnih zadevah."
+		content="UniPulz - Novice Univerzitetne župnije Maribor. Spremljaj najnovejše dogodke, obvestila in novice, da boš vedno na tekočem."
 	/>
 </svelte:head>
 

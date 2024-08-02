@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FormatDate } from '$lib/utils';
+	import { cleanMarkdown, FormatDate } from '$lib/utils';
 	import MainBtn from './MainBtn.svelte';
 
 	export let noivcaNaslov: string;
@@ -11,11 +11,16 @@
 	export let novicaLink: string;
 	export let isRecent: boolean;
 	export let addClass = '';
+
+	let aWidth: number;
+	let h2Width: number;
 </script>
 
 <a
+	bind:clientWidth={aWidth}
 	href={`/unipulz/${novicaLink}`}
 	class={`${addClass} group h-full w-full bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
+	style="--aWidth: {aWidth}px"
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
 		<img
@@ -33,10 +38,14 @@
 		</p>
 	</figure>
 	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 flex-grow">
-		<div class="w-full flex flex-col gap-5">
-			<h3 class={`${isRecent ? 'text-32' : 'text-24'} font-semibold overflow-clip text-nowrap`}>
+		<div class="w-full flex flex-col gap-5 overflow-hidden">
+			<h2
+				bind:clientWidth={h2Width}
+				class:scrolling-text={h2Width > aWidth}
+				class={`${isRecent ? 'text-32' : 'text-24'} relative font-semibold overflow-hidden text-nowrap`}
+			>
 				{noivcaNaslov}
-			</h3>
+			</h2>
 			<span class="w-full flex items-center justify-between text-16">
 				<p>Avtor: {avtor}</p>
 				<p>{FormatDate(datum)}</p>
@@ -44,10 +53,27 @@
 		</div>
 		{#if isRecent}
 			<p class=" max-h-20 overflow-hidden text-ellipsis">
-				{povzetek}
+				{cleanMarkdown(povzetek)}
 			</p>
 
 			<MainBtn hasMaxWidth={false} btnText="Več" btnHref={`/unipulz/${novicaLink}`} />
 		{/if}
 	</article>
 </a>
+
+<style>
+	.scrolling-text {
+		display: inline-block;
+		white-space: nowrap;
+		animation: scroll-left 15s linear infinite;
+	}
+
+	@keyframes scroll-left {
+		0% {
+			transform: translateX(var(--aWidth));
+		}
+		100% {
+			transform: translateX(calc(-1 * var(--aWidth)));
+		}
+	}
+</style>

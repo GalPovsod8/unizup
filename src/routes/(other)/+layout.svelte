@@ -28,7 +28,7 @@
 		href="/"
 		aria-label="domov"
 	>
-		<img class="h-12" src="/unizupLogo.png" alt="Unizup" />
+		<img class="h-12" src="/unizupLogo.png" alt="logo unizup" />
 		Unizup
 	</a>
 	<div

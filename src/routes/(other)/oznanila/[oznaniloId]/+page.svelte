@@ -3,12 +3,22 @@
 	import Aos from '$lib/components/AOS.svelte';
 	import CtaIsland from '$lib/components/CTAIsland.svelte';
 	import Loader2 from '$lib/components/Loader2.svelte';
-	import { FormatDate, FormatTime } from '$lib/utils';
+	import { FormatDate, FormatTime, truncateMetaDescription } from '$lib/utils';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 	let { oznanilo } = data;
 </script>
+
+<svelte:head>
+	{#await oznanilo then data}
+		<title>{data.attributes.Naslov} | Univerzitetna Župnija Maribor</title>
+		<meta
+			name="description"
+			content="{data.attributes.Naslov} - {truncateMetaDescription(data.attributes.Vsebina)} "
+		/>
+	{/await}
+</svelte:head>
 
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">

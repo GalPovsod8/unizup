@@ -12,7 +12,7 @@
 
 <div
 	style:transform={`translate3d(${scroll / speed1x}px, ${scroll / speed1}px, 0)`}
-	class="fixed z-0 size-4 md:size-8 bg-moreRed opacity-50 top-[140px] left-[8%] rounded-xl animate-customPulse"
+	class="fixed z-0 size-4 md:size-8 bg-moreRed dark:bg-moreRedDark opacity-50 top-[140px] left-[8%] rounded-xl animate-customPulse"
 ></div>
 <div
 	style:transform={`translate3d(${scroll / speed2x}px, ${scroll / speed2}px, 0)`}
@@ -35,5 +35,5 @@
 ></div>
 <div
 	style:transform={`translate3d(-${scroll / speed3x}px, ${scroll / speed1}px, 0)`}
-	class="fixed z-0 size-4 md:size-8 bg-moreRed opacity-50 top-[140px] right-[8%] rounded-xl animate-customPulse"
+	class="fixed z-0 size-4 md:size-8 bg-moreRed dark:bg-moreRedDark opacity-50 top-[140px] right-[8%] rounded-xl animate-customPulse"
 ></div>

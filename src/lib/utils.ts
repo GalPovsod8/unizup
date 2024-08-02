@@ -22,3 +22,20 @@ export function ShortenTag(tag: string): string {
 			return 'Nv.';
 	}
 }
+
+export function cleanMarkdown(content: string): string {
+	return content
+		.replace(/([_*~`])/g, '')
+		.replace(/\[(.*?)\]\(.*?\)/g, '$1')
+		.replace(/!\[.*?\]\(.*?\)/g, '')
+		.replace(/#+\s?/g, '');
+}
+
+export function truncateMetaDescription(description: string): string {
+	const cleanDescription = cleanMarkdown(description);
+
+	if (cleanDescription.length > 155) {
+		return cleanDescription.substring(0, 130) + '...';
+	}
+	return cleanDescription;
+}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { FormatDate, ShortenTag } from '$lib/utils';
+	import { FormatDate, ShortenTag, truncateMetaDescription } from '$lib/utils';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import SvelteMarkdown from 'svelte-markdown';
 	import Link from '$lib/components/Link.svelte';
@@ -16,15 +16,13 @@
 </script>
 
 <svelte:head>
-	{#await novica}
-		<title>Nalaganje...</title>
-	{:then data}
-		<title>{data.attributes.Naslov} - Univerzitetna župnija Maribor</title>
+	{#await novica then data}
+		<title>{data.attributes.Naslov} | Univerzitetna Župnija Maribor</title>
+		<meta
+			name="description"
+			content="{data.attributes.Naslov} - {truncateMetaDescription(data.attributes.Vsebina)} "
+		/>
 	{/await}
-	<meta
-		name="description"
-		content="Ostani na tekočem z Unizup-om! UniPulz novice so tu zato, da ostaneš vedno informiran o najbolj aktualnih zadevah."
-	/>
 </svelte:head>
 
 <section

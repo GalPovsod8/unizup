@@ -2,7 +2,6 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 
 	export let targetClass: string = 'aos';
-	//Dodaj mogoc delayed animation classe za delaye
 	let animationClass: string = 'animate-showUp';
 
 	const dispatch = createEventDispatcher();

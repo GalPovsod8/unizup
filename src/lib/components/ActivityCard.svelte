@@ -14,7 +14,7 @@
 	class="h-max py-30 px-[20px] w-full flex flex-col items-center justify-center gap-15 text-center dark:text-black border border-black dark:border-white rounded-3xl drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 	style="background-color: {getColor(index)};"
 >
-	<h4 class="font-bold text-20">{activityName}</h4>
+	<h3 class="font-bold text-20">{activityName}</h3>
 	{#if hasAll}
 		<p>{activityDay}</p>
 		<p>{activityTime}</p>

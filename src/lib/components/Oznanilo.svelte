@@ -23,7 +23,7 @@
 		/>
 	</figure>
 	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 text-center flex-grow">
-		<h3 class="text-32 font-black uppercase">{oznaniloNaslov}</h3>
+		<h2 class="text-32 font-black uppercase">{oznaniloNaslov}</h2>
 		<div class="flex flex-col items-center justify-center gap-30 text-20 flex-grow">
 			<div class="flex flex-col items-center justify-center gap-10">
 				<span class="font-semibold">Kdaj?</span>

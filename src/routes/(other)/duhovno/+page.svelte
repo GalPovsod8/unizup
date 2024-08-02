@@ -16,6 +16,14 @@
 	let { koristnePovezave, duhovniClanki } = data;
 </script>
 
+<svelte:head>
+	<title>Duhovno | Odrini globje in širše z Unizup</title>
+	<meta
+		name="description"
+		content="Duhovno - Odrini na globoko in odkrij pot resnične svobode, veselja in ljubezni. Pridruži se duhovnim aktivnostim, ki te povežejo z Bogom."
+	/>
+</svelte:head>
+
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">
 		<PageTitle
@@ -31,32 +39,33 @@
 				<h2 class="aos font-black text-40 md:text-64 text-center xl:text-left">ODRINI GLOBJE</h2>
 				<article class="flex flex-col gap-30">
 					<p class="aos text-20 text-justify font-medium">
-						Temeljni namen človeškega življenja je <span class="text-moreRed font-bold"
-							>spoznati</span
+						Temeljni namen človeškega življenja je <span
+							class="text-moreRed dark:text-moreRedDark font-bold">spoznati</span
 						>
-						Boga, ga <span class="text-moreRed font-bold">ljubiti</span> in
-						<span class="text-moreRed font-bold">mu služiti</span>. Ker se na Unizupu tega kot
-						župnija mladih še posebej zavedamo, je ta stran zato namenjena vsem stvarem, povezanim z
-						duhovnim življenjem človeka, ki je v določenem oziru najbolj pomembno in ključno.
+						Boga, ga <span class="text-moreRed dark:text-moreRedDark font-bold">ljubiti</span> in
+						<span class="text-moreRed dark:text-moreRedDark font-bold">mu služiti</span>. Ker se na
+						Unizupu tega kot župnija mladih še posebej zavedamo, je ta stran zato namenjena vsem
+						stvarem, povezanim z duhovnim življenjem človeka, ki je v določenem oziru najbolj
+						pomembno in ključno.
 					</p>
 					<div class="flex flex-col gap-15">
-						<h4 class="aos text-32 font-bold text-center md:text-justify">
+						<h3 class="aos text-32 font-bold text-center md:text-justify">
 							Rast v duhovnem življenju
-						</h4>
+						</h3>
 						<p class="aos text-20 text-justify font-medium">
 							Pot duhovnega življenja se lahko upravičeno zdi dokaj zapletena in težavna, vendar pa
 							temu ni tako oz. je vsaj lažje, če imamo na tej poti prave smernice in pomoči, s
 							katerimi si lahko pomagamo. Na tej strani lahko zato pod sekcijo <a
-								class="text-moreRed font-bold underline"
+								class="text-moreRed dark:text-moreRedDark font-bold underline"
 								href="#duhovnaRast">duhovna rast</a
 							> duhovna rast najdeš ogromno koristnih napotkov, usmeritev, praktičnih vaj in še mnogo
 							več, kar ti bo pomagalo pri rasti v duhovnem življenju.
 						</p>
 					</div>
 					<div class="flex flex-col gap-15">
-						<h4 class="aos text-32 font-bold text-center md:text-justify">
+						<h3 class="aos text-32 font-bold text-center md:text-justify">
 							Bistvo življenja - postati svetnik
-						</h4>
+						</h3>
 						<p class="aos text-20 text-justify font-medium">
 							Vsak človek je poklican, da postane svetnik. To ni nekakšna nemogoča misija, pač pa
 							sodelovanje z Bogom v vseh vsakdanjih stvareh; to pomeni ljubiti in delovati na način,

@@ -24,6 +24,14 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Sv. Janez Pavel II | Zavetnik Univerzitetne župnije Maribor</title>
+	<meta
+		name="description"
+		content="Sv. Janez Pavel II - Spoznajte več o življenju in duhovnem vodstvu sv. Janeza Pavla II., zavetnika Univerzitetne župnije Maribor."
+	/>
+</svelte:head>
+
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">
 		<PageTitle

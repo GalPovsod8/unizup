@@ -17,6 +17,14 @@
 	let { aktivnosti, skupine, osebe } = data;
 </script>
 
+<svelte:head>
+	<title>O Nas | Kdo smo Univerzitetna Župnija Maribor?</title>
+	<meta
+		name="description"
+		content="O Nas - Spoznajte Univerzitetno Župnijo Maribor. Raziščite naše poslanstvo in vrednote ter odkrijte, kako povezujemo študente v življenju."
+	/>
+</svelte:head>
+
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">
 		<PageTitle
@@ -33,34 +41,36 @@
 				<article class="flex flex-col gap-30">
 					<p class="aos text-20 text-justify font-medium">
 						Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
-							class="font-bold text-moreRed">študentske pastorale</b
+							class="font-bold text-moreRed dark:text-moreRedDark">študentske pastorale</b
 						>, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu
 						usmerjene pastorale v študente pokriva področje celotne nadškofije Maribor. Nahaja se v
 						središču mesta na
 						<a
 							href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
 							target="_blank"
-							class="font-bold text-moreRed underline">Slomškovem trgu 20</a
+							class="font-bold text-moreRed dark:text-moreRedDark underline">Slomškovem trgu 20</a
 						>, poleg mariborske stolnice.
 					</p>
 					<p class="aos text-20 text-justify font-medium">
-						Namen župnije je <b class="font-bold text-moreRed"> združevati</b> katoliške študente,
-						ki študirajo v Mariboru oz. na področju mariborske nadškofije ter skupaj z njimi živeti
-						<b class="font-bold text-moreRed">krščanske vrednote</b>.
+						Namen župnije je <b class="font-bold text-moreRed dark:text-moreRedDark"> združevati</b>
+						katoliške študente, ki študirajo v Mariboru oz. na področju mariborske nadškofije ter skupaj
+						z njimi živeti
+						<b class="font-bold text-moreRed dark:text-moreRedDark">krščanske vrednote</b>.
 					</p>
 					<p class="aos text-20 text-justify font-medium">
 						Vsako sredo od oktobra do konca junija se študenti zbiramo pri študentski sv. maši v
 						mariborski stolnici ob 19h. Aktivni smo v pevskem zboru Vdih, ki sodeluje pri sv. mašah
 						ter pripravlja koncerte. V okviru Univerzitetne župnije Maribor (Unizup) delujejo
-						<a href="#skupine" class="font-bold text-moreRed underline">različne skupine</a>, h
-						katerim te prisrčno vabimo, da se pridružiš! Organiziramo tudi večere z zanimivi gosti,
-						molitvena srečanja, romanja v druge države, duhovne vaje in
-						<b class="font-bold text-moreRed">duhovne vikende</b>. Skupaj hodimo na izlete.
-						Organiziramo plese in družabne dogodke, poleg tega pa tudi dogodke za nadškofijo
-						Maribor: Nikodemovi večeri, Križev pot po ulicah Maribora, Ekumensko srečanje mladih,
-						Kulturni dan in še mnogo več. Smo prijatelji, ki si pomagamo med seboj in
-						<b class="font-bold text-moreRed">dobra družba</b>, odprta tudi zate, ki si vabljen/a,
-						da se nam pridružiš.
+						<a href="#skupine" class="font-bold text-moreRed dark:text-moreRedDark underline"
+							>različne skupine</a
+						>, h katerim te prisrčno vabimo, da se pridružiš! Organiziramo tudi večere z zanimivi
+						gosti, molitvena srečanja, romanja v druge države, duhovne vaje in
+						<b class="font-bold text-moreRed dark:text-moreRedDark">duhovne vikende</b>. Skupaj
+						hodimo na izlete. Organiziramo plese in družabne dogodke, poleg tega pa tudi dogodke za
+						nadškofijo Maribor: Nikodemovi večeri, Križev pot po ulicah Maribora, Ekumensko srečanje
+						mladih, Kulturni dan in še mnogo več. Smo prijatelji, ki si pomagamo med seboj in
+						<b class="font-bold text-moreRed dark:text-moreRedDark">dobra družba</b>, odprta tudi
+						zate, ki si vabljen/a, da se nam pridružiš.
 					</p>
 				</article>
 				<div class="flex-1">
@@ -146,12 +156,12 @@
 		>
 			<article class="col-span-5 xl:col-span-2 flex flex-col gap-50">
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold">Kako do nas?</h4>
+					<h3 class="aos text-32 font-bold">Kako do nas?</h3>
 					<p class="aos text-20 text-justify font-medium">
 						Univerzitetna župnija Maribor se nahaja v središču mesta na <a
 							href="https://www.google.com/maps/dir//Slom%C5%A1kov+trg+20,+2000+Maribor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x476f7799df43109b:0xe7b963531c36d2cc?sa=X&ved=1t:707&ictx=111"
 							target="_blank"
-							class="font-bold text-moreRed underline">Slomškovem trgu 20</a
+							class="font-bold text-moreRed dark:text-moreRedDark underline">Slomškovem trgu 20</a
 						>, poleg mariborske stolnice. Naši prostori se nahajajo ob stolnici, na vrhu stavbe
 						zraven študentskega doma.
 					</p>

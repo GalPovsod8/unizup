@@ -1,17 +1,28 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import type { PageData } from './$types';
-	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import ScrollWidthSection from '$lib/components/ScrollWidthSection.svelte';
 	import Aos from '$lib/components/AOS.svelte';
 	import MainBtn from '$lib/components/MainBtn.svelte';
 	import ActivityCard from '$lib/components/ActivityCard.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Loader2 from '$lib/components/Loader2.svelte';
+	import { truncateMetaDescription } from '$lib/utils';
 
 	export let data: PageData;
 	let { skupina } = data;
 </script>
+
+<svelte:head>
+	{#await skupina then data}
+		<title>{data.attributes.imeSkupine} | Univerzitetna Župnija Maribor</title>
+		<meta
+			name="description"
+			content="{data.attributes.imeSkupine} - {truncateMetaDescription(
+				data.attributes.kratekOpisSkupine
+			)} "
+		/>
+	{/await}
+</svelte:head>
 
 <Aos>
 	<div class="w-full flex flex-col items-center min-h-screen">

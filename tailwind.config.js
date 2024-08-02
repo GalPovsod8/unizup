@@ -28,7 +28,8 @@ export default {
 			redTag: '#942B2B',
 			tagBlue: '#1E8096',
 			novicaTagYellow: '#75770E',
-			moreRed: '#FF3F3F',
+			moreRedDark: '#FF3F3F',
+			moreRed: '#761111',
 			green: '#7DFF7D'
 		},
 		gap: {
