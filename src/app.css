@@ -57,10 +57,14 @@
 	}
 
 	.markdownStyles a {
-		color: #51b3c9;
+		color: #194852;
 		text-decoration: underline;
 		margin-bottom: 1.875rem;
 		transition: all ease-in-out 150ms;
+	}
+
+	.dark .markdownStyles a {
+		color: #92d0dd;
 	}
 
 	.markdownStyles a:hover {

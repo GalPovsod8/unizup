@@ -65,6 +65,7 @@
 		></button>
 	</div>
 	<button
+		aria-label="toggle navigation"
 		on:click={ToggleMobile}
 		class="flex z-50 md:hidden flex-col gap-[4px] hover:opacity-80 transition-all ease-in-out duration-150"
 	>

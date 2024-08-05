@@ -52,10 +52,10 @@
 	/>
 	<section
 		id="unipulz"
-		class="w-full p-90 px-[5%] flex flex-col gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white"
+		class=" w-full p-90 px-[5%] flex flex-col gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white"
 	>
 		<div
-			class="w-full flex flex-col md:flex-row items-center md:items-end justify-between pb-3 border-b border-black dark:border-white gap-20 md:gap-120"
+			class=" w-full flex flex-col md:flex-row items-center md:items-end justify-between pb-3 border-b border-black dark:border-white gap-20 md:gap-120"
 		>
 			<div class="w-full md:w-max flex justify-center md:justify-start items-center gap-10">
 				<Tag tagName="Vse" />
@@ -71,7 +71,7 @@
 				{/if}
 			</p>
 		</div>
-		<div class="h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
+		<div class="aos h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 			{#each novice.data as novica}
 				<SingleNewsCard
 					noivcaNaslov={novica.attributes.Naslov}

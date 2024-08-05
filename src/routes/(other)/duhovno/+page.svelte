@@ -94,7 +94,9 @@
 			title="duhovna rast"
 			description="V tej sekciji lahko najdeš veliko koristnih informacij, praktičnih napotkov in drugih stvari, ki ti bodo pomagale pri rasti v duhovnem življenju."
 		>
-			<div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90">
+			<div
+				class="aos w-full max-h-[800px] overflow-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90"
+			>
 				{#await duhovniClanki}
 					<Loader1 />
 				{:then duhovniClanki}
@@ -103,6 +105,8 @@
 							clanekName={clanek.attributes.Naslov}
 							clanekLink={clanek.id}
 							clanekImgSrc={`${PUBLIC_BASE_STRAPI_URL}${clanek.attributes.Media.data[0].attributes.formats.medium.url}`}
+							clanekImgAlt={clanek.attributes.Media.data[0].attributes.alternativeText ??
+								clanek.attributes.Naslov}
 						/>
 					{/each}
 				{:catch error}
@@ -111,6 +115,7 @@
 			</div>
 			<MainBtn btnText="Več" btnHref="unipulz?tag=Duhovno" />
 		</ColorfullSection>
+
 		<Zavetnik />
 		<CtaIsland addClasses={'mt-[7.5rem]'} />
 	</div>

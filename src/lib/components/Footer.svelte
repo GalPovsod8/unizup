@@ -64,11 +64,14 @@
 		<div class="md:w-full flex items-center gap-15">
 			<a
 				class="hover:opacity-80 transition-all ease-in-out duration-150"
-				href="/https://www.instagram.com/unizup/"><img class="h-6" src="/fbIcon.svg" alt="Fb" /></a
+				target="_blank"
+				href="https://www.facebook.com/univerzitetnazupnijamaribor"
+				><img class="h-6" src="/fbIcon.svg" alt="Fb" /></a
 			>
 			<a
 				class="hover:opacity-80 transition-all ease-in-out duration-150"
-				href="https://www.facebook.com/univerzitetnazupnijamaribor"
+				target="_blank"
+				href="https://www.instagram.com/unizup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 				><img class="h-6" src="/igIcon.svg" alt="Ig" /></a
 			>
 		</div>

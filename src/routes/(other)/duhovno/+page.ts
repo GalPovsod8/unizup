@@ -14,7 +14,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
 	const duhovniClanki = async () => {
 		const clankiRes = await fetch(
-			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:asc&filters[$and][0][Tag][$eq]=Duhovno&pagination[limit]=6`
+			`${PUBLIC_BASE_STRAPI_URL}/api/novicas?populate=*&sort=Datum:asc&filters[$and][0][duhovnaRast][$eq]=true`
 		);
 		if (!clankiRes.ok) {
 			error(404, 'Napaka pri nalaganju clankov');

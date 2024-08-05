@@ -112,7 +112,9 @@
 			title="Skupine na unizup"
 			description={'Unizup je prostor za VSE. Poleg rednih srečanj, se lahko včlaniš še v katero izmed skupin na Unizupu in postaneš del še večje zgodbe. Ne odlašaj, spleti nova spoznanstva in prijateljstva!'}
 		>
-			<div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90">
+			<div
+				class="aos w-full max-h-[800px] overflow-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-90"
+			>
 				{#await skupine}
 					<Loader1 />
 				{:then data}
@@ -121,6 +123,8 @@
 							skupinaLink={skupina.id}
 							skupinaName={skupina.attributes.imeSkupine}
 							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.medium.url}`}
+							skupinaImgAlt={skupina.attributes.Media.data[0].attributes.alternativeText ??
+								skupina.attributes.imeSkupine}
 						/>
 					{/each}
 				{:catch error}
@@ -132,13 +136,15 @@
 		<ColorfullSection
 			title="Naši dragi"
 			description="Oglej si kdo skrbi, da pri nas vse dobro teče in je za vse poskrbljeno :)"
-			addClasses="my-120"
+			addClasses="aos my-120"
 			bgColor="yellow"
 		>
 			{#await osebe}
 				<Loader1 />
 			{:then data}
-				<div class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-90">
+				<div
+					class="w-full max-h-[1800px] overflow-auto grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-90"
+				>
 					{#each data as oseba}
 						<PersonCard
 							ime={oseba.attributes.Ime}
@@ -184,12 +190,14 @@
 					<div class="aos flex items-center gap-15">
 						<a
 							class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
-							href="/https://www.instagram.com/unizup/"
+							target="_blank"
+							href="https://www.facebook.com/univerzitetnazupnijamaribor"
 							><img class="h-12" src="/fbIcon.svg" alt="Fb" /></a
 						>
 						<a
 							class="hover:opacity-80 dark:invert transition-all ease-in-out duration-150"
-							href="https://www.facebook.com/univerzitetnazupnijamaribor"
+							target="_blank"
+							href="https://www.instagram.com/unizup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
 							><img class="h-12" src="/igIcon.svg" alt="Ig" /></a
 						>
 					</div>

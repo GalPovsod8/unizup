@@ -53,7 +53,7 @@
 					poguma, razločevanja in svobode.
 				</p>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold text-center md:text-left">Hodi za menoj!</h4>
+					<h3 class="aos text-32 font-bold text-center md:text-left">Hodi za menoj!</h3>
 					<p class="aos text-20 font-medium text-justify">
 						»Hodi za menoj!« Kot mlad študent je bil Karol Wojtila navdušen nad leposlovjem,
 						gledališčem, poezijo. Ko je delal v kemični tovarni in so ga obdajale ter ogrožale
@@ -77,7 +77,7 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold text-center md:text-left">Izgubiti samega sebe</h4>
+					<h3 class="aos text-32 font-bold text-center md:text-left">Izgubiti samega sebe</h3>
 					<p class="aos text-20 font-medium text-justify">
 						Julija 1958 se začenja za mladega duhovnika Karla Wojtila nova stopnja na poti z
 						Gospodom in za njim. Karel se je – kot ponavadi – odpravil s skupino mladih strastnih
@@ -100,7 +100,7 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold text-center md:text-left">Peter, ali me ljubiš?</h4>
+					<h3 class="aos text-32 font-bold text-center md:text-left">Peter, ali me ljubiš?</h3>
 					<p class="aos text-20 font-medium text-justify">
 						Oktobra 1978 je kardinal Wojtila znova zaslišal Gospodov glas. Ponovi se dialog s
 						Petrom, ki ga prinaša evangeljski odlomek  tega slavja: »Simon, Janezov sin, ali me
@@ -113,7 +113,7 @@
 					</p>
 				</div>
 				<div class="flex flex-col gap-15">
-					<h4 class="aos text-32 font-bold text-center md:text-left">Glasnik Božjega usmiljenja</h4>
+					<h3 class="aos text-32 font-bold text-center md:text-left">Glasnik Božjega usmiljenja</h3>
 					<p class="aos text-20 font-medium text-justify">
 						Velikonočno skrivnost je razlagal kot skrivnost Božjega usmiljenja. V svoji zadnji
 						knjigi piše: Končna meja zla »je v bistvu Božje usmiljenje«. In ko razmišlja o atentatu,
@@ -133,14 +133,14 @@
 					papeževem pogrebu, 8. 4. 2005
 				</p>
 			</article>
-			<div class="flex flex-col gap-30 xl:col-span-2">
+			<div class="aos flex flex-col gap-30 xl:col-span-2">
 				{#await SvJanezPavelIISlikePromise}
 					<Loader2 />
 				{:then slike}
 					{#if slike}
 						<div class="max-h-[31.25rem] z-20 w-full grid grid-cols-2 gap-30">
 							<figure
-								class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								class="relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 							>
 								<img
 									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -150,7 +150,7 @@
 							</figure>
 							<div class="flex flex-col justify-between gap-30">
 								<figure
-									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+									class="relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 								>
 									<img
 										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -159,7 +159,7 @@
 									/>
 								</figure>
 								<figure
-									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+									class="relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 								>
 									<img
 										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -170,7 +170,7 @@
 							</div>
 						</div>
 						<div
-							class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							class="h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
 							<p>“Ne bojte se! Odprite, na stežaj odprite vrata Kristusu!”</p>
 							<p class="place-self-end">Sv. Janez Pavel II</p>
@@ -178,7 +178,7 @@
 						<div class="max-h-[31.25rem] overflow-hidden z-20 w-full grid grid-cols-2 gap-30">
 							<div class="flex flex-col justify-between gap-30">
 								<figure
-									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+									class=" relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 								>
 									<img
 										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -187,7 +187,7 @@
 									/>
 								</figure>
 								<figure
-									class="aos relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+									class="relative group h-52 w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 								>
 									<img
 										class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -197,7 +197,7 @@
 								</figure>
 							</div>
 							<figure
-								class="aos relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								class="relative md:max-h-[31.25rem] group w-full overflow-hidden rounded-3xl border border-black drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 							>
 								<img
 									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
@@ -207,7 +207,7 @@
 							</figure>
 						</div>
 						<div
-							class="aos h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+							class="h-max w-full p-30 grid gap-15 text-24 font-medium rounded-3xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 						>
 							<p>
 								“Marsikomu pomeni svoboda pravico, da dela, kar hoče, svetnikom pa daje moč, da iz

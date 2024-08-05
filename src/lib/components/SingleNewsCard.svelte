@@ -11,16 +11,11 @@
 	export let novicaLink: string;
 	export let isRecent: boolean;
 	export let addClass = '';
-
-	let aWidth: number;
-	let h2Width: number;
 </script>
 
 <a
-	bind:clientWidth={aWidth}
 	href={`/unipulz/${novicaLink}`}
 	class={`${addClass} group h-full w-full bg-white dark:bg-black border drop-shadow-shadow hover:drop-shadow-shadowHover transition-all ease-out duration-150 rounded-3xl flex flex-col`}
-	style="--aWidth: {aWidth}px"
 >
 	<figure class="relative w-full overflow-hidden rounded-3xl border">
 		<img
@@ -40,9 +35,7 @@
 	<article class="flex flex-col justify-between rounded-3xl p-7 gap-30 flex-grow">
 		<div class="w-full flex flex-col gap-5 overflow-hidden">
 			<h2
-				bind:clientWidth={h2Width}
-				class:scrolling-text={h2Width > aWidth}
-				class={`${isRecent ? 'text-32' : 'text-24'} relative font-semibold overflow-hidden text-nowrap`}
+				class={`${isRecent ? 'text-32' : 'text-24'} relative font-semibold whitespace-nowrap inline-block`}
 			>
 				{noivcaNaslov}
 			</h2>
@@ -62,18 +55,16 @@
 </a>
 
 <style>
-	.scrolling-text {
-		display: inline-block;
-		white-space: nowrap;
-		animation: scroll-left 15s linear infinite;
-	}
-
 	@keyframes scroll-left {
 		0% {
-			transform: translateX(var(--aWidth));
+			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-1 * var(--aWidth)));
+			transform: translateX(-200%);
 		}
+	}
+
+	a:hover h2 {
+		animation: scroll-left 10s linear infinite;
 	}
 </style>

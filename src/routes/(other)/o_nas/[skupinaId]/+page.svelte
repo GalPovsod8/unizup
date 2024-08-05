@@ -46,6 +46,7 @@
 						</p>
 					</article>
 					<a
+						aria-label="scroll to section"
 						href="#first"
 						class="relative animate-cBounce top-0 hover:top-1 dark:invert w-max grid place-items-center transition-all ease-in-out duration-150"
 					>
@@ -108,19 +109,19 @@
 						</p>
 						<div class="aos w-full grid grid-cols-2 gap-15">
 							<div class="w-full flex flex-col gap-10">
-								<h4 class="text-32 font-bold">Kdaj?</h4>
+								<h3 class="text-32 font-bold">Kdaj?</h3>
 								<p class="text-20 font-medium">{data.attributes.kdaj}</p>
 							</div>
 							<div class="w-full flex flex-col gap-10">
-								<h4 class="text-32 font-bold">Zakaj?</h4>
+								<h3 class="text-32 font-bold">Zakaj?</h3>
 								<p class="text-20 font-medium">{data.attributes.zakaj}</p>
 							</div>
 							<div class="w-full flex flex-col gap-10">
-								<h4 class="text-32 font-bold">Kdo?</h4>
+								<h3 class="text-32 font-bold">Kdo?</h3>
 								<p class="text-20 font-medium">{data.attributes.kdo}</p>
 							</div>
 							<div class="w-full flex flex-col gap-10">
-								<h4 class="text-32 font-bold">Kako?</h4>
+								<h3 class="text-32 font-bold">Kako?</h3>
 								<p class="text-20 font-medium">{data.attributes.kako}</p>
 							</div>
 						</div>
@@ -132,11 +133,13 @@
 						<ActivityCard activityName={data.attributes.aktivnost4} index={4} hasAll={false} />
 					</div>
 				</div>
-				<MainBtn
-					btnText="PRIDRUŽI SE NAM"
-					btnHref={data.attributes.linkDoPrijavnice}
-					textSize="24"
-				/>
+				{#if data.attributes.linkDoPrijavnice}
+					<MainBtn
+						btnText="PRIDRUŽI SE NAM"
+						btnHref={data.attributes.linkDoPrijavnice}
+						textSize="24"
+					/>
+				{/if}
 			</ScrollWidthSection>
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>

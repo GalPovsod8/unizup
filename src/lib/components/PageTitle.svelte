@@ -21,6 +21,7 @@
 	</article>
 	<Breadcrumbs path={$page.url.pathname} />
 	<a
+		aria-label="scroll to section"
 		href={pageScrollLink}
 		class="relative animate-cBounce top-0 hover:top-1 dark:invert w-max grid place-items-center transition-all ease-in-out duration-150"
 	>

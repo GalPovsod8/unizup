@@ -38,14 +38,14 @@
 					</h1>
 					<div class="flex justify-center gap-30 text-center">
 						<div class="flex flex-col gap-10">
-							<h4 class="aos text-32 font-bold">Kdaj?</h4>
+							<h2 class="aos text-32 font-bold">Kdaj?</h2>
 							<p class="text-24 font-medium">
 								{FormatDate(oznanilo.attributes.Datum)} ob {FormatTime(oznanilo.attributes.Ura)}
 							</p>
 						</div>
 						{#if oznanilo.attributes.Kdo != null}
 							<div class="flex flex-col gap-10">
-								<h4 class="aos text-32 font-bold">Kdo?</h4>
+								<h2 class="aos text-32 font-bold">Kdo?</h2>
 								<p class="text-24 font-medium">{oznanilo.attributes.Kdo}</p>
 							</div>
 						{/if}

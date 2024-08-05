@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="max-w-[1920px] min-h-[screen] mx-auto leading-none bg-gradient-to-r from-white via-blue/40 to-white dark:from-black dark:via-[#102e35] dark:to-black text-black dark:text-white"
+	class="max-w-[2560px] min-h-[screen] mx-auto leading-none bg-gradient-to-r from-white via-blue/40 to-white dark:from-black dark:via-[#102e35] dark:to-black text-black dark:text-white"
 >
 	<main>
 		<ParalaxBg>
