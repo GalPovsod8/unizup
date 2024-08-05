@@ -77,7 +77,7 @@
 					noivcaNaslov={novica.attributes.Naslov}
 					novicaLink={novica.id}
 					tag={novica.attributes.Tag}
-					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
+					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
 					avtor={novica.attributes.Avtor}
 					datum={novica.attributes.Datum}
 					povzetek={novica.attributes.Vsebina.substring(0, 100)}

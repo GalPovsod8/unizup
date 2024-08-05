@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
 	import CtaIsland from '$lib/components/CTAIsland.svelte';
@@ -153,7 +152,7 @@
 								noivcaNaslov={novica.attributes.Naslov}
 								novicaLink={novica.id}
 								tag={novica.attributes.Tag}
-								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.medium.url}`}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
 								avtor={novica.attributes.Avtor}
 								datum={novica.attributes.Datum}
 								povzetek={novica.attributes.Vsebina.substring(0, 100)}

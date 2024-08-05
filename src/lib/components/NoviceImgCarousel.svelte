@@ -75,7 +75,7 @@
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.small.url}`}
 						alt="slika"
 					/>
 				</button>
@@ -89,7 +89,7 @@
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.small.url}`}
 						alt="slika"
 					/>
 				</button>

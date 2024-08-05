@@ -63,7 +63,7 @@
 						>
 							<img
 								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.formats.medium.url}`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.formats.small.url}`}
 								alt="SkupinaPhoto1"
 							/>
 						</figure>
@@ -72,7 +72,7 @@
 						>
 							<img
 								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[1].attributes.formats.medium.url}`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[1].attributes.formats.small.url}`}
 								alt="SkupinaPhoto2"
 							/>
 						</figure>
@@ -81,7 +81,7 @@
 						>
 							<img
 								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[2].attributes.formats.medium.url}`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[2].attributes.formats.small.url}`}
 								alt="SkupinaPhoto3"
 							/>
 						</figure>
@@ -90,7 +90,7 @@
 						>
 							<img
 								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[3].attributes.formats.medium.url}`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[3].attributes.formats.small.url}`}
 								alt="SkupinaPhoto4"
 							/>
 						</figure>

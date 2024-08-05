@@ -104,7 +104,7 @@
 						<DuhovnaRastCard
 							clanekName={clanek.attributes.Naslov}
 							clanekLink={clanek.id}
-							clanekImgSrc={`${PUBLIC_BASE_STRAPI_URL}${clanek.attributes.Media.data[0].attributes.formats.medium.url}`}
+							clanekImgSrc={`${PUBLIC_BASE_STRAPI_URL}${clanek.attributes.Media.data[0].attributes.formats.small.url}`}
 							clanekImgAlt={clanek.attributes.Media.data[0].attributes.alternativeText ??
 								clanek.attributes.Naslov}
 						/>

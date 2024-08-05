@@ -122,7 +122,7 @@
 						<SkupinaCard
 							skupinaLink={skupina.id}
 							skupinaName={skupina.attributes.imeSkupine}
-							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.medium.url}`}
+							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.small.url}`}
 							skupinaImgAlt={skupina.attributes.Media.data[0].attributes.alternativeText ??
 								skupina.attributes.imeSkupine}
 						/>
@@ -149,7 +149,7 @@
 						<PersonCard
 							ime={oseba.attributes.Ime}
 							funkcija={oseba.attributes.funkcija}
-							imgSrc={`${PUBLIC_BASE_STRAPI_URL}${oseba.attributes.slikaOsebe.data.attributes.formats.medium.url}`}
+							imgSrc={`${PUBLIC_BASE_STRAPI_URL}${oseba.attributes.slikaOsebe.data.attributes.formats.small.url}`}
 						/>
 					{/each}
 				</div>

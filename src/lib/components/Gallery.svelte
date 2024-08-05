@@ -34,7 +34,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[0].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[0].attributes.formats.small.url}`}
 						alt="Uniphoto1"
 					/>
 				</figure>
@@ -43,7 +43,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[1].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[1].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -52,7 +52,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[2].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[2].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -61,7 +61,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[3].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[3].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -70,7 +70,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[4].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[4].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -79,7 +79,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[5].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[5].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -88,7 +88,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[6].attributes.formats.medium.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[6].attributes.formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
