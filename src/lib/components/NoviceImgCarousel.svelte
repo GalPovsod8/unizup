@@ -100,9 +100,9 @@
 		<button
 			on:click={MoveRight}
 			aria-label="slide image carousel right button"
-			class="h-12 w-14 z-20 flex items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+			class="h-12 w-14 z-20 flex flex-col items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
-			<img class="h-5 rotate-180 dark:invert hover:opacity-85" src="\Arrow.svg" alt="<" />
+			<img class="h-5 rotate-180 dark:invert hover:opacity-85" src="/Arrow.svg" alt="<" />
 		</button>
 	{/if}
 </div>
@@ -110,6 +110,12 @@
 {#if selectedImageIndex !== null}
 	<ImgPopup
 		bind:showModal
-		imgSrc={`${PUBLIC_BASE_STRAPI_URL}${images[selectedImageIndex].attributes.formats.large.url}`}
+		imgSrc={`${PUBLIC_BASE_STRAPI_URL}${
+			images[selectedImageIndex].attributes.formats.large
+				? images[selectedImageIndex].attributes.formats.large.url
+				: images[selectedImageIndex].attributes.formats.medium
+					? images[selectedImageIndex].attributes.formats.medium.url
+					: images[selectedImageIndex].attributes.formats.small.url
+		}`}
 	/>
 {/if}

@@ -89,7 +89,6 @@
 				<Link linkHref="/oznanila" linkText="Vsa oznanila" />
 			</ScrollWidthSection>
 		</div>
-
 		<ScrollWidthSection
 			classes={'relative flex flex-col gap-90 p-90 px-[5%] rounded-3xl bg-blue dark:bg-black dark:text-white border border-black dark:border-white dark:text-black'}
 		>
@@ -131,7 +130,7 @@
 			</div>
 			<Gallery />
 			<MainBtn
-				addClasses={'absolute -bottom-[45.125rem] xl:-bottom-[47.875rem] self-center'}
+				addClasses={'absolute -bottom-[48.125rem] xl:-bottom-[50.875rem] self-center'}
 				btnText="Več o nas"
 				btnHref="/o_nas"
 			/>

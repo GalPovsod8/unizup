@@ -58,42 +58,54 @@
 					<div
 						class="absolute w-full grid grid-cols-2 grid-rows-3 gap-10 md:gap-30 max-h-[350px] xl:max-h-[34.375rem]"
 					>
-						<figure
-							class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.formats.small.url}`}
-								alt="SkupinaPhoto1"
-							/>
-						</figure>
-						<figure
-							class="relative row-span-1 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[1].attributes.formats.small.url}`}
-								alt="SkupinaPhoto2"
-							/>
-						</figure>
-						<figure
-							class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[2].attributes.formats.small.url}`}
-								alt="SkupinaPhoto3"
-							/>
-						</figure>
-						<figure
-							class="relative row-span-1 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
-						>
-							<img
-								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[3].attributes.formats.small.url}`}
-								alt="SkupinaPhoto4"
-							/>
-						</figure>
+						{#if data.attributes.Media.data >= 4}
+							<figure
+								class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.formats.small?.url}`}
+									alt="SkupinaPhoto1"
+								/>
+							</figure>
+							<figure
+								class="relative row-span-1 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[1].attributes.formats.small?.url}`}
+									alt="SkupinaPhoto2"
+								/>
+							</figure>
+							<figure
+								class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[2].attributes.formats.small?.url}`}
+									alt="SkupinaPhoto3"
+								/>
+							</figure>
+							<figure
+								class="relative row-span-1 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[3].attributes.formats.small?.url}`}
+									alt="SkupinaPhoto4"
+								/>
+							</figure>
+						{:else}
+							<figure
+								class="relative row-span-2 col-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
+							>
+								<img
+									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.formats.small?.url}`}
+									alt="SkupinaPhoto4"
+								/>
+							</figure>
+						{/if}
 					</div>
 				</div>
 			</section>
