@@ -10,6 +10,9 @@
 	let isMobile: boolean = false;
 	let selectedImageIndex: number | any = null;
 
+	let touchStartX = 0;
+	let touchEndX = 0;
+
 	function MoveLeft() {
 		if (currentIndex > 0) {
 			currentIndex--;
@@ -48,12 +51,34 @@
 		}
 	}
 
+	function handleTouchStart(event: TouchEvent) {
+		touchStartX = event.changedTouches[0].screenX;
+	}
+
+	function handleTouchEnd(event: TouchEvent) {
+		touchEndX = event.changedTouches[0].screenX;
+		handleSwipeGesture();
+	}
+
+	function handleSwipeGesture() {
+		if (touchEndX < touchStartX) {
+			MoveRight();
+		}
+		if (touchEndX > touchStartX) {
+			MoveLeft();
+		}
+	}
+
 	$: isMobile = innerWidth <= 800;
 </script>
 
 <svelte:window bind:innerWidth on:keydown={slideImagesLeftRight} />
 
-<div class="h-64 w-full flex items-center justify-between gap-30">
+<div
+	class="h-64 w-full flex 2xl:max-w-[80%] 2xl:self-center items-center justify-between gap-30"
+	on:touchstart={handleTouchStart}
+	on:touchend={handleTouchEnd}
+>
 	{#if images.length > 2}
 		<button
 			on:click={MoveLeft}

@@ -85,7 +85,7 @@
 				<ONasCarousel />
 				<div class="aos flex flex-col gap-30 flex-1">
 					<h3 class="text-32 text-center md:text-left font-bold">Redne aktivnosti župnije:</h3>
-					<div class="grid grid-cols-2 gap-15">
+					<div class="max-h-[370px] overflow-auto grid grid-cols-2 gap-15">
 						{#await aktivnosti}
 							<Loader1 />
 						{:then data}

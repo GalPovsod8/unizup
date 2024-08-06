@@ -1,9 +1,19 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { RouteParams } from './$types';
 import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 
-export const load: PageLoad = async ({ fetch, params }) => {
+export const load: PageLoad = async ({ fetch }) => {
+	const fetchSlike = async () => {
+		const slikeONasRes = await fetch(`${PUBLIC_BASE_STRAPI_URL}/api/slike-o-nas?populate=*`);
+
+		if (!slikeONasRes.ok) {
+			error(404, 'Napaka pri nalaganju slik');
+		}
+
+		const slikeONasResData = await slikeONasRes.json();
+		return slikeONasResData.data.attributes.slike.data;
+	};
+
 	const fetchAktivnosti = async () => {
 		const aktivnostiRes = await fetch(
 			`${PUBLIC_BASE_STRAPI_URL}/api/redna-aktivnosts?pagination[limit]=4`
@@ -36,6 +46,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	};
 
 	return {
+		slikeONas: fetchSlike(),
 		aktivnosti: fetchAktivnosti(),
 		skupine: fetchSkupine(),
 		osebe: fetchOsebe()

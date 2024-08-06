@@ -8,7 +8,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
-	class="h-[80vh] max-w-[80vw] md:max-w-max rounded-3xl border border-black dark:border-white z-50"
+	class="aspect-square md:aspect-auto md:h-[80vh] max-w-[80vw] md:max-w-max rounded-3xl border border-black dark:border-white z-50"
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}

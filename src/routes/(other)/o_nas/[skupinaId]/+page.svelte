@@ -7,6 +7,8 @@
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Loader2 from '$lib/components/Loader2.svelte';
 	import { truncateMetaDescription } from '$lib/utils';
+	import NoviceImgCarousel from '$lib/components/NoviceImgCarousel.svelte';
+	import CtaIsland from '$lib/components/CTAIsland.svelte';
 
 	export let data: PageData;
 	let { skupina } = data;
@@ -58,7 +60,7 @@
 					<div
 						class="absolute w-full grid grid-cols-2 grid-rows-3 gap-10 md:gap-30 max-h-[350px] xl:max-h-[34.375rem]"
 					>
-						{#if data.attributes.Media.data >= 4}
+						{#if data.attributes.Media.data.length >= 4}
 							<figure
 								class="relative row-span-2 group w-full overflow-hidden rounded-3xl border border-black dark:border-white"
 							>
@@ -114,12 +116,12 @@
 				classes={'mt-[23.75rem] xl:mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-blue border border-black dark:border-white dark:text-black'}
 			>
 				<div class="w-full grid grid-cols-1 xl:grid-cols-2 gap-90 place-items-center">
-					<div class="w-full flex flex-col gap-30 min-[1750px]:col-span-3">
-						<h2 class="aos font-black text-64 text-center xl:text-left">KDO SMO?</h2>
+					<div class="w-full flex flex-col gap-30">
+						<h2 class="aos font-black text-40 md:text-64 text-center xl:text-left">KDO SMO?</h2>
 						<p class="aos text-20 text-justify font-medium">
 							{data.attributes.nekajOSkupini}
 						</p>
-						<div class="aos w-full grid grid-cols-2 gap-15">
+						<div class="aos w-full text-center xl:text-left grid grid-cols-2 gap-15">
 							<div class="w-full flex flex-col gap-10">
 								<h3 class="text-32 font-bold">Kdaj?</h3>
 								<p class="text-20 font-medium">{data.attributes.kdaj}</p>
@@ -138,7 +140,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="aos grid grid-cols-2 gap-15">
+					<div class="aos w-full grid grid-cols-2 gap-15">
 						<ActivityCard activityName={data.attributes.aktivnost1} index={1} hasAll={false} />
 						<ActivityCard activityName={data.attributes.aktivnost2} index={2} hasAll={false} />
 						<ActivityCard activityName={data.attributes.aktivnost3} index={3} hasAll={false} />
@@ -153,6 +155,18 @@
 					/>
 				{/if}
 			</ScrollWidthSection>
+			{#if data.attributes.Media.data.length >= 4}
+				<ScrollWidthSection
+					classes={'mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white dark:text-black'}
+					><div class="w-full flex flex-col gap-60 min-[1750px]:col-span-3">
+						<h2 class="aos font-black text-40 md:text-64 text-center uppercase">
+							GALERIJA - {data.attributes.imeSkupine}
+						</h2>
+						<NoviceImgCarousel images={data.attributes.Media.data} />
+					</div>
+				</ScrollWidthSection>
+			{/if}
+			<CtaIsland addClasses={'mt-[7.5rem]'} />
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
 		{/await}
