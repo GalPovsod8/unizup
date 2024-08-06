@@ -1,15 +1,32 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+
+	let darkMode = true;
+
 	function ToggleTheme() {
-		if (localStorage.theme === 'dark') {
-			document.documentElement.classList.remove('dark');
-			localStorage.theme = 'light';
-		} else {
-			document.documentElement.classList.add('dark');
-			localStorage.theme = 'dark';
-		}
+		darkMode = !darkMode;
+
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
+		darkMode
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
 
 		if (isMobileMenuToggle) {
 			isMobileMenuToggle = false;
+		}
+	}
+
+	if (browser) {
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
 		}
 	}
 

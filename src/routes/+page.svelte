@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import Aos from '$lib/components/AOS.svelte';
 	import CtaIsland from '$lib/components/CTAIsland.svelte';
@@ -13,13 +14,28 @@
 	import SingleNewsCard from '$lib/components/SingleNewsCard.svelte';
 	import type { PageData } from './$types';
 
+	let darkMode = true;
+
 	function ToggleTheme() {
-		if (localStorage.theme === 'dark') {
-			document.documentElement.classList.remove('dark');
-			localStorage.theme = 'light';
-		} else {
+		darkMode = !darkMode;
+
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
+		darkMode
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
+	}
+
+	if (browser) {
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
 			document.documentElement.classList.add('dark');
-			localStorage.theme = 'dark';
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
 		}
 	}
 

@@ -159,7 +159,7 @@
 				<ScrollWidthSection
 					classes={'mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white dark:text-black'}
 					><div class="w-full flex flex-col gap-60 min-[1750px]:col-span-3">
-						<h2 class="aos font-black text-40 md:text-64 text-center uppercase">
+						<h2 class="aos font-black text-40 md:text-64 text-center uppercase dark:text-white">
 							GALERIJA - {data.attributes.imeSkupine}
 						</h2>
 						<NoviceImgCarousel images={data.attributes.Media.data} />
