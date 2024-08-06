@@ -59,10 +59,6 @@
 					cookieTypeName={'Nujni piškotki'}
 					cookieTypeDescription={'Nujni piškotki so potrebni za omogočanje osnovnih funkcij te strani, kot so zagotavljanje varne prijave ali prilagajanje vaših nastavitev soglasja. Ti piškotki ne shranjujejo nobenih osebnih podatkov.'}
 				/>
-				<CookieType
-					cookieTypeName={'Analitika'}
-					cookieTypeDescription={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eos quos architecto? Iure odio maxime eaque, earum officiis est voluptatibus iusto obcaecati. Voluptatum optio aperiam ipsa tempore vel nam ex culpa. Quod nihil, nesciunt animi sunt placeat dignissimos odio, sapiente sit architecto, corporis dicta voluptatibus saepe explicabo. Fuga sequi ullam sed ea enim illum perspiciatis recusandae ut est, assumenda facilis ducimus, excepturi dignissimos libero placeat aliquam temporibus ipsam quasi nekaj'}
-				/>
 			</ul>
 		</div>
 	{/if}
