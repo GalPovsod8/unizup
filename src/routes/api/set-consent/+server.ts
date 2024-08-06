@@ -5,8 +5,7 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
 	cookies.set('consent', consent ? 'true' : 'false', {
 		path: '/',
 		maxAge: 60 * 60 * 24 * 365,
-		secure: true,
-		sameSite: 'lax'
+		secure: true
 	});
 	return new Response();
 };
