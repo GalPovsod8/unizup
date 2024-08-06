@@ -85,7 +85,7 @@
 			aria-label="slide image carousel left button"
 			class="h-12 w-14 z-20 flex items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
-			<img class="h-5 dark:invert hover:opacity-85" src="\Arrow.svg" alt="<" />
+			<img class="h-5 dark:invert hover:opacity-85" src="/Arrow.svg" alt="<" />
 		</button>
 	{/if}
 	<div
@@ -127,7 +127,7 @@
 			aria-label="slide image carousel right button"
 			class="h-12 w-14 z-20 flex flex-col items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
-			<img class="h-5 rotate-180 dark:invert hover:opacity-85" src="\Arrow.svg" alt="<" />
+			<img class="h-5 rotate-180 dark:invert hover:opacity-85" src="/Arrow.svg" alt="<" />
 		</button>
 	{/if}
 </div>
