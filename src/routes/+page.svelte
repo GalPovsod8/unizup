@@ -109,9 +109,9 @@
 			classes={'relative flex flex-col gap-90 p-90 px-[5%] rounded-3xl bg-blue dark:bg-black dark:text-white border border-black dark:border-white dark:text-black'}
 		>
 			<div class="w-full flex flex-col items-center gap-30">
-				<h2 class="aos font-black text-64 text-center">KDO SMO?</h2>
+				<h2 class="aos font-black text-40 md:text-64 text-center">KDO SMO?</h2>
 
-				<p class="aos sm:w-[70%] w-9/12 text-32 text-center font-medium">
+				<p class="aos sm:w-[70%] text-24 md:text-32 text-center font-medium">
 					Univerzitetna župnija Maribor je posebne vrste župnija, saj pokriva področje <b
 						class="font-bold text-moreRed dark:text-moreRedDark">študentske pastorale</b
 					>, torej ne gre za teritorialno župnijo, pač pa personalno župnijo. V tem smislu usmerjene
@@ -154,7 +154,7 @@
 		<ScrollWidthSection
 			classes={'mt-[47.125rem] md:mt-[800px] p-30 lg:p-60 flex flex-col items-center gap-30 md:gap-60 rounded-3xl border bg-white dark:bg-black'}
 		>
-			<h2 class="font-black text-64 text-center">UNIPULZ</h2>
+			<h2 class="font-black text-40 md:text-64 text-center">UNIPULZ</h2>
 			<div
 				class="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-flow-row auto-rows-max gap-30 2xl:gap-60"
 			>

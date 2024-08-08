@@ -49,7 +49,7 @@
 			>
 				<h4 class="text-24 font-semibold">Podpora:</h4>
 				<p class="lg:w-4/5 text-20">
-					Če nas želite podpreti, lahko na naš <a class="underline font-medium" href="/tekociRac"
+					Če nas želite podpreti, lahko na naš <a class="underline font-medium" href="/tekoci_racun"
 						>tekoči račun</a
 					>
 					nakažete sredstva in, če želite, pri tem dopišete svoje
@@ -84,7 +84,8 @@
 		<p class="md:w-full text-right">
 			Made with &#10084; by <a
 				class="underline hover:opacity-80 transition-all ease-in-out duration-150"
-				href="/GalPovsod">Gal Povsod</a
+				target="_blank"
+				href="https://galpovsod.com">Gal Povsod</a
 			>
 		</p>
 	</div>

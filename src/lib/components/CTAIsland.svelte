@@ -83,10 +83,9 @@
 	<div class="grid gap-30">
 		<NewsSubscribe /><MainBtn
 			btnText="DONACIJE"
-			btnHref="https://docs.google.com/forms/d/e/1FAIpQLSfHwOp69fnMXKxJsa36LgUjEP3xqHZf5NWFHDJBFJy6sRYntw/viewform"
+			btnHref="/tekoci_racun"
 			textSize="24"
 			hasMaxWidth={false}
-			isExternal
 		/>
 	</div>
 </ScrollWidthSection>
