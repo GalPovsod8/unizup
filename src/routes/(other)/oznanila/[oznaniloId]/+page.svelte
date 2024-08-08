@@ -23,7 +23,7 @@
 </svelte:head>
 
 <Aos>
-	<div class="w-full flex flex-col items-center min-h-screen">
+	<div class="w-full overflow-hidden flex flex-col items-center min-h-screen">
 		{#await oznanilo}
 			<Loader2 />
 		{:then oznanilo}

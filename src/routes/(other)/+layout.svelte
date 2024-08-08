@@ -88,12 +88,14 @@
 	>
 		<div
 			class:rotate-45={isMobileMenuToggle}
-			class:w-[18px]={isMobileMenuToggle}
+			class:w-6={isMobileMenuToggle}
+			class:absolute={isMobileMenuToggle}
 			class="h-[3px] w-5 bg-black dark:bg-white transition-all ease-in-out duration-150"
 		></div>
 		<div
 			class:-rotate-45={isMobileMenuToggle}
-			class:w-8={isMobileMenuToggle}
+			class:w-6={isMobileMenuToggle}
+			class:absolute={isMobileMenuToggle}
 			class="h-[3px] w-5 bg-black dark:bg-white transition-all ease-in-out duration-150"
 		></div>
 		<div
