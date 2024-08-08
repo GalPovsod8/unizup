@@ -55,7 +55,7 @@
 	<div class="flex flex-col gap-120 w-full items-center min-h-screen">
 		<div class="w-full flex flex-col items-center">
 			<section
-				class="h-[100dvh] pb-10 md:pb-0 md:h-[75vh] px-[5%] md:px-0 w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
+				class="h-[100dvh] md:h-[75vh] px-[5%] md:px-0 w-full rounded-3xl grid place-items-center pt-8 mb-8 animate-show"
 			>
 				<header class="grid place-items-center gap-50">
 					<hgroup class="grid w-4/5 md:w-full place-items-center font-bold gap-30 text-center">
