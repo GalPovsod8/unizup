@@ -8,7 +8,7 @@
 	class:hidden={hide}
 	class:bg-green={good}
 	class:bg-red={!good}
-	class="w-full max-w-[950px] animate-show flex justify-between rounded-3xl p-15 font-medium text-20 border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+	class="w-full max-w-[950px] animate-show flex justify-between rounded-3xl p-15 font-medium text-20 border text-black border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 >
 	<p>{message}</p>
 	<button

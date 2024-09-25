@@ -1,7 +1,4 @@
-import {
-	PUBLIC_BASE_STRAPI_URL,
-	PUBLIC_BASE_STRAPI_NEWSLETTER_API_TOKEN
-} from '$env/static/public';
+import { PUBLIC_BASE_BREVO_API_KEY } from '$env/static/public';
 import { fail, type Actions } from '@sveltejs/kit';
 import axios from 'axios';
 
@@ -15,34 +12,29 @@ export const actions: Actions = {
 		}
 
 		try {
-			const usersResponse = await axios.get(
-				`${PUBLIC_BASE_STRAPI_URL}/strapi-newsletter/newsletter/users`,
-				{
-					headers: {
-						Authorization: `Bearer ${PUBLIC_BASE_STRAPI_NEWSLETTER_API_TOKEN}`,
-						'Content-Type': 'application/json'
-					}
-				}
-			);
+			const headers = {
+				accept: 'application/json',
+				'content-type': 'application/json',
+				'api-key': `${PUBLIC_BASE_BREVO_API_KEY}`
+			};
 
-			const emailAlreadySubscribed = usersResponse.data.some(
-				(user: { email: string }) => user.email === email
-			);
+			const data = {
+				email: email,
+				updateEnabled: false
+			};
 
-			if (emailAlreadySubscribed) {
-				return fail(400, { email, alreadySubscribed: true });
-			}
-
-			await axios.post(`${PUBLIC_BASE_STRAPI_URL}/strapi-newsletter/newsletter/subscribe`, {
-				email
-			});
+			await axios.post('https://api.brevo.com/v3/contacts', data, { headers });
 
 			return {
 				status: 200,
 				body: { message: 'Prijava na novice uspešna!' }
 			};
-		} catch (error) {
-			return fail(500, { email, success: false });
+		} catch (err: any) {
+			if (err.response && err.response.data && err.response.data.code === 'duplicate_parameter') {
+				return fail(400, { email, error: 'S tem e-naslovom ste že prijavljeni.' });
+			}
+
+			return fail(500, { email, error: 'Internal Server Error.' });
 		}
 	}
 };

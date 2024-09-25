@@ -29,7 +29,7 @@
 			} else if (result.type === 'failure') {
 				if (result.data.missing) {
 					showAlert(false, 'Vnesite email!');
-				} else if (result.data.alreadySubscribed) {
+				} else {
 					showAlert(false, 'Email že obstaja v bazi podatkov - ste že naročeni!');
 				}
 				await applyAction(result);
