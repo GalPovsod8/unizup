@@ -65,7 +65,7 @@
 			</div>
 			<p class="font-medium text-16 md:text-20">
 				{#if currentPage == 0}
-					Najnovejša objava: {FormatDate(novice.data[0].attributes.Datum)}
+					Najnovejša objava: {FormatDate(novice.data[0].Datum)}
 				{:else}
 					Stran: {currentPage + 1}
 				{/if}
@@ -74,13 +74,13 @@
 		<div class="aos h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 			{#each novice.data as novica}
 				<SingleNewsCard
-					noivcaNaslov={novica.attributes.Naslov}
-					novicaLink={novica.id}
-					tag={novica.attributes.Tag}
-					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
-					avtor={novica.attributes.Avtor}
-					datum={novica.attributes.Datum}
-					povzetek={novica.attributes.Vsebina.substring(0, 100)}
+					noivcaNaslov={novica.Naslov}
+					novicaLink={novica.documentId}
+					tag={novica.Tag}
+					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.Media[0].formats.small.url}`}
+					avtor={novica.Avtor}
+					datum={novica.Datum}
+					povzetek={novica.Vsebina.substring(0, 100)}
 					isRecent={true}
 				/>
 			{/each}

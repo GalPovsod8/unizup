@@ -89,12 +89,12 @@
 					{:then data}
 						{#each data as oznanilo, i}
 							<Oznanilo
-								oznaniloImgSrc={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.formats.small.url}`}
-								oznaniloNaslov={oznanilo.attributes.Naslov}
-								oznaniloDatum={oznanilo.attributes.Datum}
-								oznaniloUra={oznanilo.attributes.Ura}
-								oznaniloLokacija={oznanilo.attributes.Kraj}
-								oznaniloLink={oznanilo.id}
+								oznaniloImgSrc={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.Media[0].formats.small.url}`}
+								oznaniloNaslov={oznanilo.Naslov}
+								oznaniloDatum={oznanilo.Datum}
+								oznaniloUra={oznanilo.Ura}
+								oznaniloLokacija={oznanilo.Kraj}
+								oznaniloLink={oznanilo.documentId}
 								addClass={i === 2 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 							/>
 						{/each}
@@ -164,25 +164,25 @@
 					{#each data as novica, i}
 						{#if i < 3}
 							<SingleNewsCard
-								noivcaNaslov={novica.attributes.Naslov}
-								novicaLink={novica.id}
-								tag={novica.attributes.Tag}
-								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
-								avtor={novica.attributes.Avtor}
-								datum={novica.attributes.Datum}
-								povzetek={novica.attributes.Vsebina.substring(0, 100)}
+								noivcaNaslov={novica.Naslov}
+								novicaLink={novica.documentId}
+								tag={novica.Tag}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.Media[0].formats.small.url}`}
+								avtor={novica.Avtor}
+								datum={novica.Datum}
+								povzetek={novica.Vsebina.substring(0, 100)}
 								isRecent={true}
 								addClass={i === 2 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 							/>
 						{:else}
 							<SingleNewsCard
-								noivcaNaslov={novica.attributes.Naslov}
-								novicaLink={novica.id}
-								tag={novica.attributes.Tag}
-								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.attributes.Media.data[0].attributes.formats.small.url}`}
-								avtor={novica.attributes.Avtor}
-								datum={novica.attributes.Datum}
-								povzetek={novica.attributes.Vsebina.substring(0, 100)}
+								noivcaNaslov={novica.Naslov}
+								novicaLink={novica.documentId}
+								tag={novica.Tag}
+								imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.Media[0].formats.small.url}`}
+								avtor={novica.Avtor}
+								datum={novica.Datum}
+								povzetek={novica.Vsebina.substring(0, 100)}
 								isRecent={false}
 								addClass={i === 5 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 							/>

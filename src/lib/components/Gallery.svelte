@@ -15,7 +15,7 @@
 				return response.json();
 			})
 			.then((data) => {
-				galleryPhotosPromise = data.data.attributes.slike_max_7;
+				galleryPhotosPromise = data.data.slike_max_7;
 			})
 			.catch((error) => {
 				console.log('There was an error loading images:', error);
@@ -34,7 +34,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[0].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[0].formats.small.url}`}
 						alt="Uniphoto1"
 					/>
 				</figure>
@@ -43,7 +43,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[1].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[1].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -52,7 +52,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[2].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[2].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -61,7 +61,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[3].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[3].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -70,7 +70,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[4].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[4].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -79,7 +79,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[5].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[5].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>
@@ -88,7 +88,7 @@
 				>
 					<img
 						class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-						src={`${PUBLIC_BASE_STRAPI_URL}${slike.data[6].attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${slike[6].formats.small.url}`}
 						alt="Uniphoto2"
 					/>
 				</figure>

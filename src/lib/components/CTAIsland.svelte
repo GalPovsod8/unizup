@@ -38,7 +38,7 @@
 				<a
 					data-sveltekit-reload
 					class="w-full flex items-center justify-center hover:bg-opacity-90 text-black border border-black rounded-2xl px-7 py-3 font-bold text-24 dark:bg-black dark:text-white dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all ease-in-out duration-150"
-					href="/o_nas/{skupina.id}">{skupina.attributes.imeSkupine}</a
+					href="/o_nas/{skupina.documentId}">{skupina.imeSkupine}</a
 				>
 			{/each}
 		{:catch error}

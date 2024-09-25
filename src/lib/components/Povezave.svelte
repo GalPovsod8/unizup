@@ -22,8 +22,8 @@
 					hasMaxWidth={false}
 					isExternal={true}
 					textSize={'24'}
-					btnText={povezava.attributes.imePovezave}
-					btnHref={povezava.attributes.link}
+					btnText={povezava.imePovezave}
+					btnHref={povezava.link}
 				/>
 			{/each}
 		{:catch error}

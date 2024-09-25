@@ -32,10 +32,6 @@
 		showModal = true;
 	}
 
-	if (!isMobile && showModal) {
-		console.log('to pride koda');
-	}
-
 	function slideImagesLeftRight(e: any) {
 		switch (e.keyCode) {
 			case 37:
@@ -75,7 +71,7 @@
 <svelte:window bind:innerWidth on:keydown={slideImagesLeftRight} />
 
 <div
-	class="h-64 w-full flex 2xl:max-w-[80%] 2xl:self-center items-center justify-between gap-30"
+	class="h-64 w-full flex 2xl:max-w-[100%] 2xl:self-center items-center justify-between gap-30"
 	on:touchstart={handleTouchStart}
 	on:touchend={handleTouchEnd}
 >
@@ -100,7 +96,7 @@
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.formats?.small.url}`}
 						alt="slika"
 					/>
 				</button>
@@ -114,7 +110,7 @@
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-						src={`${PUBLIC_BASE_STRAPI_URL}${img.attributes.formats.small.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${img.formats?.small.url}`}
 						alt="slika"
 					/>
 				</button>
@@ -136,11 +132,11 @@
 	<ImgPopup
 		bind:showModal
 		imgSrc={`${PUBLIC_BASE_STRAPI_URL}${
-			images[selectedImageIndex].attributes.formats.large
-				? images[selectedImageIndex].attributes.formats.large.url
-				: images[selectedImageIndex].attributes.formats.medium
-					? images[selectedImageIndex].attributes.formats.medium.url
-					: images[selectedImageIndex].attributes.formats.small.url
+			images[selectedImageIndex].formats.large
+				? images[selectedImageIndex].formats.large.url
+				: images[selectedImageIndex].formats.medium
+					? images[selectedImageIndex].formats.medium.url
+					: images[selectedImageIndex].formats.small.url
 		}`}
 	/>
 {/if}

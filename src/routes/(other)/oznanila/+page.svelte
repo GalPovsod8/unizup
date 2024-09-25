@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import Loader1 from '$lib/components/Loader1.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import { PUBLIC_BASE_STRAPI_URL } from '$env/static/public';
 	import { page } from '$app/stores';
@@ -58,12 +57,12 @@
 			<div class="h-max grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-30 2xl:gap-60">
 				{#each oznanila as oznanilo, i}
 					<Oznanilo
-						oznaniloImgSrc={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.formats.small.url}`}
-						oznaniloNaslov={oznanilo.attributes.Naslov}
-						oznaniloDatum={oznanilo.attributes.Datum}
-						oznaniloUra={oznanilo.attributes.Ura}
-						oznaniloLokacija={oznanilo.attributes.Kraj}
-						oznaniloLink={oznanilo.id}
+						oznaniloImgSrc={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.Media[0].formats.small.url}`}
+						oznaniloNaslov={oznanilo.Naslov}
+						oznaniloDatum={oznanilo.Datum}
+						oznaniloUra={oznanilo.Ura}
+						oznaniloLokacija={oznanilo.Kraj}
+						oznaniloLink={oznanilo.documentId}
 						addClass={i === 2 ? 'col-span-1 md:col-span-2 2xl:col-span-1' : ''}
 					/>
 				{/each}

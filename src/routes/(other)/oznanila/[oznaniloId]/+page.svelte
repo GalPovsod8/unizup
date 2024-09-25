@@ -14,11 +14,8 @@
 
 <svelte:head>
 	{#await oznanilo then data}
-		<title>{data.attributes.Naslov} | Univerzitetna Župnija Maribor</title>
-		<meta
-			name="description"
-			content="{data.attributes.Naslov} - {truncateMetaDescription(data.attributes.Vsebina)} "
-		/>
+		<title>{data.Naslov} | Univerzitetna Župnija Maribor</title>
+		<meta name="description" content="{data.Naslov} - {truncateMetaDescription(data.Vsebina)} " />
 	{/await}
 </svelte:head>
 
@@ -36,38 +33,36 @@
 					<h1
 						class="font-bold max-w-full break-words text-center font-kufam animate-fontAnim text-40 md:text-64 xl:text-64 uppercase"
 					>
-						{oznanilo.attributes.Naslov}
+						{oznanilo.Naslov}
 					</h1>
 					<div class="flex justify-center gap-30 text-center">
 						<div class="flex flex-col gap-10">
 							<h2 class="aos text-32 font-bold">Kdaj?</h2>
 							<p class="text-24 font-medium">
-								{FormatDate(oznanilo.attributes.Datum)} <br /> ob {FormatTime(
-									oznanilo.attributes.Ura
-								)}
+								{FormatDate(oznanilo.Datum)} <br /> ob {FormatTime(oznanilo.Ura)}
 							</p>
 						</div>
-						{#if oznanilo.attributes.Kdo != null}
+						{#if oznanilo.Kdo != null}
 							<div class="flex flex-col gap-10">
 								<h2 class="aos text-32 font-bold">Kdo?</h2>
-								<p class="text-24 font-medium">{oznanilo.attributes.Kdo}</p>
+								<p class="text-24 font-medium">{oznanilo.Kdo}</p>
 							</div>
 						{/if}
 					</div>
-					{#if oznanilo.attributes.Vsebina != null}
-						<p class="text-justify text-24">{oznanilo.attributes.Vsebina}</p>
+					{#if oznanilo.Vsebina != null}
+						<p class="text-justify text-24">{oznanilo.Vsebina}</p>
 					{/if}
 				</div>
 
 				<div class="aos relative col-span-1 md:col-span-2">
-					{#if oznanilo.attributes.Media.data.length >= 2}
+					{#if oznanilo.Media.length >= 2}
 						<div class="flex flex-col gap-30 max-h-[50rem]">
 							<figure
 								class="aos max-h-[20rem] md:max-h-[33rem] relative group w-full overflow-hidden rounded-3xl border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 							>
 								<img
 									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-									src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.formats.medium ? oznanilo.attributes.Media.data[0].attributes.formats.medium.url : oznanilo.attributes.Media.data[0].attributes.formats.small.url}`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.Media[0].formats.medium ? oznanilo.Media[0].formats.medium.url : oznanilo.Media[0].formats.small.url}`}
 									alt="oznaniloImg"
 								/>
 							</figure>
@@ -76,7 +71,7 @@
 							>
 								<img
 									class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-									src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[1].attributes.formats.medium ? oznanilo.attributes.Media.data[1].attributes.formats.medium.url : oznanilo.attributes.Media.data[1].attributes.formats.small.url}`}
+									src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.Media[1].formats.medium ? oznanilo.Media[1].formats.medium.url : oznanilo.Media[1].formats.small.url}`}
 									alt="oznaniloImg"
 								/>
 							</figure>
@@ -87,21 +82,21 @@
 						>
 							<img
 								class={`h-full w-full rounded-3xl object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150`}
-								src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.attributes.Media.data[0].attributes.formats.medium ? oznanilo.attributes.Media.data[0].attributes.formats.medium.url : oznanilo.attributes.Media.data[0].attributes.formats.small.url}`}
+								src={`${PUBLIC_BASE_STRAPI_URL}${oznanilo.Media[0].formats.medium ? oznanilo.Media[0].formats.medium.url : oznanilo.Media[0].formats.small.url}`}
 								alt="oznaniloImg"
 							/>
 						</figure>
 					{/if}
 				</div>
 			</section>
-			{#if oznanilo.attributes.Media.data.length >= 2}
+			{#if oznanilo.Media.length >= 2}
 				<ScrollWidthSection
 					classes={'mt-[7.5rem] p-90 px-[5%] flex flex-col items-center gap-90 rounded-3xl bg-white dark:bg-black border border-black dark:border-white dark:text-black'}
 					><div class="w-full flex flex-col gap-60 min-[1750px]:col-span-3">
 						<h2 class="aos font-black text-40 md:text-64 text-center uppercase dark:text-white">
 							GALERIJA - OZNANILO
 						</h2>
-						<NoviceImgCarousel images={oznanilo.attributes.Media.data} />
+						<NoviceImgCarousel images={oznanilo.Media} />
 					</div>
 				</ScrollWidthSection>
 			{/if}

@@ -91,9 +91,9 @@
 						{:then data}
 							{#each data as aktivnost, i}
 								<ActivityCard
-									activityName={aktivnost.attributes.ime}
-									activityDay={aktivnost.attributes.danIzvajanja}
-									activityTime={aktivnost.attributes.Ura}
+									activityName={aktivnost.ime}
+									activityDay={aktivnost.danIzvajanja}
+									activityTime={aktivnost.Ura}
 									index={i}
 								/>
 							{/each}
@@ -120,11 +120,10 @@
 				{:then data}
 					{#each data as skupina}
 						<SkupinaCard
-							skupinaLink={skupina.id}
-							skupinaName={skupina.attributes.imeSkupine}
-							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.attributes.Media.data[0].attributes.formats.small.url}`}
-							skupinaImgAlt={skupina.attributes.Media.data[0].attributes.alternativeText ??
-								skupina.attributes.imeSkupine}
+							skupinaLink={skupina.documentId}
+							skupinaName={skupina.imeSkupine}
+							skupinaImgSrc={`${PUBLIC_BASE_STRAPI_URL}${skupina.Media[0].formats.small.url}`}
+							skupinaImgAlt={skupina.Media[0].alternativeText ?? skupina.imeSkupine}
 						/>
 					{/each}
 				{:catch error}
@@ -147,9 +146,9 @@
 				>
 					{#each data as oseba}
 						<PersonCard
-							ime={oseba.attributes.Ime}
-							funkcija={oseba.attributes.funkcija}
-							imgSrc={`${PUBLIC_BASE_STRAPI_URL}${oseba.attributes.slikaOsebe.data.attributes.formats.small.url}`}
+							ime={oseba.Ime}
+							funkcija={oseba.funkcija}
+							imgSrc={`${PUBLIC_BASE_STRAPI_URL}${oseba.slikaOsebe.formats.small.url}`}
 						/>
 					{/each}
 				</div>

@@ -17,11 +17,8 @@
 
 <svelte:head>
 	{#await novica then data}
-		<title>{data.attributes.Naslov} | Univerzitetna Župnija Maribor</title>
-		<meta
-			name="description"
-			content="{data.attributes.Naslov} - {truncateMetaDescription(data.attributes.Vsebina)} "
-		/>
+		<title>{data.Naslov} | Univerzitetna Župnija Maribor</title>
+		<meta name="description" content="{data.Naslov} - {truncateMetaDescription(data.Vsebina)} " />
 	{/await}
 </svelte:head>
 
@@ -35,36 +32,36 @@
 			<div class="w-full flex flex-col gap-30 md:gap-15">
 				<h2
 					class="underliner font-bold text-40 text-center md:text-left"
-					style="text-decoration-color: {data.attributes.Tag == 'Dogodek'
+					style="text-decoration-color: {data.Tag == 'Dogodek'
 						? '#942B2B'
-						: data.attributes.Tag == 'Duhovno'
+						: data.Tag == 'Duhovno'
 							? '#1E8096'
 							: '#75770E'}"
 				>
-					{data.attributes.Naslov}
+					{data.Naslov}
 				</h2>
 				<div class="w-full flex items-center justify-between">
 					<div class="flex flex-col gap-5">
-						<p><b class="font-medium">Avtor: </b>{data.attributes.Avtor}</p>
-						<p><b class="font-medium">Datum: </b>{FormatDate(data.attributes.Datum)}</p>
+						<p><b class="font-medium">Avtor: </b>{data.Avtor}</p>
+						<p><b class="font-medium">Datum: </b>{FormatDate(data.Datum)}</p>
 					</div>
 					<a
-						class:bg-tagBlue={data.attributes.Tag == 'Duhovno'}
-						class:bg-redTag={data.attributes.Tag == 'Dogodek'}
-						class:bg-novicaTagYellow={data.attributes.Tag == 'Novica'}
+						class:bg-tagBlue={data.Tag == 'Duhovno'}
+						class:bg-redTag={data.Tag == 'Dogodek'}
+						class:bg-novicaTagYellow={data.Tag == 'Novica'}
 						class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white px-4 py-2 hover:opacity-80 transition-all ease-in-out duration-150"
-						href={`/unipulz?tag=${data.attributes.Tag}`}
+						href={`/unipulz?tag=${data.Tag}`}
 					>
-						{data.attributes.Tag}
+						{data.Tag}
 					</a>
 				</div>
 			</div>
 			<div class="markdownStyles">
-				<SvelteMarkdown source={data.attributes.Vsebina} />
+				<SvelteMarkdown source={data.Vsebina} />
 			</div>
-			{#if data.attributes.Media.data.length > 1}
-				<NoviceImgCarousel images={data.attributes.Media.data} />
-			{:else}
+			{#if data.Media.length > 1}
+				<NoviceImgCarousel images={data.Media} />
+			{:else if data.Media.length == 1}
 				<button
 					class="group h-60 w-full self-center rounded-3xl overflow-hidden bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 					aria-label="show full image"
@@ -72,17 +69,17 @@
 				>
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
-						src={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.url}`}
+						src={`${PUBLIC_BASE_STRAPI_URL}${data.Media[0].formats.small.url}`}
 						alt="slika"
 					/>
 				</button>
 				<ImgPopup
 					bind:showModal
-					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${data.attributes.Media.data[0].attributes.url}`}
+					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${data.Media[0].formats.small.url}`}
 				/>
 			{/if}
-			{#if data.attributes.YTVideoEmbedIframe != null}
-				{@html data.attributes.YTVideoEmbedIframe}
+			{#if data.YTVideoEmbedIframe != null}
+				{@html data.YTVideoEmbedIframe}
 			{/if}
 		{:catch error}
 			<p>Oops. Nekaj se je zalomilo. <br /> Sporočilo: {error.message}</p>
@@ -103,27 +100,25 @@
 						<li>
 							<a
 								class="w-full flex items-start justify-between gap-30 hover:opacity-80 transition-all ease-in-out duration-150"
-								href="/unipulz/{drugaNovica.id}"
+								href="/unipulz/{drugaNovica.documentId}"
 							>
 								<div class="w-[80%] flex flex-col gap-5">
 									<h3 class="font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-										{drugaNovica.attributes.Naslov}
+										{drugaNovica.Naslov}
 									</h3>
 									<span class="text-14 opacity-90"
-										>{drugaNovica.attributes.Avtor}, {FormatDate(
-											drugaNovica.attributes.Datum
-										)}</span
+										>{drugaNovica.Avtor}, {FormatDate(drugaNovica.Datum)}</span
 									>
 								</div>
 
 								<a
-									class:bg-tagBlue={drugaNovica.attributes.Tag == 'Duhovno'}
-									class:bg-redTag={drugaNovica.attributes.Tag == 'Dogodek'}
-									class:bg-novicaTagYellow={drugaNovica.attributes.Tag == 'Novica'}
+									class:bg-tagBlue={drugaNovica.Tag == 'Duhovno'}
+									class:bg-redTag={drugaNovica.Tag == 'Dogodek'}
+									class:bg-novicaTagYellow={drugaNovica.Tag == 'Novica'}
 									class="flex items-center font-medium text-white rounded-xl border border-black dark:border-white p-2 hover:opacity-80 transition-all ease-in-out duration-150"
-									href={`/unipulz?tag=${drugaNovica.attributes.Tag}`}
+									href={`/unipulz?tag=${drugaNovica.Tag}`}
 								>
-									{ShortenTag(drugaNovica.attributes.Tag)}
+									{ShortenTag(drugaNovica.Tag)}
 								</a>
 							</a>
 						</li>

@@ -11,7 +11,7 @@ export const load: PageLoad = async ({ fetch }) => {
 		}
 
 		const slikeONasResData = await slikeONasRes.json();
-		return slikeONasResData.data.attributes.slike.data;
+		return slikeONasResData.data.slike;
 	};
 
 	const fetchAktivnosti = async () => {
