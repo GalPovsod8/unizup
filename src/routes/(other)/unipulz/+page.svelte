@@ -32,7 +32,7 @@
 		const url = new URL(window.location.href);
 		url.searchParams.set('limit', pageSize.toString());
 		url.searchParams.set('skip', skip.toString());
-		await goto(url.toString(), { replaceState: true, noScroll: true });
+		await goto(url.toString(), { replaceState: true });
 	}
 </script>
 
