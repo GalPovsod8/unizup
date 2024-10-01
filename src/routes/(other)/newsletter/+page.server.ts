@@ -1,4 +1,4 @@
-import { PUBLIC_BASE_BREVO_API_KEY } from '$env/static/public';
+import { BREVO_API_KEY } from '$env/static/private';
 import { fail, type Actions } from '@sveltejs/kit';
 import axios from 'axios';
 
@@ -15,7 +15,7 @@ export const actions: Actions = {
 			const headers = {
 				accept: 'application/json',
 				'content-type': 'application/json',
-				'api-key': `${PUBLIC_BASE_BREVO_API_KEY}`
+				'api-key': `${BREVO_API_KEY}`
 			};
 
 			const data = {
