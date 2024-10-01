@@ -62,21 +62,34 @@
 			</div>
 			{#if data.Media.length > 1}
 				<NoviceImgCarousel images={data.Media} />
-				{#if showMoreImages}
-					<div class=" max-h-[500px] grid grid-cols-3">
-						{#each data.Media as img, id}
-							<img
-								class=""
-								src={`${PUBLIC_BASE_STRAPI_URL}${img.formats?.small.url}`}
-								alt={img.alternativeText ?? `slika ${id + 1}`}
-							/>
-						{/each}
+				{#if showMoreImages && data.Media.length > 3}
+					<div class="relative">
+						<div
+							class=" max-h-[400px] md:max-h-[500px] overflow-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-20"
+						>
+							{#each data.Media as img, id}
+								<figure
+									class="group h-60 w-full self-center rounded-3xl overflow-hidden bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
+								>
+									<img
+										class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
+										src={`${PUBLIC_BASE_STRAPI_URL}${img.formats?.small.url}`}
+										alt={img.alternativeText ?? `slika ${id + 1}`}
+									/>
+								</figure>
+							{/each}
+						</div>
+						<div
+							class="block md:hidden absolute bottom-[-1px] h-12 w-full bg-gradient-to-t from-white to-transparent"
+						></div>
 					</div>
 				{/if}
 				<button
+					class:hidden={data.Media.length < 3}
+					class="w-full flex items-center text-center justify-center hover:bg-opacity-90 text-black border border-black rounded-2xl px-7 py-3 font-bold dark:bg-black dark:text-white dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all ease-in-out duration-150"
 					on:click={() =>
 						showMoreImages == false ? (showMoreImages = true) : (showMoreImages = false)}
-					>{showMoreImages ? 'Pokaži manj' : 'Pokaži več'}</button
+					>{showMoreImages ? 'Pokaži manj' : 'Pokaži vse slike'}</button
 				>
 			{:else if data.Media.length == 1}
 				<button
