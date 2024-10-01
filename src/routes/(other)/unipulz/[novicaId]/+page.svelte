@@ -10,6 +10,7 @@
 
 	export let data: PageData;
 	let showModal: boolean = false;
+	let showMoreImages: boolean = false;
 
 	$: ostaleNovice = data.drugeNovice;
 	$: novica = data.novica;
@@ -61,6 +62,22 @@
 			</div>
 			{#if data.Media.length > 1}
 				<NoviceImgCarousel images={data.Media} />
+				{#if showMoreImages}
+					<div class=" max-h-[500px] grid grid-cols-3">
+						{#each data.Media as img, id}
+							<img
+								class=""
+								src={`${PUBLIC_BASE_STRAPI_URL}${img.formats?.small.url}`}
+								alt={img.alternativeText ?? `slika ${id + 1}`}
+							/>
+						{/each}
+					</div>
+				{/if}
+				<button
+					on:click={() =>
+						showMoreImages == false ? (showMoreImages = true) : (showMoreImages = false)}
+					>{showMoreImages ? 'Pokaži manj' : 'Pokaži več'}</button
+				>
 			{:else if data.Media.length == 1}
 				<button
 					class="group h-60 w-full self-center rounded-3xl overflow-hidden bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
@@ -70,7 +87,7 @@
 					<img
 						class="h-full w-full object-cover scale-105 group-hover:scale-100 transition-all ease-in-out duration-150"
 						src={`${PUBLIC_BASE_STRAPI_URL}${data.Media[0].formats.small.url}`}
-						alt="slika"
+						alt={data.Media.alternativeText ?? `slika`}
 					/>
 				</button>
 				<ImgPopup

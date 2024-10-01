@@ -78,7 +78,7 @@
 	{#if images.length > 2}
 		<button
 			on:click={MoveLeft}
-			aria-label="slide image carousel left button"
+			aria-label="slide image carousel left - button"
 			class="h-12 w-14 z-20 flex items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
 			<img class="h-5 dark:invert hover:opacity-85" src="/Arrow.svg" alt="<" />
@@ -120,7 +120,7 @@
 	{#if images.length > 2}
 		<button
 			on:click={MoveRight}
-			aria-label="slide image carousel right button"
+			aria-label="slide image carousel right - button"
 			class="h-12 w-14 z-20 flex flex-col items-center justify-center rounded-xl bg-white dark:bg-black border border-black dark:border-white drop-shadow-shadowSm hover:drop-shadow-shadowHover transition-all ease-in-out duration-150"
 		>
 			<img class="h-5 rotate-180 dark:invert hover:opacity-85" src="/Arrow.svg" alt="<" />
@@ -138,5 +138,12 @@
 					? images[selectedImageIndex].formats.medium.url
 					: images[selectedImageIndex].formats.small.url
 		}`}
+		MoveLeft={() => {
+			if (selectedImageIndex > 0) selectedImageIndex--;
+		}}
+		MoveRight={() => {
+			if (selectedImageIndex < images.length - 1) selectedImageIndex++;
+		}}
+		{isMobile}
 	/>
 {/if}
