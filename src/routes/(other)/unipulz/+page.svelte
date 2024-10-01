@@ -77,7 +77,9 @@
 					noivcaNaslov={novica.Naslov}
 					novicaLink={novica.documentId}
 					tag={novica.Tag}
-					imgSrc={`${PUBLIC_BASE_STRAPI_URL}${novica.Media[0].formats.small.url}`}
+					imgSrc={novica.Media && novica.Media[0] && novica.Media[0].formats.small
+						? `${PUBLIC_BASE_STRAPI_URL}${novica.Media[0].formats.small.url}`
+						: 'unizupLogo.png'}
 					avtor={novica.Avtor}
 					datum={novica.Datum}
 					povzetek={novica.Vsebina.substring(0, 100)}
